@@ -1,6 +1,6 @@
 class IOAPI():
-    def __init__(self):
-        pass
+    def __init__(self, planeID):
+        self.planeID = planeID
 
     def loadVoyageFromFile(self, voyageID):
         pass
@@ -20,8 +20,8 @@ class IOAPI():
     def storeAirplanesToFile(self):
         pass
 
-    def loadCrewFromFile(self, crewID):
-        pass
+    def loadCrewFromFile(self):
+        fileStream_crew = open("Crew.csv", "r")
+        return fileStream_crew
 
-    def storeCrewToFile(self):
-        pass
+    def storeCrewToFile(self, newstaff):
