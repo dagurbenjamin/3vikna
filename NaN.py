@@ -57,7 +57,7 @@ class DestinationsIO(IOAPI):
         self.newDestination = newDestination
 
     def write_in_file(self, newDestination):
-        f = open("CrewFile.csv", "a")
+        f = open("DestinationsFile.csv", "a")
         f.write(newDestination)
         f.close()
 
@@ -67,11 +67,15 @@ class VoyagesIO():
         self.newvoyage = newvoyage
 
     def write_in_file(self, newvoyage):
-        f = open("CrewFile.csv", "a")
+        f = open("VoyagesFile.csv", "a")
         f.write(newvoyage)
         f.close()
 
 
-newEmployee = 'New employee \n'
-a = IOAPI(newEmployee)
-a.storeCrewToFile(newEmployee)
+def main():
+    newEmployee = 'New employee \n'
+    a = IOAPI(newEmployee)
+    a.storeCrewToFile(newEmployee)
+
+
+main()
