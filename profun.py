@@ -6,7 +6,8 @@ class IOAPI():
         self.planeID = planeID
 
     def storeCrewToFile(self, newstaff):
-        with open("Crew.csv", "a" "\n") as file:
+        f = open("Crew.csv", "a" "\n"):
+        f.write(a)
 
 
 a = 'Hello world'
