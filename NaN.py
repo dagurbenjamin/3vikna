@@ -1,4 +1,3 @@
-print('hello')
-print('world')
-print('!')
-print('asdf')
+class IOAPI():
+    def __init__(self):
+        pass
