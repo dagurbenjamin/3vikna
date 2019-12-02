@@ -6,12 +6,12 @@ class IOAPI():
         self.foo = foo
 
     def storeCrewToFile(self, foo):
-        f = open("CrewFile.csv", "w+")
+        f = open("CrewFile.csv", "a")
         f.write(foo)
         f.close()
 
 
-foo = 'Hello world'
+foo = 'Hello world \n'
 a = IOAPI(foo)
 a.storeCrewToFile(foo)
 
