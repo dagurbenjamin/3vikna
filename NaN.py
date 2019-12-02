@@ -33,7 +33,11 @@ class IOAPI():
         f.close()
 
 
-class CrewIO():
-    def __init__(self):
+class CrewIO(IOAPI):
+    def __init__(self, foo):
+        self.foo = foo
 
-    def
+    def write_in_file(self, foo)
+    f = open("CrewFile.csv", "a")
+    f.write(foo)
+    f.close()
