@@ -28,8 +28,8 @@ class IOAPI():
         return fileStream_crew
 
     def storeCrewToFile(self, foo):
-        b = CrewIO(foo)
-        b.write_in_file(foo)
+        b = CrewIO(self.foo)
+        b.write_in_file(self.foo)
 
 
 class CrewIO(IOAPI):
@@ -37,7 +37,7 @@ class CrewIO(IOAPI):
         self.foo = foo
 
     def write_in_file(self, foo):
-        f = open("CrewFile.csv", "w+")
+        f = open("CrewFile.csv", "a")
         f.write(foo)
         f.close()
 
@@ -46,3 +46,6 @@ def main():
     foo = 'Hello world \n'
     a = IOAPI(foo)
     a.storeCrewToFile(foo)
+
+
+main()
