@@ -8,7 +8,7 @@ class IOAPI():
     def storeVoyageToFile(self):
         pass
 
-    def loadDestinationFromFile(self):
+    def loadDestinationFromFile(self, destination):
         pass
 
     def storeDestinationToFile(self):
