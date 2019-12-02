@@ -28,7 +28,12 @@ class IOAPI():
         return fileStream_crew
 
     def storeCrewToFile(self, newstaff):
-        with open("Crew.csv", "a" "\n") as file:
+        f = open("CrewFile.csv", "a")
+        f.write(foo)
+        f.close()
 
 
-a = 'Hello world'
+class CrewIO():
+    def __init__(self):
+
+    def
