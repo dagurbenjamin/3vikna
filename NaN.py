@@ -42,6 +42,21 @@ class CrewIO(IOAPI):
         f.close()
 
 
+class AirplanesIO():
+    def __init__(self):
+        pass
+
+
+class DestinationsIO():
+    def __init__(self):
+        pass
+
+
+class VoyagesIO():
+    def __init__(self):
+        pass
+
+
 foo = 'Hello world \n'
 a = IOAPI(foo)
 a.storeCrewToFile(foo)
