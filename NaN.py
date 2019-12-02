@@ -12,13 +12,15 @@ class IOAPI():
         pass
 
     def loadDestinationFromFile(self, destination):
-        pass
+        fileStream_destinations = open("Destinations.csv", "r")
+        return fileStream_destinations
 
     def storeDestinationToFile(self):
         pass
 
     def loadAirplanesFromFile(self, planeID):
-        pass
+        fileStream_aircraft = open("Aircraft.csv", "r")
+        return fileStream_aircraft
 
     def storeAirplanesToFile(self):
         pass
