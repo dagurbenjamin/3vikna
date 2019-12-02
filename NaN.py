@@ -25,8 +25,9 @@ class IOAPI():
         fileStream_destinations = open("DestinationsFile.csv", "r")
         return fileStream_destinations
 
-    def store_destination_to_file(self):
-        pass
+    def store_destination_to_file(self, a_str):
+        d = DestinationsIO(self.a_str)
+        d.write_in_destination_file(self.a_str)
 
     def load_airplanes_from_file(self, planeID):
         fileStream_aircraft = open("Aircraft.csv", "r")
@@ -78,12 +79,12 @@ class AirplanesIO(IOAPI):
 
 
 class DestinationsIO(IOAPI):
-    def __init__(self, newDestination):
-        self.newDestination = newDestination
+    def __init__(self, a_str):
+        self.a_str = a_str
 
-    def write_in_file(self, newDestination):
+    def write_in_destination_file(self, a_str):
         f = open("DestinationsFile.csv", "a")
-        f.write(newDestination)
+        f.write(a_str)
         f.close()
 
 
@@ -122,6 +123,10 @@ def main():
     airplane = "i am airplane \n"
     j = IOAPI(airplane)
     j.store_airplanes_to_file(airplane)
+
+    destination = "i am a destination \n"
+    j = IOAPI(destination)
+    j.store_destination_to_file(destination)
 
 
 main()
