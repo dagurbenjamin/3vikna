@@ -2,12 +2,17 @@ import csv
 
 
 class IOAPI():
-    def __init__(self, planeID):
-        self.planeID = planeID
+    def __init__(self, foo):
+        self.foo = foo
 
-    def storeCrewToFile(self, newstaff):
-        f = open("Crew.csv", "a" "\n"):
-        f.write(a)
+    def storeCrewToFile(self, foo):
+        f = open("CrewFile.csv", "w+")
+        f.write(foo)
+        f.close()
 
 
-a = 'Hello world'
+foo = 'Hello world'
+
+
+def main():
+    boo = IOAPI(foo)
