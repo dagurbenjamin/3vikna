@@ -14,10 +14,10 @@ class IOAPI():
     def storeDestinationToFile(self):
         pass
 
-    def loadPlaneFromFile(self, planeID):
+    def loadAirplanesFromFile(self, planeID):
         pass
 
-    def storePlaneToFile(self):
+    def storeAirplanesToFile(self):
         pass
 
     def loadCrewFromFile(self, crewID):
