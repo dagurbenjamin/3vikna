@@ -12,7 +12,9 @@ class IOAPI():
 
 
 foo = 'Hello world'
+a = IOAPI(foo)
+a.storeCrewToFile(foo)
 
 
-def main():
-    boo = IOAPI(foo)
+# def main():
+#     boo = IOAPI(foo)
