@@ -32,14 +32,16 @@ class IOAPI():
         fileStream_aircraft = open("Aircraft.csv", "r")
         return fileStream_aircraft
 
-    def store_airplanes_to_file(self):
+    def store_airplanes_to_file(self, a_str):
+        g = AirplanesIO(self.a_str)
+        g.write_in_airplanes_file(self.a_str)
+
+    def load_airplanesinfo_from_file(self):
         pass
 
-    def load_airplanetypes_from_file(self):
-        pass
-
-    def store_airplanetypes_to_file(self):
-        pass
+    def store_airplanesinfo_to_file(self, a_str):
+        s = AirplanesIO(self.a_str)
+        s.write_in_airplanesinfo_file(self.a_str)
 
     def load_crew_from_file(self):
         fileStream_crew = open("Crew.csv", "r")
@@ -61,12 +63,17 @@ class CrewIO(IOAPI):
 
 
 class AirplanesIO(IOAPI):
-    def __init__(self, newAirplane):
-        self.newAirplane = newAirplane
+    def __init__(self, a_str):
+        self.a_str = a_str
 
-    def write_in_file(self, newAirplane):
+    def write_in_airplanes_file(self, a_str):
         f = open("AirplanesFile.csv", "a")
-        f.write(newAirplane)
+        f.write(a_str)
+        f.close()
+
+    def write_in_airplanesinfo_file(self, a_str):
+        f = open("AirplanesInfoFile.csv", "a")
+        f.write(a_str)
         f.close()
 
 
@@ -101,12 +108,20 @@ def main():
     a.store_crew_to_file(newEmployee)
 
     pastFlight = "i am a past flight \n"
-    x = IOAPI(pastFlight)
-    x.store_past_flights_to_file(pastFlight)
+    a = IOAPI(pastFlight)
+    a.store_past_flights_to_file(pastFlight)
 
     UpcomingFlight = "i am a upcoming flight \n"
     y = IOAPI(UpcomingFlight)
     y.store_upcoming_flights_to_file(UpcomingFlight)
+
+    airplaneinfo = "i am info \n"
+    y = IOAPI(airplaneinfo)
+    y.store_airplanesinfo_to_file(airplaneinfo)
+
+    airplane = "i am airplane \n"
+    j = IOAPI(airplane)
+    j.store_airplanes_to_file(airplane)
 
 
 main()
