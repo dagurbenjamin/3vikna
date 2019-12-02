@@ -1,27 +1,7 @@
 import csv
-
-
 class IOAPI():
     def __init__(self, foo):
         self.foo = foo
-
-    def loadVoyageFromFile(self, voyageID):
-        pass
-
-    def storeVoyageToFile(self):
-        pass
-
-    def loadDestinationFromFile(self, destination):
-        pass
-
-    def storeDestinationToFile(self):
-        pass
-
-    def loadAirplanesFromFile(self, planeID):
-        pass
-
-    def storeAirplanesToFile(self):
-        pass
 
     def loadCrewFromFile(self):
         fileStream_crew = open("Crew.csv", "r")
@@ -40,21 +20,6 @@ class CrewIO(IOAPI):
         f = open("CrewFile.csv", "a")
         f.write(foo)
         f.close()
-
-
-class AirplanesIO():
-    def __init__(self):
-        pass
-
-
-class DestinationsIO():
-    def __init__(self):
-        pass
-
-
-class VoyagesIO():
-    def __init__(self):
-        pass
 
 
 foo = 'Hello world \n'
