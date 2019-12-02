@@ -43,8 +43,8 @@ class CrewIO(IOAPI):
 
 
 class AirplanesIO(IOAPI):
-    def __init__(self):
-        pass
+    def __init__(self, newAirplane):
+        self.newAirplane = newAirplane
 
     def write_in_file(self, newAirplane):
         f = open("AirplanesFile.csv", "a")
@@ -52,9 +52,9 @@ class AirplanesIO(IOAPI):
         f.close()
 
 
-class DestinationsIO():
-    def __init__(self):
-        pass
+class DestinationsIO(IOAPI):
+    def __init__(self, newDestination):
+        self.newDestination = newDestination
 
     def write_in_file(self, newDestination):
         f = open("CrewFile.csv", "a")
@@ -63,8 +63,8 @@ class DestinationsIO():
 
 
 class VoyagesIO():
-    def __init__(self):
-        pass
+    def __init__(self, newvoyage):
+        self.newvoyage = newvoyage
 
     def write_in_file(self, newvoyage):
         f = open("CrewFile.csv", "a")
