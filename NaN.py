@@ -39,3 +39,6 @@ class CrewIO(IOAPI):
     f = open("CrewFile.csv", "a")
     f.write(foo)
     f.close()
+
+    def lol():
+        pass
