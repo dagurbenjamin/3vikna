@@ -2,8 +2,8 @@ import csv
 
 
 class IOAPI():
-    def __init__(self, foo):
-        self.foo = foo
+    def __init__(self, newEmployee):
+        self.newEmployee = newEmployee
 
     def loadVoyageFromFile(self, voyageID):
         pass
@@ -27,22 +27,22 @@ class IOAPI():
         fileStream_crew = open("Crew.csv", "r")
         return fileStream_crew
 
-    def storeCrewToFile(self, foo):
-        b = CrewIO(self.foo)
-        b.write_in_file(self.foo)
+    def storeCrewToFile(self, newEmployee):
+        b = CrewIO(self.newEmployee)
+        b.write_in_file(self.newEmployee)
 
 
 class CrewIO(IOAPI):
-    def __init__(self, foo):
-        self.foo = foo
+    def __init__(self, newEmployee):
+        self.newEmployee = newEmployee
 
-    def write_in_file(self, foo):
+    def write_in_file(self, newEmployee):
         f = open("CrewFile.csv", "a")
-        f.write(foo)
+        f.write(newEmployee)
         f.close()
 
 
-class AirplanesIO():
+class AirplanesIO(IOAPI):
     def __init__(self):
         pass
 
@@ -57,6 +57,6 @@ class VoyagesIO():
         pass
 
 
-foo = 'Hello world \n'
-a = IOAPI(foo)
-a.storeCrewToFile(foo)
+newEmployee = 'New employee \n'
+a = IOAPI(newEmployee)
+a.storeCrewToFile(newEmployee)
