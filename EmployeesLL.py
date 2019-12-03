@@ -1,9 +1,9 @@
-
+from LLAPI import LLAPI
 employee_number = 1
 
 
 class EmployeesLL():
-    def __init__(self, new_empl_list, employee_number):
+    def __init__(self, new_empl_list=[], employee_number=0):
         self.new_empl_list = new_empl_list
         self.employee_number = employee_number
 
@@ -22,15 +22,15 @@ class EmployeesLL():
         employee_id = '{}-{}{}-{}'.format(str(rank).upper(),
                                           first_name, last_name, employee_number)
         self.employee_number += 1
-        new_empl_list.append(employee_id)
+        new_empl_list.append(employee_id)  # setja id fremst? fyrir dict
         employee_str = ",".join(new_empl_list)
-        print(employee_str)
+        # print(employee_str)
         return employee_str
 
-    def get_all_employees(self, IOAPI):
-        filestream_crew = open("UpcomingFlightsFile.csv", "r")
-        for line in filestream_crew:
-            print(line)
+    def get_all_employees(self):
+        a = LLAPI()
+        all_employees = a.get_all_employees()
+        return all_employees
 
     def get_employee():
         pass
@@ -43,6 +43,10 @@ class EmployeesLL():
         pass
 
 
+bar = EmployeesLL()
+all_employess_list = bar.get_all_employees()
+print('------------all_employess_list')
+print(all_employess_list)
 #ssn,name,role,rank,licence,address,phonenumber, email
 a_list = ['2910858778', 'Virginia Ho', 'Pilot', 'Captain',
           'NABAE146', 'Fellsmuli 2', '8998802', 'virginia@NaN.is']

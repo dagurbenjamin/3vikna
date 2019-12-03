@@ -2,7 +2,7 @@ import csv
 
 
 class IOAPI():
-    def __init__(self, a_str):
+    def __init__(self, a_str=''):
         self.a_str = a_str
 
     def load_past_flights_from_file(self):
@@ -46,7 +46,9 @@ class IOAPI():
         s.write_in_airplanesinfo_file(self.a_str)
 
     def load_crew_from_file(self):
+        print('load_crew_from_file--inní falli')
         fileStream_crew = open("Crew.csv", "r")
+        # ef empty hvað þá?
         return fileStream_crew
 
     def store_crew_to_file(self, a_str):
