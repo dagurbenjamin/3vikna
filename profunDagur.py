@@ -1,27 +1,33 @@
-import csv
-class IOAPI():
-    def __init__(self, foo):
-        self.foo = foo
-
-    def loadCrewFromFile(self):
-        fileStream_crew = open("Crew.csv", "r")
-        return fileStream_crew
-
-    def storeCrewToFile(self, foo):
-        b = CrewIO(self.foo)
-        b.write_in_file(self.foo)
+class AirplanesLL:
+    def __init__(self, plane_list):
+        self.plane_list = plane_list
 
 
-class CrewIO(IOAPI):
-    def __init__(self, foo):
-        self.foo = foo
-
-    def write_in_file(self, foo):
-        f = open("CrewFile.csv", "a")
-        f.write(foo)
-        f.close()
+    def create_airplane_info(self, plane_list):
+        plane_list = ", ".join(plane_list)
+        return plane_list
 
 
-foo = 'Hello world \n'
-a = IOAPI(foo)
-a.storeCrewToFile(foo)
+    def new_airplane(self, new_plane):
+        new_plane = ", ".join(new_plane)
+        print(new_plane)
+
+
+    def get_airplanes(self):
+            
+
+
+    def get_airplane_types(self):
+
+
+    def update_airplane(self):
+        pass
+
+def main():
+    plane_list = ["NABAE146", "BAE", "146", "82", "23820", "38101", "31.1", "11000", "26.19", "8.61", "26", "34"]
+    new_plane = ["stuff", "more stuff"]
+    a = AirplanesLL(plane_list)
+    a.create_airplane_info(plane_list)
+    b = AirplanesLL(new_plane)
+    b.new_airplane(new_plane)
+main()
