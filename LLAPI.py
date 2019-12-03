@@ -7,8 +7,7 @@ class LLAPI():
 
     def get_all_employees(self):
         employee_list = []
-        j = IOAPI()
-        employeesInfo = j.load_crew_from_file()
+        employeesInfo = IOAPI().load_crew_from_file()
         for line in employeesInfo:
             inner_list = []
             inner_list.append(line)
