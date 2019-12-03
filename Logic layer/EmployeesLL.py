@@ -21,7 +21,9 @@ class EmployeesLL():
         employee_id = '{}-{}{}-{}'.format(str(rank).upper(),
                                           first_name, last_name, employee_number)
         self.employee_number += 1
-        print(employee_id)
+        new_empl_list.append(employee_id)
+        employee_str = ", ".join(new_empl_list)
+        print(employee_str)
 
 
 #ssn,name,role,rank,licence,address,phonenumber, email
