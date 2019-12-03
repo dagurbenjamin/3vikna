@@ -1,3 +1,4 @@
+from DataLayer import IOAPI
 employee_number = 1
 
 
@@ -23,7 +24,18 @@ class EmployeesLL():
         self.employee_number += 1
         new_empl_list.append(employee_id)
         employee_str = ", ".join(new_empl_list)
-        print(employee_str)
+        return employee_str
+
+    def get_all_employees():
+        x = IOAPI()
+        foo = x.load_crew_from_file()
+        print(foo)
+
+    def get_employee():
+        pass
+
+    def update_employee():
+        pass
 
 
 #ssn,name,role,rank,licence,address,phonenumber, email
@@ -48,3 +60,6 @@ d_list = ['1103647756', 'Wilma Horne', 'Cabincrew',
           'Flight Attendant', 'N/A', 'Fellsmuli 25', '8998825', 'Wilma@NaN.is']
 d = EmployeesLL(d_list, employee_number)
 d.create_ID(d_list)
+
+f = EmployeesLL()
+f.get_all_employees()
