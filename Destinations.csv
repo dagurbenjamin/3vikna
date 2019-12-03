@@ -1,7 +1,7 @@
 id,destination,country,distance,contactname,emergencynumber,flighttime,destinationnumber
-LYR,Longyearbyean,Svalbard,2020,Kalli Bjarni,9119111,T04:00:00,??
-GOH,Nuuk,Greenland,1405,Kalli Lalli,9119112,T03:00:00,??
-KUS,Kulusuk,Greenland,710,Solus Bolus,9119113,T02:00:00,??
-FAE,Thorshavn,Faroe Islands,815,Mikael Larsson,9119114,T01:00:00,??
-LWK,Tingwall,Scotland,1181,James Bond,9119115,T02:00:00,??
+LYR,Longyearbyean,Svalbard,2020,Kalli Bjarni,9119111,T04:00:00,04
+GOH,Nuuk,Greenland,1405,Kalli Lalli,9119112,T03:00:00,02
+KUS,Kulusuk,Greenland,710,Solus Bolus,9119113,T02:00:00,03
+FAE,Thorshavn,Faroe Islands,815,Mikael Larsson,9119114,T01:00:00,05
+LWK,Tingwall,Scotland,1181,James Bond,9119115,T02:00:00,06
 KEF,Keflavik,Iceland,0000,Leifur Jónsson,9119116,T??:??:??,??
