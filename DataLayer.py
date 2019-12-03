@@ -38,7 +38,7 @@ class IOAPI():
         g.write_in_airplanes_file(self.a_str)
 
     def load_airplanesinfo_from_file(self):
-        fileStream_airinfo = open("AirplanesInfoFile.csv", "r")
+        fileStream_airplanesinfo = open("AirplanesInfoFile.csv", "r")
         return fileStream_airinfo
 
     def store_airplanesinfo_to_file(self, a_str):

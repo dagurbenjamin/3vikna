@@ -60,5 +60,3 @@ d_list = ['1103647756', 'Wilma Horne', 'Cabincrew',
           'Flight Attendant', 'N/A', 'Fellsmuli 25', '8998825', 'Wilma@NaN.is']
 d = EmployeesLL(d_list, employee_number)
 d.create_ID(d_list)
-
-foo = EmployeesLL.get_all_employees(IOAPI)
