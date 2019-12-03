@@ -25,9 +25,8 @@ class IOAPI():
         fileStream_destinations = open("DestinationsFile.csv", "r")
         return fileStream_destinations
 
-    def store_destination_to_file(self, a_str):
-        d = DestinationsIO(self.a_str)
-        d.write_in_destination_file(self.a_str)
+    def store_destination_to_file(self, new_destination=''):
+        d = DestinationsIO().write_in_destination_file(new_destination)
 
     def load_airplanes_from_file(self, planeID):
         fileStream_aircraft = open("Aircraft.csv", "r")
@@ -46,28 +45,27 @@ class IOAPI():
         s.write_in_airplanesinfo_file(self.a_str)
 
     def load_crew_from_file(self):
-        print('load_crew_from_file--inní falli')
+        #print('load_crew_from_file--inní falli')
         fileStream_crew = open("Crew.csv", "r")
         # ef empty hvað þá?
         return fileStream_crew
 
-    def store_crew_to_file(self, a_str):
-        b = CrewIO(self.a_str)
-        b.write_in_file(self.a_str)
+    def store_crew_to_file(self, new_crew_member=''):
+        b = CrewIO().write_in_file(new_crew_member)
 
 
 class CrewIO(IOAPI):
-    def __init__(self, a_str):
+    def __init__(self, a_str=''):
         self.a_str = a_str
 
-    def write_in_file(self, a_str):
+    def write_in_file(self, new_crew_member=''):
         f = open("CrewFile.csv", "a")
-        f.write(a_str)
+        f.write(new_crew_member)
         f.close()
 
 
 class AirplanesIO(IOAPI):
-    def __init__(self, a_str):
+    def __init__(self, a_str=''):
         self.a_str = a_str
 
     def write_in_airplanes_file(self, a_str):
@@ -81,13 +79,13 @@ class AirplanesIO(IOAPI):
         f.close()
 
 
-class DestinationsIO(IOAPI):
-    def __init__(self, a_str):
+class DestinationsIO():
+    def __init__(self, a_str=''):
         self.a_str = a_str
 
-    def write_in_destination_file(self, a_str):
+    def write_in_destination_file(self, new_destination):
         f = open("DestinationsFile.csv", "a")
-        f.write(a_str)
+        f.write(new_destination)
         f.close()
 
 
@@ -108,12 +106,11 @@ class VoyagesIO():
 
 def main():
     newEmployee = 'New employee \n'
-    a = IOAPI(newEmployee)
-    a.store_crew_to_file(newEmployee)
+    a = IOAPI().store_crew_to_file(newEmployee)
 
     pastFlight = "i am a past flight \n"
-    a = IOAPI(pastFlight)
-    a.store_past_flights_to_file(pastFlight)
+    b = IOAPI(pastFlight)
+    b.store_past_flights_to_file(pastFlight)
 
     UpcomingFlight = "i am a upcoming flight \n"
     y = IOAPI(UpcomingFlight)
@@ -128,8 +125,7 @@ def main():
     j.store_airplanes_to_file(airplane)
 
     destination = "i am a destination \n"
-    j = IOAPI(destination)
-    j.store_destination_to_file(destination)
+    j = IOAPI().store_destination_to_file(destination)
 
 
 main()

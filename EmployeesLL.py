@@ -1,14 +1,16 @@
 from LLAPI import LLAPI
-employee_number = 1
+from itertools import count
 
 
 class EmployeesLL():
-    def __init__(self, new_empl_list=[], employee_number=0):
+    _ids = count(0)
+
+    def __init__(self, new_empl_list=[]):
+        self.id = next(self._ids)
         self.new_empl_list = new_empl_list
-        self.employee_number = employee_number
 
     def create_ID(self, new_empl_list):
-        number = self.employee_number
+        number = self.id
         name = new_empl_list[1].split(' ')
         first_name = name[0][0]
         last_name = name[1][0]
@@ -20,11 +22,9 @@ class EmployeesLL():
         else:
             rank = new_empl_list[3][:3]
         employee_id = '{}-{}{}-{}'.format(str(rank).upper(),
-                                          first_name, last_name, employee_number)
-        self.employee_number += 1
+                                          first_name, last_name, number)
         new_empl_list.append(employee_id)  # setja id fremst? fyrir dict
         employee_str = ",".join(new_empl_list)
-        # print(employee_str)
         return employee_str
 
     def get_all_employees(self):
@@ -45,26 +45,28 @@ class EmployeesLL():
 
 bar = EmployeesLL()
 all_employess_list = bar.get_all_employees()
-print('------------all_employess_list')
-print(all_employess_list)
-#ssn,name,role,rank,licence,address,phonenumber, email
+
+# ssn,name,role,rank,licence,address,phonenumber, email
 a_list = ['2910858778', 'Virginia Ho', 'Pilot', 'Captain',
           'NABAE146', 'Fellsmuli 2', '8998802', 'virginia@NaN.is']
-a = EmployeesLL(a_list, employee_number)
+a = EmployeesLL(a_list)
 a.create_ID(a_list)
+
+# þegar info um employee er komið i streng þa kalla eg i :
+# foo = LLAPI().save_new_employee("Save a new employee")
 
 
 b_list = ['2209955782', 'Allen Ley', 'Pilot', 'Copilot',
           'NABAE146', 'Fellsmuli 4', '8998804', 'allen@NaN.is']
-b = EmployeesLL(b_list, employee_number)
+b = EmployeesLL(b_list)
 b.create_ID(b_list)
 
 c_list = ['409858797', 'Evelyn Pickhardt', 'Cabincrew',
           'Flight Service Manager', 'N/A', 'Fellsmuli 20', '8998820', 'evelyn@NaN.is']
-c = EmployeesLL(c_list, employee_number)
+c = EmployeesLL(c_list)
 c.create_ID(c_list)
 
 d_list = ['1103647756', 'Wilma Horne', 'Cabincrew',
           'Flight Attendant', 'N/A', 'Fellsmuli 25', '8998825', 'Wilma@NaN.is']
-d = EmployeesLL(d_list, employee_number)
+d = EmployeesLL(d_list)
 d.create_ID(d_list)
