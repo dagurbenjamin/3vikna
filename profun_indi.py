@@ -1,6 +1,6 @@
 from DataLayer import IOAPI
 
 
-filestream_crew = IOAPI().load_crew_from_file(a_str)
+filestream_crew = open("Crew.csv", "r")
 for line in filestream_crew:
     print(line)

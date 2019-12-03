@@ -27,7 +27,7 @@ class EmployeesLL():
         return employee_str
 
     def get_all_employees(self, IOAPI):
-        filestream_crew = IOAPI.load_crew_from_file()
+        filestream_crew = open("UpcomingFlightsFile.csv", "r")
         for line in filestream_crew:
             print(line)
 
