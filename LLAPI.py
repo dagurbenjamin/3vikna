@@ -66,12 +66,28 @@ class LLAPI():
         return all_past_flights_dict
 
 
+    def get_upcoming_flights(self):
+        title = "departingFrom,arrivingAt,departure,arrival"
+        all_upcoming_flights_dict = {}
+        title_to_list = title.split(',')
+        flights_info = IOAPI().load_upcoming_flights_from_file()
+        for line in flights_info:
+            take_newline = line.strip('\n')
+            line_to_list = take_newline.split(',')
+            Id = line_to_list[0]
+            dict1 = dict(zip(title_to_list, line_to_list[1:]))
+            all_upcoming_flights_dict[Id] = dict1
+        return all_upcoming_flights_dict
+
+
 def main():
     #foo = LLAPI().get_airplane_types()
     #print(foo)
     #fuu = LLAPI().get_past_flights()
     #print(fuu)
-    fii = LLAPI().get_airplane_types()
-    print(fii)
+    #fii = LLAPI().get_airplane_types()
+    #print(fii)
+    #fcc = LLAPI().get_upcoming_flights()
+    #print(fcc)
 
 main()
