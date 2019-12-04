@@ -23,13 +23,17 @@ class LLAPI():
         IOAPI().store_crew_to_file(newEmployee)
 
     def get_all_destinations(self):
-        destination_list = []
-        destinationInfo = IOAPI().load_destination_from_file()
-        for line in destinationInfo:
-            inner_list = []
-            inner_list.append(line)
-            destination_list.append(inner_list)
-        return destination_list
+        title = 'id,destination,country,distance,contactname,emergencynumber,flighttime,destinationnumber'
+        all_destinations_dict = {}
+        title_to_list = title.split(',')
+        destinationsInfo = IOAPI().load_destination_from_file()
+        for line in destinationsInfo:
+            taka_newline = line.strip('\n')
+            line_to_list = taka_newline.split(',')
+            Id = line_to_list[0]
+            dict1 = dict(zip(title_to_list, line_to_list))
+            all_destinations_dict[Id] = dict1
+        return all_destinations_dict
 
     def save_new_destination(self, newDestination):
         IOAPI().store_destination_to_file(newDestination)
