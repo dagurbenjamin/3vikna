@@ -46,7 +46,7 @@ class LLAPI():
         for line in airplanesInfo:
             remove_newline = line.strip('\n')
             line_to_list = remove_newline.split(',')
-            Id = line_to_list[-1]
+            Id = line_to_list[0]
             dict1 = dict(zip(title_to_list, line_to_list))
             plane_types_dict[Id] = dict1
         return plane_types_dict
@@ -71,7 +71,7 @@ def main():
     #print(foo)
     #fuu = LLAPI().get_past_flights()
     #print(fuu)
-    fii = LLAPI().get_all_destinations()
+    fii = LLAPI().get_airplane_types()
     print(fii)
 
 main()
