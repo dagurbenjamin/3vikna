@@ -1,5 +1,5 @@
 from DataLayer import IOAPI
-
+title = 'ssn,name,role,rank,licence,address,phonenumber'
 
 
 class LLAPI():
@@ -7,14 +7,16 @@ class LLAPI():
         self.a_str = a_str
 
     def get_all_employees(self):
-        employee_list = []
+        all_employees_dict = {}
+        title_to_list = title.split(',')
         employeesInfo = IOAPI().load_crew_from_file()
         for line in employeesInfo:
-            inner_list = []
-            inner_list.append(line)
-            employee_list.append(inner_list)
-        # todo splitta innerlist
-        return employee_list
+            taka_newline = line.strip('\n')
+            line_to_list = taka_newline.split(',')
+            Id = line_to_list[-1]
+            dict1 = dict(zip(title_to_list, line_to_list))
+            all_employees_dict[Id] = dict1
+        return all_employees_dict
 
     def save_new_employee(self, newEmployee):
         IOAPI().store_crew_to_file(newEmployee)
@@ -35,8 +37,6 @@ class LLAPI():
 def main():
     foo = LLAPI().get_all_employees()
     print(foo)
-    fuu = LLAPI().get_all_destinations()
-    print(fuu)
 
 
 main()
