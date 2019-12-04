@@ -6,6 +6,7 @@ class IOAPI():
         self.a_str = a_str
 
     def load_past_flights_from_file(self):
+        print("Ég er hér")
         fileStream_past_flights = open("PastFlightsFile.csv", "r")
         return fileStream_past_flights
 
