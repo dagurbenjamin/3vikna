@@ -5,7 +5,7 @@ class AlldestinationsmenuUI():
     def __init__(self):
         pass
     #taka inn destination ut fra inputti fra fyrri sidu
-    def print_all_destinations_menu(self):
+    def print_all_destinations_menu(self,destination_list):
         print('****************************************************************')
         print('                                                                ')
         print('		        NaN Air                "q" - quitAndSave           ')
@@ -32,3 +32,6 @@ class AlldestinationsmenuUI():
         print('Back to main menu............"mm"                               ')
         print('Back to sub menu............."sm"                               ')
         print('Back one page................"bp"                               ')
+
+
+a = UIAPI().get_all_destinations()
