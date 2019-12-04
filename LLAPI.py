@@ -67,9 +67,11 @@ class LLAPI():
 
 
 def main():
-    foo = LLAPI().get_airplane_types()
-    print(foo)
-    fuu = LLAPI().get_past_flights()
-    print(fuu)
+    #foo = LLAPI().get_airplane_types()
+    #print(foo)
+    #fuu = LLAPI().get_past_flights()
+    #print(fuu)
+    fii = LLAPI().get_all_destinations()
+    print(fii)
 
 main()
