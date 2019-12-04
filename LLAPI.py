@@ -1,5 +1,5 @@
 from DataLayer import IOAPI
-title = 'ssn,name,role,rank,licence,address,phonenumber'
+
 
 
 class LLAPI():
@@ -7,6 +7,7 @@ class LLAPI():
         self.a_str = a_str
 
     def get_all_employees(self):
+        title = 'ssn,name,role,rank,licence,address,phonenumber'
         all_employees_dict = {}
         title_to_list = title.split(',')
         employeesInfo = IOAPI().load_crew_from_file()
