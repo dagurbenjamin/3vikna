@@ -48,10 +48,24 @@ class LLAPI():
         return plane_types_dict
 
 
+    def get_past_flights(self):
+        title = "departingFrom,arrivingAt,departure,arrival,aircraftID,captain,copilot,fsm,fa1,fa2"
+        all_past_flights_dict = {}
+        title_to_list = title.split(',')
+        flights_info = IOAPI().load_past_flights_from_file()
+        for line in flights_info:
+            take_newline = line.strip('\n')
+            line_to_list = take_newline.split(',')
+            Id = line_to_list[0]
+            dict1 = dict(zip(title_to_list, line_to_list[1:]))
+            all_past_flights_dict[Id] = dict1
+        return all_past_flights_dict
+
 
 def main():
     foo = LLAPI().get_airplane_types()
     print(foo)
-
+    fuu = LLAPI().get_past_flights()
+    print(fuu)
 
 main()
