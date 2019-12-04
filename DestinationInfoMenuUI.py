@@ -35,3 +35,4 @@ class AlldestinationsmenuUI():
 
 
 a = UIAPI().get_all_destinations()
+
