@@ -14,7 +14,7 @@ class IOAPI():
         c = VoyagesIO().write_in_file_past_flights(new_past_flight)
 
     def load_upcoming_flights_from_file(self):
-        fileStream_upcoming_flights = open("UpcomingFlightsFile.csv", "r")
+        fileStream_upcoming_flights = open("UpcomingFlights.csv", "r")
         return fileStream_upcoming_flights
 
     def store_upcoming_flights_to_file(self, new_upcoming_flight=''):
