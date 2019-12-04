@@ -18,6 +18,18 @@ class LLAPI():
     def save_new_employee(self, newEmployee):
         IOAPI().store_crew_to_file(newEmployee)
 
+    def get_all_destinations(self):
+        destination_list = []
+        destinationInfo = IOAPI.load.destination_from_file()
+        for line in destinationInfo:
+            inner_list = []
+            inner_list.append(line)
+            employee_list.append(inner_list)
+        return destination_list
+
+    def save_new_destination(self, newDestination):
+        IOAPI().store_destination_to_file(newDestination)
+
 
 def main():
     foo = LLAPI().get_all_employees()

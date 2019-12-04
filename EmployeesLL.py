@@ -43,7 +43,7 @@ class EmployeesLL():
         pass
 
 
-bar = EmployeesLL()
+#bar = EmployeesLL()
 all_employess_list = bar.get_all_employees()
 
 # ssn,name,role,rank,licence,address,phonenumber, email

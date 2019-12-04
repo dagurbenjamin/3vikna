@@ -124,8 +124,8 @@ def main():
     j = IOAPI(airplane)
     j.store_airplanes_to_file(airplane)
 
-    destination = "i am a destination \n"
-    j = IOAPI().store_destination_to_file(destination)
+    newDestination = "i am a destination \n"
+    j = IOAPI().store_destination_to_file(newDestination)
 
 
 main()
