@@ -14,14 +14,14 @@ class IOAPI():
         c = VoyagesIO().write_in_file_past_flights(new_past_flight)
 
     def load_upcoming_flights_from_file(self):
-        fileStream_upcoming_flights = open("UpcomingFlightsFile.csv", "r")
+        fileStream_upcoming_flights = open("UpcomingFlights.csv", "r")
         return fileStream_upcoming_flights
 
     def store_upcoming_flights_to_file(self, new_upcoming_flight=''):
         d = VoyagesIO().write_in_file_upcoming_flights(new_upcoming_flight)
 
     def load_destination_from_file(self):
-        fileStream_destinations = open("Destinations.csv", "r")
+        fileStream_destinations = open("DestinationsFile.csv", "r")
         return fileStream_destinations
 
     def store_destination_to_file(self, new_destination=''):
@@ -35,8 +35,8 @@ class IOAPI():
         g = AirplanesIO().write_in_airplanes_file(new_airplane)
 
     def load_airplanesinfo_from_file(self):
-        fileStream_airplanesinfo = open("AircraftType.csv", "r")
-        return fileStream_airinfo
+        fileStream_airplanesinfo = open("AirplanesInfoFile.csv", "r")
+        return fileStream_airplanesinfo
 
     def store_airplanesinfo_to_file(self, new_airplane_type=''):
         s = AirplanesIO().write_in_airplanesinfo_file(new_airplane_type)
