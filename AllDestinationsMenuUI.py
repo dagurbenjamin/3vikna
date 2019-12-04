@@ -1,3 +1,5 @@
+from UIAPI import UIAPI
+
 class AlldestinationsmenuUI():
 
     def __init__(self):
