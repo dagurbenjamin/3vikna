@@ -1,8 +1,10 @@
+from UIAPI import UIAPI
+
 class DestinationsmenuUI():
 
     def __init__(self):
         pass
-    
+
     def print_destinations_menu(self):
         print('****************************************************************')
         print('                                                                ')
