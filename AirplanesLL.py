@@ -1,5 +1,13 @@
 from LLAPI import LLAPI
 
+from DataLayer import IOAPI
+
+
+
+class LLAPI():
+    def __init__(self, a_str=''):
+        self.a_str = a_str
+
 
 class AirplanesLL:
     def __init__(self, plane_list):
@@ -22,8 +30,18 @@ class AirplanesLL:
 
 
     def get_airplane_types(self, plane_types):
-        plane_types = list(plane_types.split(", "))
-        return plane_types
+        title = 'planeTypeId,manufacturer,model,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan'
+        plane_types_dict = {}
+        title_to_list = title.split(',')
+        airplanesInfo = IOAPI().load_airplanesinfo_from_file()
+        for line in airplanesInfo:
+            remove_newline = line.strip('\n')
+            line_to_list = remove_newline.split(',')
+            Id = line_to_list[-1]
+            dict1 = dict(zip(title_to_list, line_to_list))
+            plane_types_dict[Id] = dict1
+        return plane_types_dict
+
 
 
 def main():

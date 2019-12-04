@@ -34,9 +34,23 @@ class LLAPI():
     def save_new_destination(self, newDestination):
         IOAPI().store_destination_to_file(newDestination)
 
+    def get_airplane_types(self):
+        title = 'planeTypeId,manufacturer,model,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan'
+        plane_types_dict = {}
+        title_to_list = title.split(',')
+        airplanesInfo = IOAPI().load_airplanesinfo_from_file()
+        for line in airplanesInfo:
+            remove_newline = line.strip('\n')
+            line_to_list = remove_newline.split(',')
+            Id = line_to_list[-1]
+            dict1 = dict(zip(title_to_list, line_to_list))
+            plane_types_dict[Id] = dict1
+        return plane_types_dict
+
+
 
 def main():
-    foo = LLAPI().get_all_employees()
+    foo = LLAPI().get_airplane_types()
     print(foo)
 
 
