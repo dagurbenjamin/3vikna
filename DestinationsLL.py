@@ -10,11 +10,17 @@ class DestinationsLL():
         new_destination_list = ','.join(new_destination_list)
         return new_destination_list
 
-    def get_destinations(self):
+    def get_all_destinations(self):
         a = LLAPI()
         all_destinations = a.get_all_destinations()
         return all_destinations
-        
-    def get_destinationinfo(self):
+
+
+    def get_destination(self):
         pass
+    
+    def update_destination(self, destinations_id_input):
+        #get the destination file from data layer
+        pass
+    
 
