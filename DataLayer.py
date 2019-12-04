@@ -7,7 +7,7 @@ class IOAPI():
 
     def load_past_flights_from_file(self):
         print("Ég er hér")
-        fileStream_past_flights = open("PastFlightsFile.csv", "r")
+        fileStream_past_flights = open("PastFlights.csv", "r")
         return fileStream_past_flights
 
     def store_past_flights_to_file(self, new_past_flight=''):
@@ -35,7 +35,7 @@ class IOAPI():
         g = AirplanesIO().write_in_airplanes_file(new_airplane)
 
     def load_airplanesinfo_from_file(self):
-        fileStream_airplanesinfo = open("AirplanesInfoFile.csv", "r")
+        fileStream_airplanesinfo = open("AircraftType.csv", "r")
         return fileStream_airinfo
 
     def store_airplanesinfo_to_file(self, new_airplane_type=''):
