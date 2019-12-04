@@ -39,34 +39,54 @@ class EmployeesLL():
         # get the crew file from data layer
         pass
 
-    def make_dict():
-        pass
+    def get_all_pilots(self):
+        all_employees_dict = LLAPI().get_all_employees()
+        for key in all_employees_dict:
+            if key[0] == 'C':
+                # print(key)
+                all_values = all_employees_dict[key]
+                get_role = all_values
+                print(get_role)
+            else:
+                return None
+
+    def get_all_cabincrew(self):
+        all_employees_dict = LLAPI().get_all_employees()
+        for key in all_employees_dict:
+            if key[0] == 'F':
+                print(key)
+                all_values = all_employees_dict[key]
+                get_role = all_values
+                print(get_role)
 
 
-#bar = EmployeesLL()
-all_employess_list = bar.get_all_employees()
-
-# ssn,name,role,rank,licence,address,phonenumber, email
-a_list = ['2910858778', 'Virginia Ho', 'Pilot', 'Captain',
-          'NABAE146', 'Fellsmuli 2', '8998802', 'virginia@NaN.is']
-a = EmployeesLL(a_list)
-a.create_ID(a_list)
-
-# þegar info um employee er komið i streng þa kalla eg i :
-# foo = LLAPI().save_new_employee("Save a new employee")
+get_pilots = EmployeesLL().get_all_cabincrew()
 
 
-b_list = ['2209955782', 'Allen Ley', 'Pilot', 'Copilot',
-          'NABAE146', 'Fellsmuli 4', '8998804', 'allen@NaN.is']
-b = EmployeesLL(b_list)
-b.create_ID(b_list)
+# #bar = EmployeesLL()
+# all_employess_list = bar.get_all_employees()
 
-c_list = ['409858797', 'Evelyn Pickhardt', 'Cabincrew',
-          'Flight Service Manager', 'N/A', 'Fellsmuli 20', '8998820', 'evelyn@NaN.is']
-c = EmployeesLL(c_list)
-c.create_ID(c_list)
+# # ssn,name,role,rank,licence,address,phonenumber, email
+# a_list = ['2910858778', 'Virginia Ho', 'Pilot', 'Captain',
+#           'NABAE146', 'Fellsmuli 2', '8998802', 'virginia@NaN.is']
+# a = EmployeesLL(a_list)
+# a.create_ID(a_list)
 
-d_list = ['1103647756', 'Wilma Horne', 'Cabincrew',
-          'Flight Attendant', 'N/A', 'Fellsmuli 25', '8998825', 'Wilma@NaN.is']
-d = EmployeesLL(d_list)
-d.create_ID(d_list)
+# # þegar info um employee er komið i streng þa kalla eg i :
+# # foo = LLAPI().save_new_employee("Save a new employee")
+
+
+# b_list = ['2209955782', 'Allen Ley', 'Pilot', 'Copilot',
+#           'NABAE146', 'Fellsmuli 4', '8998804', 'allen@NaN.is']
+# b = EmployeesLL(b_list)
+# b.create_ID(b_list)
+
+# c_list = ['409858797', 'Evelyn Pickhardt', 'Cabincrew',
+#           'Flight Service Manager', 'N/A', 'Fellsmuli 20', '8998820', 'evelyn@NaN.is']
+# c = EmployeesLL(c_list)
+# c.create_ID(c_list)
+
+# d_list = ['1103647756', 'Wilma Horne', 'Cabincrew',
+#           'Flight Attendant', 'N/A', 'Fellsmuli 25', '8998825', 'Wilma@NaN.is']
+# d = EmployeesLL(d_list)
+# d.create_ID(d_list)

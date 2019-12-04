@@ -1,7 +1,6 @@
 from DataLayer import IOAPI
 
 
-
 class LLAPI():
     def __init__(self, a_str=''):
         self.a_str = a_str
@@ -51,7 +50,6 @@ class LLAPI():
             plane_types_dict[Id] = dict1
         return plane_types_dict
 
-
     def get_past_flights(self):
         title = "departingFrom,arrivingAt,departure,arrival,aircraftID,captain,copilot,fsm,fa1,fa2"
         all_past_flights_dict = {}
@@ -64,7 +62,6 @@ class LLAPI():
             dict1 = dict(zip(title_to_list, line_to_list[1:]))
             all_past_flights_dict[Id] = dict1
         return all_past_flights_dict
-
 
     def get_upcoming_flights(self):
         title = "departingFrom,arrivingAt,departure,arrival"
@@ -80,14 +77,14 @@ class LLAPI():
         return all_upcoming_flights_dict
 
 
-def main():
+# def main():
     #foo = LLAPI().get_airplane_types()
-    #print(foo)
+    # print(foo)
     #fuu = LLAPI().get_past_flights()
-    #print(fuu)
+    # print(fuu)
     #fii = LLAPI().get_airplane_types()
-    #print(fii)
+    # print(fii)
     #fcc = LLAPI().get_upcoming_flights()
-    #print(fcc)
+    # print(fcc)
 
-main()
+# main()
