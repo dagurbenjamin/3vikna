@@ -1,3 +1,6 @@
+from LLAPI import LLAPI
+
+
 class AirplanesLL:
     def __init__(self, plane_list):
         self.plane_list = plane_list
@@ -21,9 +24,6 @@ class AirplanesLL:
         plane_types = list(plane_types.split(", "))
         return plane_types
 
-
-    def update_airplane(self):
-        pass
 
 def main():
     plane_list = ["NABAE146", "BAE", "146", "82", "23820", "38101", "31.1", "11000", "26.19", "8.61", "26", "34"]
