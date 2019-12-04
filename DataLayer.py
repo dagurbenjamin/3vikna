@@ -21,7 +21,7 @@ class IOAPI():
         d = VoyagesIO(self.a_str)
         d.write_in_file_upcoming_flights(self.a_str)
 
-    def load_destination_from_file(self, destination):
+    def load_destination_from_file(self):
         fileStream_destinations = open("DestinationsFile.csv", "r")
         return fileStream_destinations
 

@@ -20,11 +20,11 @@ class LLAPI():
 
     def get_all_destinations(self):
         destination_list = []
-        destinationInfo = IOAPI.load.destination_from_file()
+        destinationInfo = IOAPI().load_destination_from_file()
         for line in destinationInfo:
             inner_list = []
             inner_list.append(line)
-            employee_list.append(inner_list)
+            destination_list.append(inner_list)
         return destination_list
 
     def save_new_destination(self, newDestination):
@@ -33,6 +33,9 @@ class LLAPI():
 
 def main():
     foo = LLAPI().get_all_employees()
+    print(foo)
+    fuu = LLAPI().get_all_destinations()
+    print(fuu)
 
 
 main()
