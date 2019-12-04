@@ -100,23 +100,23 @@ class VoyagesIO():
 
 
 def main():
-    new_employee = 'New employee \n'
-    a = IOAPI().store_crew_to_file(new_employee)
+    # new_employee = 'New employee \n'
+    # a = IOAPI().store_crew_to_file(new_employee)
 
-    new_past_flight = "i am a past flight \n"
-    b = IOAPI().store_past_flights_to_file(new_past_flight)
+    # new_past_flight = "i am a past flight \n"
+    # b = IOAPI().store_past_flights_to_file(new_past_flight)
 
-    new_upcoming_flight = "i am a upcoming flight \n"
-    y = IOAPI().store_upcoming_flights_to_file(new_upcoming_flight)
+    # new_upcoming_flight = "i am a upcoming flight \n"
+    # y = IOAPI().store_upcoming_flights_to_file(new_upcoming_flight)
 
-    new_airplane_type = "i am info \n"
-    y = IOAPI().store_airplanesinfo_to_file(new_airplane_type)
+    # new_airplane_type = "i am info \n"
+    # y = IOAPI().store_airplanesinfo_to_file(new_airplane_type)
 
-    new_airplane = "i am airplane \n"
-    j = IOAPI().store_airplanes_to_file(new_airplane)
+    # new_airplane = "i am airplane \n"
+    # j = IOAPI().store_airplanes_to_file(new_airplane)
 
-    new_destination = "i am a destination \n"
-    j = IOAPI().store_destination_to_file(new_destination)
+    # new_destination = "i am a destination \n"
+    # j = IOAPI().store_destination_to_file(new_destination)
 
 
 main()
