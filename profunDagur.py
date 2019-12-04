@@ -1,42 +1,55 @@
-from LLAPI import LLAPI
+from DataLayer import IOAPI
+title = 'ssn,name,role,rank,licence,address,phonenumber'
+title2 = "flightNumber, departingFrom, arrivingAt, departure, arrival, aircraftID, captain, copilot, fsm, fa1, fa2"
 
 
-class AirplanesLL:
-    def __init__(self, plane_list):
-        self.plane_list = plane_list
+class LLAPI():
+    def __init__(self, a_str=''):
+        self.a_str = a_str
 
+    def get_all_employees(self):
+        all_employees_dict = {}
+        title_to_list = title.split(',')
+        employeesInfo = IOAPI().load_crew_from_file()
+        for line in employeesInfo:
+            taka_newline = line.strip('\n')
+            line_to_list = taka_newline.split(',')
+            Id = line_to_list[-1]
+            dict1 = dict(zip(title_to_list, line_to_list))
+            all_employees_dict[Id] = dict1
+        return all_employees_dict
 
-    def create_airplane_info(self, plane_list):
-        plane_list = ",".join(plane_list)
-        return plane_list
+    def save_new_employee(self, newEmployee):
+        IOAPI().store_crew_to_file(newEmployee)
 
+    def get_all_destinations(self):
+        destination_list = []
+        destinationInfo = IOAPI().load_destination_from_file()
+        for line in destinationInfo:
+            inner_list = []
+            inner_list.append(line)
+            destination_list.append(inner_list)
+        return destination_list
 
-    def new_airplane(self, new_plane):
-        new_plane = ",".join(new_plane)
-        return new_plane
+    def save_new_destination(self, newDestination):
+        IOAPI().store_destination_to_file(newDestination)
 
-
-    def get_airplanes(self, the_plains):
-        the_plains = list(the_plains.split(", "))
-        return the_plains
-
-
-    def get_airplane_types(self, plane_types):
-        plane_types = list(plane_types.split(", "))
-        return plane_types
-
+    def get_past_flights(self):
+        title2 = "flightNumber, departingFrom, arrivingAt, departure, arrival, aircraftID, captain, copilot, fsm, fa1, fa2"
+        all_past_flights_dict = {}
+        title_to_list = title2.split(',')
+        flights_info = IOAPI().load_past_flights_from_file()
+        for line in flights_info:
+            take_newline = line.strip('\n')
+            line_to_list = take_newline.split(',')
+            id = line_to_list[0]
+            dict1 = dict(zip(title_to_list, line_to_list))
+            all_past_flights_dict[id] = dict1
+        return all_past_flights_dict
 
 def main():
-    plane_list = ["NABAE146", "BAE", "146", "82", "23820", "38101", "31.1", "11000", "26.19", "8.61", "26", "34"]
-    new_plane = ["ID", "Name"]
-    the_plains = "ID, Name"
-    plain_type = "NABAE146, BAE, 146, 82, 23820, 38101, 31.1, 11000, 26.19, 8.61, 26, 34"
-    a = AirplanesLL(plane_list)
-    a.create_airplane_info(plane_list)
-    b = AirplanesLL(new_plane)
-    b.new_airplane(new_plane)
-    c = AirplanesLL(the_plains)
-    c.get_airplanes(the_plains)
-    d = AirplanesLL(plain_type)
-    d.get_airplane_types(plain_type)
+    foo = LLAPI().get_all_employees()
+    print(foo)
+    fuu = LLAPI().get_past_flights()
+    print(fuu)
 main()

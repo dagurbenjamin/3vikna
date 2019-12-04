@@ -3,17 +3,27 @@ from itertools import count
 
 
 class Flights():
-    _ids = count(1)
+    _ids = count(0)
 
     def __init__(self, flightdata):
         self.id = next(self._ids)
         self.flightdata = flightdata
+
 
     def make_flightnumer(self, flightdata, destination_data):
         NaN_air_letters = 'NA'
         destination_number = destination_data[-1]
         flight_number = '{}{}{}'.format(
             NaN_air_letters, destination_number, self.id)
+
+
+    def get_past_flights(self):
+        past_flight_info = LLAPI().
+
+
+    def get_upcoming_flights(self):
+        pass
+
 
 
 destination_data = ['GOH', 'Nuuk', 'Greenland', '1405',
