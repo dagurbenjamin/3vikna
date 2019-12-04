@@ -42,7 +42,7 @@ class IOAPI():
         s = AirplanesIO().write_in_airplanesinfo_file(new_airplane_type)
 
     def load_crew_from_file(self):
-        fileStream_crew = open("Crew.csv", "r")
+        fileStream_crew = open("CrewFile.csv", "r")
         # ef empty hvað þá?
         return fileStream_crew
 
@@ -100,7 +100,7 @@ class VoyagesIO():
         f.close()
 
 
-def main():
+# def main():
     # new_employee = 'New employee \n'
     # a = IOAPI().store_crew_to_file(new_employee)
 
@@ -120,4 +120,4 @@ def main():
     # j = IOAPI().store_destination_to_file(new_destination)
 
 
-main()
+# main()
