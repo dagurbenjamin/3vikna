@@ -22,8 +22,9 @@ class FlightsLL():
         past_flight_info = LLAPI().get_past_flights()
         print(past_flight_info)
 
-    def get_upcoming_flights(self):
-        pass
+    def get_upcoming_flightsLL(self):
+        upcoming_flight_info = LLAPI().load_upcoming_flights_from_file()
+        print(upcoming_flight_info)
 
 
 
