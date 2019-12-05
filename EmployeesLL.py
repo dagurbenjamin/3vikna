@@ -40,27 +40,33 @@ class EmployeesLL():
         pass
 
     def get_all_pilots(self):
+        all_cabincrew_list = []
         all_employees_dict = LLAPI().get_all_employees()
         for key in all_employees_dict:
             if key[0] == 'C':
-                # print(key)
-                all_values = all_employees_dict[key]
-                get_role = all_values
-                print(get_role)
-            else:
-                return None
+                per_employee = []
+                name = all_employees_dict[key]['name']
+                per_employee.append(name)
+                per_employee.append(key)
+                Licence = all_employees_dict[key]['licence']
+                per_employee.append(Licence)
+                all_cabincrew_list.append(per_employee)
+        print(all_cabincrew_list)
 
     def get_all_cabincrew(self):
+        all_cabincrew_list = []
         all_employees_dict = LLAPI().get_all_employees()
         for key in all_employees_dict:
             if key[0] == 'F':
-                print(key)
-                all_values = all_employees_dict[key]
-                get_role = all_values
-                print(get_role)
+                per_employee = []
+                name = all_employees_dict[key]['name']
+                per_employee.append(name)
+                per_employee.append(key)
+                all_cabincrew_list.append(per_employee)
+        print(all_cabincrew_list)
 
 
-get_pilots = EmployeesLL().get_all_cabincrew()
+get_cabin = EmployeesLL().get_all_cabincrew()
 
 
 # #bar = EmployeesLL()
