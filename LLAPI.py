@@ -77,7 +77,7 @@ class LLAPI():
         return all_upcoming_flights_dict
 
 
-def main():
+#def main():
     #foo = LLAPI().get_airplane_types()
     #print(foo)
     #fuu = LLAPI().get_past_flights()
@@ -89,4 +89,4 @@ def main():
     #fee = LLAPI().get_all_destinations()
     #print(fee)
 
-main()
+#main()
