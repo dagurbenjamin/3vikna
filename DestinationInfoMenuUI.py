@@ -1,11 +1,12 @@
-from UIAPI import UIAPI
+from UIMAIN import UIMAIN
+
 
 class AlldestinationsmenuUI():
 
     def __init__(self):
         pass
     #taka inn destination ut fra inputti fra fyrri sidu
-    def print_all_destinations_menu(self,destination_list):
+    def print_all_destination_info_menu(self, destination_dict):
         print('****************************************************************')
         print('                                                                ')
         print('		        NaN Air                "q" - quitAndSave           ')
@@ -13,7 +14,7 @@ class AlldestinationsmenuUI():
         print('****************************************************************')
         print('                                                                ')
         print('           ----------------------------------------             ')
-        print('                     Destination: {}                            '.format())
+        print('                     Destination: {}-{}                          '.format())
         print('           ----------------------------------------             ')
         print('                                                                ')
         print('   Airport                Country              Distance         ')
@@ -34,6 +35,8 @@ class AlldestinationsmenuUI():
         print('Back one page................"bp"                               ')
 
 
-a = UIAPI().get_all_destinations()
-print(a)
+a = UIMAIN().get_all_destinations()
+print(a['GOH']['country'])
+b = AlldestinationsmenuUI()
+
 
