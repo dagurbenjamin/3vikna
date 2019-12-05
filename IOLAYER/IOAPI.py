@@ -47,12 +47,10 @@ class IOAPI():
         s = AirplanesIO().write_in_airplanesinfo_file(new_airplane_type)
 
     def load_crew_from_file(self):
-        try:
-            fileStream_crew = open("CrewFile.csv", "r")
-            return fileStream_crew
-        # ef empty hvað þá?
-        except IOError:
-            return None
+        with open('CrewFile.csv', newline='') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                print(row['first_name'], row['last_name'])
 
     def store_crew_to_file(self, new_employee=''):
         b = CrewIO().write_in_file(new_employee)
@@ -126,28 +124,4 @@ class VoyagesIO():
         f.close()
 
 
-#get_crew = IOAPI().load_crew_from_file()
-# for line in get_crew:
-    # print(line)
-
-# def main():
-# new_employee = 'New employee \n'
-# a = IOAPI().store_crew_to_file(new_employee)
-
-# new_past_flight = "i am a past flight \n"
-# b = IOAPI().store_past_flights_to_file(new_past_flight)
-
-# new_upcoming_flight = "i am a upcoming flight \n"
-# y = IOAPI().store_upcoming_flights_to_file(new_upcoming_flight)
-
-# new_airplane_type = "i am info \n"
-# y = IOAPI().store_airplanesinfo_to_file(new_airplane_type)
-
-# new_airplane = "i am airplane \n"
-# j = IOAPI().store_airplanes_to_file(new_airplane)
-
-# new_destination = "i am a destination \n"
-# j = IOAPI().store_destination_to_file(new_destination)
-
-
-# main()
+x = IOAPI().load_crew_from_file()
