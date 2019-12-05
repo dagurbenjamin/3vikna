@@ -1,5 +1,5 @@
-from UILayer.UIMAIN import UIMAIN
-from DestinationsMenuUI import DestinationsMenuUI
+from UILAYER.UIMAIN import UIMAIN
+from UILAYER.DestinationsMenuUI import DestinationsMenuUI
 
 class Mainmenu():
 
