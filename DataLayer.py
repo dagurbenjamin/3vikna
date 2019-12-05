@@ -120,15 +120,15 @@ class VoyagesIO():
         f.write(new_upcoming_flight)
         f.close()
 
-        def overwrite_upcoming_flights_file(self, updated_upcoming_flights_str=''):
+    def overwrite_upcoming_flights_file(self, updated_upcoming_flights_str=''):
         f = open("UpcomingFlightsFile.csv", "w")
         f.write(updated_upcoming_flights_str)
         f.close()
 
 
-get_crew = IOAPI().load_crew_from_file()
-for line in get_crew:
-    print(line)
+#get_crew = IOAPI().load_crew_from_file()
+#for line in get_crew:
+    #print(line)
 
 # def main():
 # new_employee = 'New employee \n'
