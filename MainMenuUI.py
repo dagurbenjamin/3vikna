@@ -1,5 +1,5 @@
 from UIMAIN import UIMAIN
-from AllDestinationsMenuUI import AllDestinationsMenuUI
+from DestinationsMenuUI import DestinationsMenuUI
 
 class Mainmenu():
 
@@ -31,9 +31,9 @@ class Mainmenu():
         print('                                                                ')
         print('                                                                ')
         if input_command == '1':
-            b = AllDestinationsMenuUI().print_all_destinations_menu()
+            b = DestinationsMenuUI().print_all_destinations_menu()
         elif input_command == '2':
-            b = AllDestinationsMenuUI().print_all_destinations_menu()
+            b = DestinationsMenuUI().print_all_destinations_menu()
 
 
 a = Mainmenu()
