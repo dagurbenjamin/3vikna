@@ -1,4 +1,5 @@
-from UIAPI import UIAPI
+from UIMAIN import UIMAIN
+from AllDestinationsMenuUI import AllDestinationsMenuUI
 
 class Mainmenu():
 
@@ -14,18 +15,28 @@ class Mainmenu():
         print('              Title                 Input Command               ')
         print('           ----------             -----------------             ')
         print('                                                                ')
-        print('            Airplanes....................."A"                   ')
+        print('            Airplanes....................."1"                   ')
         print('                                                                ')
-        print('            Destinations.................."D"                   ')
+        print('            Destinations.................."2"                   ')
         print('                                                                ')
-        print('            Employees....................."E"                   ')
+        print('            Employees....................."3"                   ')
         print('                                                                ')
-        print('            Voyage........................"V"                   ')
+        print('            Voyage........................"4"                   ')
         print('                                                                ')
         print('                                                                ')
         print('                                                                ')
+        input_command = input("Enter input command: ")
+        print('                                                                ')
+        print('                                                                ')
+        print('                                                                ')
+        print('                                                                ')
+        if input_command == '1':
+            b = AllDestinationsMenuUI().print_all_destinations_menu()
+        elif input_command == '2':
+            b = AllDestinationsMenuUI().print_all_destinations_menu()
+
 
 a = Mainmenu()
-a.print_main_menu()
+b = a.print_main_menu()
 
 
