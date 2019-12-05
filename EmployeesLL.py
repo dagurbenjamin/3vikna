@@ -1,4 +1,5 @@
 from LLAPI import LLAPI
+from DataLayer import IOAPI
 from itertools import count
 
 
@@ -28,12 +29,28 @@ class EmployeesLL():
         return employee_str
 
     def get_all_employees(self):
-        a = LLAPI()
-        all_employees = a.get_all_employees()
-        return all_employees
+        employeesInfo = IOAPI().load_crew_from_file()
+        all_employees_list = []
+        for line in employeesInfo:
+            taka_newline = line.strip('\n')
+            per_employee_list = taka_newline.split(',')
+            all_employees_list.append(per_employee_list)
+        return all_employees_list
 
-    def get_employee():
-        pass
+    def get_employee(self, name=''):
+        all_employees_list = EmployeesLL().get_all_employees()
+        names_list = []
+        for a_list in all_employees_list:
+            for val in a_list:
+                if val == name:
+                    names_list.append(a_list)
+        if len(names_list) == 1:
+            return a_list
+        else:
+            return names_list
+
+    def choose_employee_to_see(self, number, names_list):
+        return names_list[number]
 
     def update_employee(self, employee_id_input):
         # get the crew file from data layer
@@ -66,33 +83,9 @@ class EmployeesLL():
         print(all_cabincrew_list)
 
 
-get_cabin = EmployeesLL().get_all_cabincrew()
+name = 'Allen Ley'
+foo = EmployeesLL().get_employee(name)
+number = 1
+x = EmployeesLL().choose_employee_to_see(number, foo)
 
-
-# #bar = EmployeesLL()
-# all_employess_list = bar.get_all_employees()
-
-# # ssn,name,role,rank,licence,address,phonenumber, email
-# a_list = ['2910858778', 'Virginia Ho', 'Pilot', 'Captain',
-#           'NABAE146', 'Fellsmuli 2', '8998802', 'virginia@NaN.is']
-# a = EmployeesLL(a_list)
-# a.create_ID(a_list)
-
-# # þegar info um employee er komið i streng þa kalla eg i :
-# # foo = LLAPI().save_new_employee("Save a new employee")
-
-
-# b_list = ['2209955782', 'Allen Ley', 'Pilot', 'Copilot',
-#           'NABAE146', 'Fellsmuli 4', '8998804', 'allen@NaN.is']
-# b = EmployeesLL(b_list)
-# b.create_ID(b_list)
-
-# c_list = ['409858797', 'Evelyn Pickhardt', 'Cabincrew',
-#           'Flight Service Manager', 'N/A', 'Fellsmuli 20', '8998820', 'evelyn@NaN.is']
-# c = EmployeesLL(c_list)
-# c.create_ID(c_list)
-
-# d_list = ['1103647756', 'Wilma Horne', 'Cabincrew',
-#           'Flight Attendant', 'N/A', 'Fellsmuli 25', '8998825', 'Wilma@NaN.is']
-# d = EmployeesLL(d_list)
-# d.create_ID(d_list)
+print(x)
