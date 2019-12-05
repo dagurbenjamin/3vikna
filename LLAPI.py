@@ -5,7 +5,7 @@ class LLAPI():
     def __init__(self, a_str=''):
         self.a_str = a_str
 
-    def get_all_employees(self):
+    def get_all_employees_dict(self):
         title = 'ssn,name,role,rank,licence,address,phonenumber'
         all_employees_dict = {}
         title_to_list = title.split(',')
@@ -77,16 +77,16 @@ class LLAPI():
         return all_upcoming_flights_dict
 
 
-#def main():
+# def main():
     #foo = LLAPI().get_airplane_types()
-    #print(foo)
+    # print(foo)
     #fuu = LLAPI().get_past_flights()
-    #print(fuu)
+    # print(fuu)
     #fii = LLAPI().get_airplane_types()
     # print(fii)
     #fcc = LLAPI().get_upcoming_flights()
-    #print(fcc)
+    # print(fcc)
     #fee = LLAPI().get_all_destinations()
-    #print(fee)
+    # print(fee)
 
-#main()
+# main()
