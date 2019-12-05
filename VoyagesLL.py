@@ -21,5 +21,7 @@ class Voyages():
     def get_voyage():
         pass
 
-    def update_voyage():
-        pass
+    def update_voyage(self, updatedVoyage):
+        IOAPI().store_voyage_to_file(updatedVoyage)
+
+
