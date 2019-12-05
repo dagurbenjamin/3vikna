@@ -127,8 +127,8 @@ class VoyagesIO():
 
 
 #get_crew = IOAPI().load_crew_from_file()
-#for line in get_crew:
-    #print(line)
+# for line in get_crew:
+    # print(line)
 
 # def main():
 # new_employee = 'New employee \n'
@@ -151,6 +151,3 @@ class VoyagesIO():
 
 
 # main()
-
-updated_employees_str = 'helsokdmkjifdtdtfdjsf\nksjoaslkffh\nLASJÆLAJFQWf'
-IOAPI().update_employee_and_overwrite(updated_employees_str)
