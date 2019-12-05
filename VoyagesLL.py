@@ -1,8 +1,12 @@
+from DataLayer import IOAPI
+
 class Voyages():
     def __init__(self, a_str):
         self.a_str = a_str
 
     def create_voyage(self, new_voyage_list):
+        #id number, date, time, staff status
+        new_voyage_list = ','.join(new_voyage_list)
         return new_voyage_list
     
 
@@ -21,9 +25,8 @@ class Voyages():
 
     def get_voyage(self):
         #title = "id number, date, time, staff status"?
-        id = input('Enter I.D. ')
+        id = input('Enter I.D: ')
             
-
 
 
         
