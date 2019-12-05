@@ -8,4 +8,3 @@ class UIMAIN():
         return all_destinations_dict
 
 
-

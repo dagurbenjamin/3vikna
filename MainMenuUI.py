@@ -36,7 +36,6 @@ class Mainmenu():
             b = DestinationsMenuUI().print_all_destinations_menu()
 
 
+
 a = Mainmenu()
 b = a.print_main_menu()
-
-
