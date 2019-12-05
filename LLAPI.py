@@ -22,7 +22,7 @@ class LLAPI():
         IOAPI().store_crew_to_file(newEmployee)
 
     def get_all_destinations(self):
-        title = 'id,destination,country,distance,contactname,emergencynumber,flighttime,destinationnumber'
+        title = 'destination,country,distance,contactname,emergencynumber,flighttime,destinationnumber'
         all_destinations_dict = {}
         title_to_list = title.split(',')
         destinationsInfo = IOAPI().load_destination_from_file()
@@ -30,7 +30,7 @@ class LLAPI():
             taka_newline = line.strip('\n')
             line_to_list = taka_newline.split(',')
             Id = line_to_list[0]
-            dict1 = dict(zip(title_to_list, line_to_list))
+            dict1 = dict(zip(title_to_list, line_to_list[1:]))
             all_destinations_dict[Id] = dict1
         return all_destinations_dict
 
@@ -38,7 +38,7 @@ class LLAPI():
         IOAPI().store_destination_to_file(newDestination)
 
     def get_airplane_types(self):
-        title = 'planeTypeId,manufacturer,model,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan'
+        title = 'manufacturer,model,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan'
         plane_types_dict = {}
         title_to_list = title.split(',')
         airplanesInfo = IOAPI().load_airplanesinfo_from_file()
@@ -46,7 +46,7 @@ class LLAPI():
             remove_newline = line.strip('\n')
             line_to_list = remove_newline.split(',')
             Id = line_to_list[0]
-            dict1 = dict(zip(title_to_list, line_to_list))
+            dict1 = dict(zip(title_to_list, line_to_list[1:]))
             plane_types_dict[Id] = dict1
         return plane_types_dict
 
@@ -77,14 +77,16 @@ class LLAPI():
         return all_upcoming_flights_dict
 
 
-# def main():
+#def main():
     #foo = LLAPI().get_airplane_types()
-    # print(foo)
+    #print(foo)
     #fuu = LLAPI().get_past_flights()
-    # print(fuu)
+    #print(fuu)
     #fii = LLAPI().get_airplane_types()
     # print(fii)
     #fcc = LLAPI().get_upcoming_flights()
-    # print(fcc)
+    #print(fcc)
+    #fee = LLAPI().get_all_destinations()
+    #print(fee)
 
-# main()
+#main()
