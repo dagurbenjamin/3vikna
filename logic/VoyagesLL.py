@@ -1,14 +1,14 @@
 from IOLAYER.IOAPI import IOAPI
 
-class Voyages():
+
+class VoyagesLL():
     def __init__(self, a_str):
         self.a_str = a_str
 
     def create_voyage(self, new_voyage_list):
-        #id number, date, time, staff status
+        # id number, date, time, staff status
         new_voyage_list = ','.join(new_voyage_list)
         return new_voyage_list
-    
 
     def get_all_voyages_dict(self):
         title = 'id number, date, time, staff status'
@@ -24,18 +24,8 @@ class Voyages():
         return all_voyages_dict
 
     def get_voyage(self):
-        #title = "id number, date, time, staff status"?
+        # title = "id number, date, time, staff status"?
         id = input('Enter I.D: ')
-            
-
-
-        
-
-
-
-      
 
     def update_voyage(self, updatedVoyage):
         IOAPI().store_voyage_to_file(updatedVoyage)
-
-
