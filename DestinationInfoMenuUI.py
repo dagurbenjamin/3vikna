@@ -1,6 +1,5 @@
 from UIMAIN import UIMAIN
-
-
+from MainMenuUI import Mainmenu
 class DestinationInfoMenuUI():
 
     def __init__(self):
@@ -33,5 +32,10 @@ class DestinationInfoMenuUI():
         print('Back to main menu............"mm"                               ')
         print('Back to sub menu............."sm"                               ')
         print('Back one page................"bp"                               ')
+        input_command = input('Enter input command: ')
+        if input_command == 'mm':
+            Mainmenu().print_main_menu()
+            
+            
 
 
