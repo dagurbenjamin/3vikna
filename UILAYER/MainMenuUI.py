@@ -1,4 +1,4 @@
-from UIMAIN import UIMAIN
+from UILayer.UIMAIN import UIMAIN
 from DestinationsMenuUI import DestinationsMenuUI
 
 class Mainmenu():
