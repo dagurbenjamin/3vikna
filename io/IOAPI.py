@@ -47,7 +47,7 @@ class IOAPI():
         s = AirplanesIO().write_in_airplanesinfo_file(new_airplane_type)
 
     def load_crew_from_file(self):
-        with open('CrewFile.csv', newline='') as csvfile:
+        with open('', newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 print(row['first_name'], row['last_name'])
