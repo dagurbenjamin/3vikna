@@ -2,10 +2,11 @@ class Voyages():
     def __init__(self, a_str):
         self.a_str = a_str
 
-    def create_voyage():
-        pass
+    def create_voyage(self, new_voyage_list):
+        return new_voyage_list
+    
 
-    def get_all_voyages(self):
+    def get_all_voyages_dict(self):
         title = 'id number, date, time, staff status'
         all_voyages_dict = {}
         title_to_list = title.split(',')
@@ -18,8 +19,18 @@ class Voyages():
             all_voyages_dict[Id] = dict1
         return all_voyages_dict
 
-    def get_voyage():
-        pass
+    def get_voyage(self):
+        #title = "id number, date, time, staff status"?
+        id = input('Enter I.D. ')
+            
+
+
+
+        
+
+
+
+      
 
     def update_voyage(self, updatedVoyage):
         IOAPI().store_voyage_to_file(updatedVoyage)
