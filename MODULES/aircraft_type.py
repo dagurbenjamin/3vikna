@@ -19,6 +19,9 @@ class Aircraft_type:
         return "{},{},{},{},{},{},{},{},{},{},{}".format(self.TypeId, self.manufacturer, self.model, self.capacity
                                                         self.emptyWeight, self.maxTakeoffWeight, self.unitThrust, self.serviceCeiling,
                                                         self.length, self.height, self.wingspan)
+    
+    def __repr__(self):
+        return self.__str__()
 
     def get_typeid(self):  
          return self.get_TypeId
@@ -52,6 +55,8 @@ class Aircraft_type:
 
     def get_wingspan(self):
         return self.wingspan
+
+
 
     
 
