@@ -13,6 +13,12 @@ class PastFlights():
         self.fa1 = fa1
         self.fa2 = fa2
 
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        return "{},{},{},{},{},{},{},{},{},{}".format(self.departingFrom, self.arrivingAt, self.departure, self.arrival, self.aircraftID,
+                                                      self.captain, self.copilot, self.fsm, self.fa1, self.fa2)
 
 
     def get_departingFrom(self):
@@ -75,6 +81,3 @@ class PastFlights():
     def set_fa2(self, new):
         self.fa2 = new  
 
-    def __str__(self):
-        return "{},{},{},{},{},{},{},{},{},{}".format(self.departingFrom, self.arrivingAt, self.departure, self.arrival, self.aircraftID,
-                                                      self.captain, self.copilot, self.fsm, self.fa1, self.fa2)
