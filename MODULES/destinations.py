@@ -62,4 +62,7 @@ class Destinations:
         return "{},{},{},{},{},{},{},{},{}".format(self.id, self.destination, self.country, self.distance
                                                    self.contactname, self.emergencynumber, self.flighttime, self.destinationnumber)
 
+
+#asdf
+
     
