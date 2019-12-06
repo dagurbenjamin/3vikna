@@ -1,4 +1,4 @@
-class Destinations:
+class Destinations():
 
     def __init__(self, id, destination, country, distance, contactname, emergencynumber, flighttime, destinationnumber):
         self.id = id
@@ -59,10 +59,7 @@ class Destinations:
         self.destinationnumber = new    
 
     def __str__(self):
-        return "{},{},{},{},{},{},{},{},{}".format(self.id, self.destination, self.country, self.distance
+        return "{},{},{},{},{},{},{},{},{}".format(self.id, self.destination, self.country, self.distance,
                                                    self.contactname, self.emergencynumber, self.flighttime, self.destinationnumber)
-
-
-#asdf
 
     
