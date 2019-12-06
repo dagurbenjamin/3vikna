@@ -21,7 +21,7 @@ class LLAPI():
     def save_new_employee(self, newEmployee):
         IOAPI().store_crew_to_file(newEmployee)
 
-    def get_all_destinations(self):
+    def get_all_destinations_dict(self):
         title = 'destination,country,distance,contactname,emergencynumber,flighttime,destinationnumber'
         all_destinations_dict = {}
         title_to_list = title.split(',')
