@@ -4,7 +4,11 @@ class Aircraft:
         self.insignia = insignia
         self.typeid = typeid
     
+    def __repr__(self):
+        return self.__str__()
 
+    def __str__(self):
+        return "{},{}".format(self.insignia, self.typeid)
 
     def get_insignia(self):
         return self.insignia
@@ -17,6 +21,3 @@ class Aircraft:
     
     def set_typeid(self, new):
         self.typeid = new
-        
-    def __str__(self):
-    return "{},{}".format(self.insignia, self.typeid)
