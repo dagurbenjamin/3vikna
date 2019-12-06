@@ -52,7 +52,7 @@ class IOAPI():
         s = AirplanesIO().write_in_airplanesinfo_file(new_airplane_type)
     
     def load_crew_from_file(self):
-        with open('./data_files/Crew.csv') as csvfile:
+        with open('./data_files/CrewFile.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'],
@@ -65,5 +65,7 @@ class IOAPI():
 
 
 x = IOAPI().load_destination_from_file()
+print('')
+b = IOAPI().load_crew_from_file()
 
 
