@@ -1,11 +1,11 @@
 class Crew:
 
-    def __init__(self, social, name, role, rank, license, address, phone, email, Id):
+    def __init__(self, social, name, role, rank, userlicense, address, phone, email, Id):
         self.social = social
         self.name = name
         self.role = role
         self.rank = rank
-        self.license = license
+        self.license = userlicense
         self.address = address
         self.phone = phone
         self.email = email
