@@ -1,72 +1,71 @@
-from DataLayer import IOAPI
+import csv
+import os
 
 
-
-class LLAPI():
+class IOAPI():
     def __init__(self, a_str=''):
         self.a_str = a_str
 
-    def get_all_employees(self):
-        title = 'ssn,name,role,rank,licence,address,phonenumber'
-        all_employees_dict = {}
-        title_to_list = title.split(',')
-        employeesInfo = IOAPI().load_crew_from_file()
-        for line in employeesInfo:
-            taka_newline = line.strip('\n')
-            line_to_list = taka_newline.split(',')
-            Id = line_to_list[-1]
-            dict1 = dict(zip(title_to_list, line_to_list))
-            all_employees_dict[Id] = dict1
-        return all_employees_dict
+    def load_past_flights_from_file(self):
+        fileStream_past_flights = open("PastFlights.csv", "r")
+        return fileStream_past_flights
 
-    def save_new_employee(self, newEmployee):
-        IOAPI().store_crew_to_file(newEmployee)
+    def store_past_flights_to_file(self, new_past_flight=''):
+        c = VoyagesIO().write_in_file_past_flights(new_past_flight)
 
-    def get_all_destinations(self):
-        destination_list = []
-        destinationInfo = IOAPI().load_destination_from_file()
-        for line in destinationInfo:
-            inner_list = []
-            inner_list.append(line)
-            destination_list.append(inner_list)
-        return destination_list
+    def load_upcoming_flights_from_file(self):
+        fileStream_upcoming_flights = open("UpcomingFlights.csv", "r")
+        return fileStream_upcoming_flights
 
-    def save_new_destination(self, newDestination):
-        IOAPI().store_destination_to_file(newDestination)
+    def store_upcoming_flights_to_file(self, new_upcoming_flight=''):
+        d = VoyagesIO().write_in_file_upcoming_flights(new_upcoming_flight)
+
+    def update_upcoming_flights_and_overwrite(self, updated_upcoming_flights_str=''):
+        b = VoyagesIO().overwrite_upcoming_flights_file(updated_upcoming_flights_str)
+
+    def load_destination_from_file(self):
+        with open('./3vikna/data_files/Destinations.csv') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                print(row['id'], row['destination'], row['country'], row['distance'], row['contactname'],
+                      row['emergencynumber'], row['flighttime'], row['destinationnumber'])
+
+    def store_destination_to_file(self, new_destination=''):
+        d = DestinationsIO().write_in_destination_file(new_destination)
+
+    def update_destination_and_overwrite(self, updated_destination_str=''):
+        b = DestinationsIO().overwrite_destination_file(updated_destination_str)
+
+    def load_airplanes_from_file(self, planeID):
+        fileStream_aircraft = open("Aircraft.csv", "r")
+        return fileStream_aircraft
+
+    def store_airplanes_to_file(self, new_airplane=''):
+        g = AirplanesIO().write_in_airplanes_file(new_airplane)
+
+    def load_airplanesinfo_from_file(self):
+        fileStream_airplanesinfo = open("AirplanesInfoFile.csv", "r")
+        return fileStream_airplanesinfo
+
+    def store_airplanesinfo_to_file(self, new_airplane_type=''):
+        s = AirplanesIO().write_in_airplanesinfo_file(new_airplane_type)
+
+    def load_crew_from_file(self):
+        with open('./data_files/CrewFile.csv') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'],
+                      row['address'], row['phonenumber'], row['email'], row['id'])
+
+    def store_crew_to_file(self, new_employee=''):
+        b = CrewIO().write_in_file(new_employee)
+
+    def update_employee_and_overwrite(self, updated_employees_str=''):
+        b = CrewIO().overwrite_crew_file(updated_employees_str)
 
 
-    def get_past_flights(self):
-        title = "departingFrom,arrivingAt,departure,arrival,aircraftID,captain,copilot,fsm,fa1,fa2"
-        all_past_flights_dict = {}
-        title_to_list = title.split(',')
-        flights_info = IOAPI().load_past_flights_from_file()
-        for line in flights_info:
-            take_newline = line.strip('\n')
-            line_to_list = take_newline.split(',')
-            Id = line_to_list[0]
-            dict1 = dict(zip(title_to_list, line_to_list[1:]))
-            all_past_flights_dict[Id] = dict1
-        return all_past_flights_dict
+x = IOAPI().load_destination_from_file()
+print('')
+b = IOAPI().load_crew_from_file()
 
 
-    def get_upcoming_flights(self):
-        title = "departingFrom,arrivingAt,departure,arrival"
-        all_upcoming_flights_dict = {}
-        title_to_list = title.split(',')
-        flights_info = IOAPI().load_upcoming_flights_from_file()
-        for line in flights_info:
-            take_newline = line.strip('\n')
-            line_to_list = take_newline.split(',')
-            Id = line_to_list[0]
-            dict1 = dict(zip(title_to_list, line_to_list[1:]))
-            all_upcoming_flights_dict[Id] = dict1
-        return all_upcoming_flights_dict
-
-
-def main():
-    fuu = LLAPI().get_past_flights()
-    print(fuu)
-    fii = LLAPI().get_upcoming_flights()
-    print(fii)
-
-main()
