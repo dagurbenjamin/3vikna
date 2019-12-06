@@ -1,11 +1,11 @@
 class Crew:
 
-    def __init__(self, social, name, role, rank, license, address, phone, email, id):
+    def __init__(self, social, name, role, rank, user_license, address, phone, email, id):
         self.social = social
         self.name = name
         self.role = role
         self.rank = rank
-        self.license = license
+        self.user_license = user_license
         self.address = address
         self.phone = phone
         self.email = email
@@ -13,7 +13,7 @@ class Crew:
 
     def __str__(self):
         return "{},{},{},{},{},{},{},{},{}".format(self.social, self.name, self.role, self.rank,
-                                                   self.license, self.address, self.phone, self.email, self.id)
+                                                    self.user_license, self.address, self.phone, self.email, self.id)
 
     def __repr__(self):
         return self.__str__()
@@ -31,7 +31,7 @@ class Crew:
         return self.rank
 
     def get_license(self):
-        return self.licence
+        return self.user_licence
 
     def get_address(self):
         return self.address
