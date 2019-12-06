@@ -64,12 +64,8 @@ class IOAPI():
         b = CrewIO().overwrite_crew_file(updated_employees_str)
 
 
-<<<<<<< HEAD
 x = IOAPI().load_destination_from_file()
 print('')
 b = IOAPI().load_crew_from_file()
 
 
-=======
-x = IOAPI().load_crew_from_file()
->>>>>>> dc8d69ac04cd3fa98a35c97312c69ef01eb2193c
