@@ -7,7 +7,7 @@ ssn,name,role,rank,licence,address,phonenumber,email,id
 1309797899,Tyler Anderson,Pilot,Captain,NAFokkerF28,Fellsmuli 6,8998806,kd@NaN.is,CAP-AL-6
 2410876598,Nan Gage,Pilot,Copilot,NAFokkerF100,Fellsmuli 7,8998807,kd@NaN.is,COP-AL-7
 2211658134,Charla Johnson,Pilot,Copilot,NABAE146,Fellsmuli 8,8998808,kd@NaN.is,COP-AL-8
-2504939263,Sam Preciado,Pilot,Copilot,NABAE146,Fellsmuli 9,8998809,kd@NaN.is,COP-AL-9
+2504939263,Sam Preciado,Pilot,Copilot,NABAE146,Fellsmuli 9,8998809,kd@NaN.is,COP-SP-9
 1900769521,Jasmine Hagadone,Pilot,Copilot,NABAE146,Fellsmuli 10,8998810,kd@NaN.is,COP-JH-10
 2500812671,Anna Phillips,Pilot,Copilot,NAFokkerF28,Fellsmuli 11,8998811,kd@NaN.is,COP-AP-11
 1309927223,Patricia Bates,Pilot,Copilot,NAFokkerF28,Fellsmuli 12,8998812,kd@NaN.is,COP-PB-12
@@ -15,6 +15,6 @@ ssn,name,role,rank,licence,address,phonenumber,email,id
 0303758167,Margarita Fischer,Cabincrew,Flight Service Manager,N/A,Fellsmuli 14,8998814,kd@NaN.is,FSM-AL-14
 2200763823,Judith Aleshire,Cabincrew,Flight Service Manager,N/A,Fellsmuli 15,8998815,kd@NaN.is,FSM-JA-15
 3002688722,Stacey Henrickson,Cabincrew,Flight Attendant,N/A,Fellsmuli 21,8998821,kd@NaN.is,FLA-AL-16
-3003962187,Delores Whitfield,Cabincrew,Flight Attendant,N/A,Fellsmuli 22,8998822,kd@NaN.is,FLA-AL-17
+3003962187,Delores Whitfield,Cabincrew,Flight Attendant,N/A,Fellsmuli 22,8998822,kd@NaN.is,FLA-DW-17
 1311772221,Maribel Lucero,Cabincrew,Flight Attendant,N/A,Fellsmuli 23,8998823,kd@NaN.is,FLA-AL-18
 2509913418,Katherine Wernimont,Cabincrew,Flight Attendant,N/A,Fellsmuli 24,8998824,kd@NaN.is,FLA-KW-19
