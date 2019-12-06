@@ -28,8 +28,7 @@ class IOAPI():
             reader = csv.DictReader(csvfile)
             for row in reader:
                 print(row['id'], row['destination'], row['country'], row['distance'], row['contactname'],
-                    row['emergencynumber'], row['flighttime'], row['destinationnumber'])
-
+                      row['emergencynumber'], row['flighttime'], row['destinationnumber'])
 
     def store_destination_to_file(self, new_destination=''):
         d = DestinationsIO().write_in_destination_file(new_destination)
@@ -50,13 +49,14 @@ class IOAPI():
 
     def store_airplanesinfo_to_file(self, new_airplane_type=''):
         s = AirplanesIO().write_in_airplanesinfo_file(new_airplane_type)
-    
+
     def load_crew_from_file(self):
         with open('./data_files/Crew.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'],
                       row['address'], row['phonenumber'], row['email'], row['id'])
+
     def store_crew_to_file(self, new_employee=''):
         b = CrewIO().write_in_file(new_employee)
 
@@ -64,6 +64,4 @@ class IOAPI():
         b = CrewIO().overwrite_crew_file(updated_employees_str)
 
 
-x = IOAPI().load_destination_from_file()
-
-
+x = IOAPI().load_crew_from_file()
