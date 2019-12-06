@@ -1,21 +1,8 @@
-class Airplanes:
 
-    def __init__(self, insignia, typeid):
-        self.insignia = insignia
-        self.type.id = typeid
-    
-    def __str__(self):
-        return "{},{}".format(self.insignia, self.typeid)
 
-    def get_insignia(self):
-        return self.insignia
-    
-    def get_typeid(self):
-        return self.get_typeid
+class Aircraft_type:
 
-class Airplane_type:
-
-    def __init__(self, typeid, manufaturer, model, capacity, eweight, fweight, thrust, ceiling, length, height, wingspan):
+    def __init__(self, typeid, manufacturer, model, capacity, eweight, fweight, thrust, ceiling, length, height, wingspan):
         self.type = typeid
         self.manufacturer = manufacturer
         self.model = model
