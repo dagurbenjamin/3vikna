@@ -1,4 +1,4 @@
-"departingFrom,arrivingAt,departure,arrival,aircraftID,captain,copilot,fsm,fa1,fa2"
+
 
 def __init__(self, departingFrom, arrivingAt, departure, arrival, aircraftID, captain, copilots, fsm, fa1, fa2):
     self.departingFrom = departingFrom
