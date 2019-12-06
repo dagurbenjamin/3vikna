@@ -9,6 +9,13 @@ class Destinations():
         self.emergencynumber = emergencynumber
         self.flighttime = flighttime
         self.destinationnumber = destinationnumber
+    
+    def __repr__(self):
+        return self.__str__()
+
+    def __str__(self):
+        return "{},{},{},{},{},{},{},{},{}".format(self.id, self.destination, self.country, self.distance,
+                                                   self.contactname, self.emergencynumber, self.flighttime, self.destinationnumber)
 
     def get_id(self):
         return self.id
@@ -57,9 +64,7 @@ class Destinations():
 
     def set_destinationnumber(self, new):
         self.destinationnumber = new    
+    
 
-    def __str__(self):
-        return "{},{},{},{},{},{},{},{},{}".format(self.id, self.destination, self.country, self.distance,
-                                                   self.contactname, self.emergencynumber, self.flighttime, self.destinationnumber)
 
     
