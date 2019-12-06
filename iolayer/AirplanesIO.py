@@ -1,4 +1,9 @@
-class AirplanesIO(IOAPI):
+import csv
+from modules.aircraft import Aircraft
+from modules.aircraft_type import Aircraft_type
+
+
+class AirplanesIO():
     def __init__(self, a_str=''):
         self.a_str = a_str
 
@@ -17,7 +22,7 @@ class AirplanesIO(IOAPI):
         f.write(new_airplane_type)
         f.close()
 
-    def load_airplanes_from_file(self, planeID):
+    def load_airplanes_from_file(self):
         allAircrafts = []
         with open('./data_files/Aircraft.csv') as csvfile:
             reader = csv.DictReader(csvfile)

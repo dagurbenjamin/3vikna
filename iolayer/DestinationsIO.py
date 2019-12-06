@@ -1,3 +1,7 @@
+import csv
+from modules.destinations import Destinations
+
+
 class DestinationsIO():
     def __init__(self, a_str=''):
         self.a_str = a_str

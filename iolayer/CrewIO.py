@@ -1,7 +1,8 @@
-from modules.Crew import
+import csv
+from modules.Crew import Crew
 
 
-class CrewIO(IOAPI):
+class CrewIO():
     def __init__(self, a_str=''):
         self.a_str = a_str
 

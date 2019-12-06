@@ -1,4 +1,4 @@
-#flightNumber,departingFrom,arrivingAt,departure,arrival
+# flightNumber,departingFrom,arrivingAt,departure,arrival
 
 
 class UpcomingFlights:
@@ -45,4 +45,3 @@ class UpcomingFlights:
 
     def set_arrival(self, new):
         self.arrival = new
-

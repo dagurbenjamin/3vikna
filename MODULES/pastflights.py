@@ -1,7 +1,7 @@
 class PastFlights():
 
-
-    def __init__(self, departingFrom, arrivingAt, departure, arrival, aircraftID, captain, copilot, fsm, fa1, fa2):
+    def __init__(self, flightNumber, departingFrom, arrivingAt, departure, arrival, aircraftID, captain, copilot, fsm, fa1, fa2):
+        self.flightNumber = flightNumber
         self.departingFrom = departingFrom
         self.arrivingAt = arrivingAt
         self.departure = departure
@@ -17,9 +17,11 @@ class PastFlights():
         return self.__str__()
 
     def __str__(self):
-        return "{},{},{},{},{},{},{},{},{},{}".format(self.departingFrom, self.arrivingAt, self.departure, self.arrival, self.aircraftID,
-                                                      self.captain, self.copilot, self.fsm, self.fa1, self.fa2)
+        return "{},{},{},{},{},{},{},{},{},{},{}".format(self.flightNumber, self.departingFrom, self.arrivingAt, self.departure, self.arrival, self.aircraftID,
+                                                         self.captain, self.copilot, self.fsm, self.fa1, self.fa2)
 
+    def get_flightNumber(self):
+        return self.flightNumber
 
     def get_departingFrom(self):
         return self.departingFrom
@@ -36,7 +38,7 @@ class PastFlights():
     def get_aircraftID(self):
         return self.aircraftID
 
-    def  get_captain(self):
+    def get_captain(self):
         return self.captain
 
     def get_copilot(self):
@@ -50,6 +52,9 @@ class PastFlights():
 
     def get_fa2(self):
         return self.fa2
+
+    def set_flightNumber(self, new):
+        self.flightNumber = new
 
     def set_departingFrom(self, new):
         self.departingFrom = new
@@ -73,11 +78,10 @@ class PastFlights():
         self.copilot = new
 
     def set_fsm(self, new):
-        self.fsm = new  
+        self.fsm = new
 
     def set_fa1(self, new):
-        self.fa1 = new  
+        self.fa1 = new
 
     def set_fa2(self, new):
-        self.fa2 = new  
-
+        self.fa2 = new

@@ -1,6 +1,5 @@
 import csv
 import os
-from modules.Crew import Crew
 
 
 class IOAPI():

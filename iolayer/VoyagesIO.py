@@ -1,13 +1,18 @@
+import csv
+from modules.pastflights import PastFlights
+from modules.upcomingflights import UpcomingFlights
+
+
 class VoyagesIO():
     def __init__(self, a_str=''):
         self.a_str = a_str
 
     def load_upcoming_flights_from_file(self):
         allUpcoming_flights = []
-        with open('./data_files/Aircraft.csv') as csvfile:
+        with open('./GognFraKennara/UpcomingFlights.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                upcomingFlight = Aircraft(
+                upcomingFlight = UpcomingFlights(
                     row['flightNumber'], row['departingFrom'], row['arrivingAt'], row['departure'], row['arrival'])
                 allUpcoming_flights.append(upcomingFlight)
         return allUpcoming_flights
@@ -24,11 +29,11 @@ class VoyagesIO():
 
     def load_past_flights_from_file(self):
         allPast_flights = []
-        with open('./data_files/Aircraft.csv') as csvfile:
+        with open('./GognFraKennara/PastFlights.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                pastFlight = Aircraft(row['flightNumber'], row['departingFrom'], row['arrivingAt'], row['departure'],
-                                      row['arrival'], row['aircraftID'], row['captain'], row['copilot'], row['fsm'], row['fa1'], row['fa2'])
+                pastFlight = PastFlights(row['flightNumber'], row['departingFrom'], row['arrivingAt'], row['departure'],
+                                         row['arrival'], row['aircraftID'], row['captain'], row['copilot'], row['fsm'], row['fa1'], row['fa2'])
                 allPast_flights.append(pastFlight)
         return allPast_flights
 
