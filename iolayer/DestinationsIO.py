@@ -13,13 +13,13 @@ class DestinationsIO():
             for row in reader:
                 if destination_id == '0':
                     destination = Destinations(row['id'], row['destination'], row['country'], row['distance'], row['contactname'],
-                                    row['emergencynumber'], row['flighttime'], row['destinationnumber'])
+                                               row['emergencynumber'], row['flighttime'], row['destinationnumber'])
                     alldestinations.append(destination)
                 elif row['id'] == destination_id:
                     destination = Destinations(row['id'], row['destination'], row['country'], row['distance'],
-                                    row['contactname'], row['emergencynumber'], row['flighttime'], row['destinationnumber'])
+                                               row['contactname'], row['emergencynumber'], row['flighttime'], row['destinationnumber'])
                     alldestinations.append(destination)
-                break
+                    break
         return alldestinations
 
     def write_in_destination_file(self, new_destination=''):
