@@ -1,28 +1,36 @@
-import csv
-import os
-from modules.aircraft.Aircraft import Aircraft
-from modules.aircraft_type.Aircraft_type import Aircraft_type
+
+from iolayer.AirplanesIO import AirplanesIO
+from iolayer.CrewIO import CrewIO
+from iolayer.DestinationsIO import DestinationsIO
+from iolayer.VoyagesIO import VoyagesIO
+from modules.Crew import Crew
+
+#x = IOAPI().load_destination_from_file()
+# print('')
+# b = IOAPI().load_crew_from_file()
+# c = Crew("", "")
+# IOAPI().store_crew_to_file(c)
 
 
-class AircraftData(object):
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def get_aircraft():
-        try:
-            with open("./data_files/AircraftType.csv") as file:
-                csv_reader = csv.DictReader(file)
-                aircrafts = []
-                for line in csv_reader:
-                    aircrafts.append(line)
-                return aircrafts
-            except Exception:
-                return False
-        
-        @staticmethod
-        def add_aircraft(aircraft):
-            model = aircraft.get_model()
-            
+#x = AirplanesIO().load_airplanes_from_file()
+#y = AirplanesIO().load_airplanesinfo_from_file()
+# a = CrewIO().load_crew_from_file()
+# b = DestinationsIO().load_destination_from_file()
+# c = VoyagesIO().load_past_flights_from_file()
+# d = VoyagesIO().load_upcoming_flights_from_file()
 
 
+# inputt = 'Cabincrew'
+# x = CrewIO().load_pilot_or_cabincrew(inputt)
+# print(x)
+# a = []
+
+# for crew in x:
+#     b = []
+#     b.append(crew)
+#     a.append(b)
+# print(a)
+
+inputtt = '0'
+y = AirplanesIO().load_airplanes_from_file(inputtt)
+print(y)
