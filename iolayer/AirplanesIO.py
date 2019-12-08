@@ -22,13 +22,18 @@ class AirplanesIO():
         f.write(new_airplane_type)
         f.close()
 
-    def load_airplanes_from_file(self):
+    def load_airplanes_from_file(self, planeInsignia_toFind):
         allAircrafts = []
         with open('./data_files/Aircraft.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                airplane = Aircraft(row['planeInsignia'], row['planeTypeId'])
-                allAircrafts.append(airplane)
+                if planeInsignia_toFind == '0':
+                    airplane = Aircraft(row['planeInsignia'], row['planeTypeId'])
+                    allAircrafts.append(airplane)
+                elif row['planeInsignia'] == planeInsignia_toFind:
+                    airplane = Aircraft(row['planeInsignia'], row['planeTypeId'])
+                    allAircrafts.append(airplane)
+                    break
         return allAircrafts
 
     def write_in_airplanes_file(self, new_airplane=''):
