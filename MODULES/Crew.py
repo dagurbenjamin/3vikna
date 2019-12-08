@@ -9,7 +9,7 @@ class Crew:
         self.address = address
         self.phone = phone
         self.email = email
-        self.user_id = user_idx
+        self.user_id = user_id
 
     def __str__(self):
         return "{},{},{},{},{},{},{},{},{}".format(self.social, self.name, self.role, self.rank, self.user_license,

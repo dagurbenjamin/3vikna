@@ -28,4 +28,6 @@ index_to_replace = input_index + 1
 changed_employee = EmployeesLL().change_value_for_one_employee(
     inputt, replacement_value, index_to_replace)
 input_value = '0'
-EmployeesLL().change_the_big_list(inputt, input_value, changed_employee)
+all_employees_list = EmployeesLL().change_the_big_list(
+    inputt, input_value, changed_employee)
+# print(all_employees_list)

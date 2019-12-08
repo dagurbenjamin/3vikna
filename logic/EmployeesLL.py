@@ -34,7 +34,7 @@ class EmployeesLL():
             if list_member[0] == inputt:
                 list_member = changed_employee
             a_list.append(list_member)
-        print(a_list)
+        return a_list
 
 # KEYRIR ÞETTA I MAIN/PROFUN_INDI/PROFUN_DAGUR
 
