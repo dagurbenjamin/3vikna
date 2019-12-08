@@ -25,11 +25,11 @@ from modules.Crew import Crew
 # print(x)
 # a = []
 
-# for crew in x:
-#     b = []
-#     b.append(crew)
-#     a.append(b)
-# print(a)
+#for airplanes in x:
+    #b = []
+    #b.append(airplanes)
+    #a.append(b)
+    #print(a)
 
 inputtt = '0'
 y = AirplanesIO().load_airplanes_from_file(inputtt)
