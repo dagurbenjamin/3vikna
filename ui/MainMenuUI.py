@@ -1,5 +1,4 @@
-from UILAYER.UIMAIN import UIMAIN
-from UILAYER.DestinationsMenuUI import DestinationsMenuUI
+
 
 class Mainmenu():
 
@@ -37,5 +36,4 @@ class Mainmenu():
 
 
 
-a = Mainmenu()
-b = a.print_main_menu()
+
