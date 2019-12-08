@@ -5,14 +5,8 @@ from ui.VoyagesMenuUI import VoyagesMenu
 import os
 import ctypes
 
-'''def open_fullscreen():
-    kernel32 = ctypes.WinDLL('kernel32')
-    user32 = ctypes.WinDLL('user32')
-
-    SW_MAXIMIZE = 3
-
-    hWnd = kernel32.GetConsoleWindow()
-    user32.ShowWindow(hWnd, SW_MAXIMIZE)'''
+def fullscreen():
+    pass
 
 def airplanes_main():
     airplanes = AirplanesMenu()
