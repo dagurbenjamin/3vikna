@@ -31,6 +31,9 @@ from modules.Crew import Crew
 #     a.append(b)
 # print(a)
 
-inputtt = '0'
-y = CrewIO().load_crew_from_file(inputtt)
-print(y)
+inputtt = 'FAE'
+# y = CrewIO().load_crew_from_file(inputtt)
+# print(y)
+
+z = DestinationsIO().load_destination_from_file(inputtt)
+print(z)
