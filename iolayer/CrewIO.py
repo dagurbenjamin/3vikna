@@ -6,7 +6,7 @@ class CrewIO():
     def __init__(self, a_str=''):
         self.a_str = a_str
 
-    def load_crew_from_file(self):
+    def load_allcrew_from_file(self):
         allcrew = []
         with open('./data_files/CrewFile.csv') as csvfile:
             reader = csv.DictReader(csvfile)
@@ -15,6 +15,12 @@ class CrewIO():
                                 row['address'], row['phonenumber'], row['email'], row['id'])
                 allcrew.append(employee)
         return allcrew
+
+    def load_onecrew_from_file(self, ssn_in):
+        crewlist = load_allcrew_from_file(self)
+        for c in crewlist
+        if c.get_social() == ssn_in:
+                return c
 
     def write_in_file(self, new_crew_member=''):
         f = open("CrewFile.csv", "a")
