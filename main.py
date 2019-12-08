@@ -10,20 +10,20 @@ def fullscreen():
 
 def airplanes_main():
     airplanes = AirplanesMenu()
-    airplanes.print_airplanes()
+    airplanes.print_airplanes_menu()
 
 
 def destination_main():
     destination = DestinationsMenu()
-    destination.print_destinations()
+    destination.print_destinations_menu()
 
 def employees_main():
     employees = EmployeesMenu()
-    employees.print_employees()
+    employees.print_employees_menu()
 
 def voyages_main():
     voyages = VoyagesMenu()
-    voyages.print_voyages()
+    voyages.print_voyages_menu()
 
 
 def main():
