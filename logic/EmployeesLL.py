@@ -28,27 +28,6 @@ class EmployeesLL():
         employee_str = ",".join(new_empl_list)
         return employee_str
 
-    def get_all_employees(self):
-        employeesInfo = IOAPI().load_crew_from_file()
-        all_employees_list = []
-        for line in employeesInfo:
-            taka_newline = line.strip('\n')
-            per_employee_list = taka_newline.split(',')
-            all_employees_list.append(per_employee_list)
-        return all_employees_list
-
-    def get_employee(self, name=''):
-        all_employees_list = EmployeesLL().get_all_employees()
-        names_list = []
-        for a_list in all_employees_list:
-            for val in a_list:
-                if val == name:
-                    names_list.append(a_list)
-        if len(names_list) == 1:
-            return a_list
-        else:
-            return names_list
-
     def choose_employee_to_see(self, number, names_list):
         return names_list[number]
 
