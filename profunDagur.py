@@ -1,11 +1,17 @@
-import csv
-from MODULES.Crew import Crew
+from iolayer.AirplanesIO import AirplanesIO
+from iolayer.CrewIO import CrewIO
+from iolayer.DestinationsIO import DestinationsIO
+from iolayer.VoyagesIO import VoyagesIO
+from modules.Crew import Crew
 
 
+inputt = "2211658134"
+replacement_value = "Captain"
+input_index = 2
+index_to_replace = input_index + 1
 
-def load_crew_from_file(self):
-    with open('./data_files/CrewFile.csv') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            print(row['ssn'], row['name'], row['role'], row['rank'], row['licence'],
-                  row['address'], row['phonenumber'], row['email'], row['id'])
+x = CrewIO().load_crew_from_file(inputt)
+for member in x:
+    string_member = str(member)
+    list_member = string_member.split(",")
+
