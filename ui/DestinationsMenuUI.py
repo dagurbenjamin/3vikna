@@ -1,56 +1,30 @@
-from UILayer.UIMAIN import UIMAIN
-from UILayer.DestinationInfoMenuUI import DestinationInfoMenuUI
+import string
+import os
 
-class DestinationsMenuUI():
+class DestinationsMenu():
 
     def __init__(self):
         pass
-    
-    def print_all_destinations_menu(self):
-        print('****************************************************************')
-        print('                                                                ')
-        print('		        NaN Air                "q" - quitAndSave           ')
-        print('                                                                ')
-        print('****************************************************************')
-        print('                                                                ')
-        print('           ----------------------------------------             ')
-        print('                     All Destinatinons                          ')
-        print('           ----------------------------------------             ')
-        print('                                                                ')
-        print('            City/Country		Input Command                      ')
-        print('            -------------	      -----------------            ')
-        print('                                                                ')
-        print('            Nuuk/Greenland.................."1"                 ')
-        print('                                                                ')
-        print('            Kulusuk/Greenland..............."2"                 ')
-        print('                                                                ')
-        print('            Torshavn/Faroe islands.........."3"                 ')
-        print('                                                                ')
-        print('            Tingwall/Shetland..............."4"                 ')
-        print('                                                                ')
-        print('            Longyearbyen/Svalbard..........."5"                 ')
-        print('                                                                ')
-        print('                                                                ')
-        print('                                                                ')
-        print('Back to main menu............"mm"                               ')
-        print('Back to sub menu............."sm"                               ')
-        print('Back one page................"bp"                               ')
-        destination_choice = input("Enter input command: ")
-        print('                                                                ')
-        print('                                                                ')
-        print('                                                                ')
-        print('                                                                ')
-        all_destinations = UIMAIN().get_all_destinations()
-        if destination_choice == '1':
-            destination_choice = 'GOH'
-        elif destination_choice == '2':
-            destination_choice = 'KUS'
-        elif destination_choice == '3':
-            destination_choice = 'FAE'
-        elif destination_choice == '4':
-            destination_choice = 'LWK'
-        elif destination_choice == '5':
-            destination_choice = 'LYR'
-        a = DestinationInfoMenuUI().print_all_destination_info_menu(destination_choice,all_destinations)
+
+    def header(self):
+        print('*'*65,'\n')
+        print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
+        print("\n {}\n \n {} \n    ".format("*"*65, "{}Destinations{}".format(" "*25, " "*30), "-"*65))
 
 
+    def print_destinations_menu(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header()
+            print('Menu\n-----\n1. Nuuk/Greenland\n2. Kulusuk/Greenland\n3. Torshavn/Faroe islands\n4. Tingwall/Shetland\n5. Longyearbyen/Svalbard\n')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                pass
+            elif input_command == '2':
+                pass
+            elif input_command == '3':
+                pass
+            elif input_command == '4':
+                pass
+            elif input_command == '5':
+                pass
