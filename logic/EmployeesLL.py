@@ -10,14 +10,14 @@ class EmployeesLL():
         self.new_empl_list = new_empl_list
 
     def change_value_for_one_employee(self, inputt, replacement_value, index_to_replace):
-        x = CrewIO().load_crew_from_file(inputt)
-        for member in x:
+        allCrew = CrewIO().load_crew_from_file(inputt)
+        for member in allCrew:
             str_member = str(member)
             list_mem = str_member.split(',')
             list_mem[index_to_replace] = replacement_value
-            return list_mem
+            EmployeesLL().change_the_big_list(inputt, list_mem)
 
-    def change_the_big_list(self, inputt, input_value, changed_employee):
+    def change_the_big_list(self, inputt, changed_employee, input_value='0'):
         x = CrewIO().load_crew_from_file(input_value)
         a_list = []
         for member in x:
@@ -26,7 +26,10 @@ class EmployeesLL():
             if list_member[0] == inputt:
                 list_member = changed_employee
             a_list.append(list_member)
-        return a_list
+        header = ['ssn', 'name', 'role', 'rank', 'licence',
+                  'address', 'phonenumber', 'email', 'id']
+        a_list.insert(0, header)
+        CrewIO().overwrite_crew_file(a_list)
 
     def get_all_employees(self):
         all_employees = CrewIO().load_crew_from_file('0')

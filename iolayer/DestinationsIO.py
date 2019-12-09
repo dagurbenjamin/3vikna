@@ -27,7 +27,10 @@ class DestinationsIO():
         f.write(new_destination)
         f.close()
 
-    def overwrite_destination_file(self, updated_destination_str=''):
-        f = open("DestinationsFile.csv", "w")
-        f.write(updated_destination_str)
+    def overwrite_destination_file(self, all_destinations_list):
+        f = open("./data_files/Destinations.csv", "w")
+        for line in all_destinations_list:
+            str_line = ','.join(line)
+            a_line = str_line + "\n"
+            f.write(a_line)
         f.close()
