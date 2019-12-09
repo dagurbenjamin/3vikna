@@ -51,7 +51,7 @@ class EmployeesMenu():
                 counter += 1
             print('')
             input_command = input("Input command: ").lower()
-        
+            
             if input_command == '1':
                 EmployeesMenu().get_employee(all_employees[0][0])
             elif input_command == '2':
@@ -67,7 +67,7 @@ class EmployeesMenu():
             elif input_command == '7':
                 EmployeesMenu().get_employee(all_employees[6][0])
             elif input_command == '8':
-                EmployeesMenu().get_employee(all_employees[7][0])
+                EmployeesMenu().get_employee(all_employees[20][0])
 
 
 
