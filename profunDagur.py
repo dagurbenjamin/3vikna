@@ -3,15 +3,32 @@ from iolayer.CrewIO import CrewIO
 from iolayer.DestinationsIO import DestinationsIO
 from iolayer.VoyagesIO import VoyagesIO
 from modules.Crew import Crew
+from datetime import datetime, date
 
 
-inputt = "2211658134"
-replacement_value = "Captain"
-input_index = 2
-index_to_replace = input_index + 1
 
-x = CrewIO().load_crew_from_file(inputt)
-for member in x:
-    string_member = str(member)
-    list_member = string_member.split(",")
+
+
+
+
+
+"""def overwrite_in_right_rows():
+    x = VoyagesIO().load_upcoming_flights_from_file()
+    for flights in x:
+        flights = str(flights)
+        flights = flights.split(",")
+        flight_date = flights[3]
+        flight_date = flight_date.split("-")
+        print(flight_date)
+
+        #flight_date2 = str(flight_date1)
+
+        flight_date3 = flight_date2.split("T")
+        print(flight_date3)
+    #date_and_time = datetime(flight_date[3])
+   # print(date_and_time)
+
+overwrite_in_right_rows()"""
+
+
 

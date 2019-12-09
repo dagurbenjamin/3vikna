@@ -23,7 +23,7 @@ class DestinationsIO():
         return alldestinations
 
     def write_in_destination_file(self, new_destination=''):
-        f = open("DestinationsFile.csv", "a")
+        f = open("./data_files/Destinations.csv", "a")
         f.write(new_destination)
         f.close()
 
