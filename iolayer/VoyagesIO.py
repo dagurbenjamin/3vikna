@@ -48,14 +48,14 @@ class VoyagesIO():
         with open('./data_files/VoyagesFile.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                if voyageID == '0'
-                voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['captain'], row['copilot'],
+                if voyageID == '0':
+                    voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['captain'], row['copilot'],
                                  row['FlightServiceManager'], row['flightAttendant'])
-                all_voyages.append(voyage)
+                    all_voyages.append(voyage)
                 elif row['voyageID'] == voyageID:
-                voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['captain'],
+                    voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['captain'],
                                  row['copilot'], row['FlightServiceManager'], row['flightAttendant'])
-                all_voyages.append(voyage)
+                    all_voyages.append(voyage)
                 break
         return all_voyages
 
