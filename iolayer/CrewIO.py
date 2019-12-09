@@ -36,7 +36,7 @@ class CrewIO():
         return all_p_or_c
 
     def write_in_file(self, new_crew_member=''):
-        f = open("CrewFile.csv", "a")
+        f = open("/data_files/CrewFile.csv", "a")
         f.write(new_crew_member)
         f.close()
 

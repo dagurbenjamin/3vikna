@@ -7,14 +7,20 @@ class AirplanesIO():
     def __init__(self, a_str=''):
         self.a_str = a_str
 
-    def load_airplanesinfo_from_file(self):
+    def load_airplanesinfo_from_file(self, planeTypeId):
         allAirplaneInfo = []
         with open('./data_files/AircraftType.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
+                if planeTypeId == '0'
                 airplaneinfo = Aircraft_type(row['planeTypeId'], row['manufacturer'], row['model'], row['capacity'], row['emptyWeight'],
                                              row['maxTakeoffWeight'], row['unitThrust'], row['serviceCeiling'], row['length'], row['height'], row['wingspan'])
                 allAirplaneInfo.append(airplaneinfo)
+                elif row['planeTypeId'] == planeTypeId:
+                airplaneinfo = Aircraft_type(row['planeTypeId'], row['manufacturer'], row['model'], row['capacity'], row['emptyWeight'],
+                                             row['maxTakeoffWeight'], row['unitThrust'], row['serviceCeiling'], row['length'], row['height'], row['wingspan'])
+                allAirplaneInfo.append(airplaneinfo)
+                break
         return allAirplaneInfo
 
     def write_in_airplanesinfo_file(self, new_airplane_type=''):
@@ -28,10 +34,12 @@ class AirplanesIO():
             reader = csv.DictReader(csvfile)
             for row in reader:
                 if planeInsignia_toFind == '0':
-                    airplane = Aircraft(row['planeInsignia'], row['planeTypeId'])
+                    airplane = Aircraft(
+                        row['planeInsignia'], row['planeTypeId'])
                     allAircrafts.append(airplane)
                 elif row['planeInsignia'] == planeInsignia_toFind:
-                    airplane = Aircraft(row['planeInsignia'], row['planeTypeId'])
+                    airplane = Aircraft(
+                        row['planeInsignia'], row['planeTypeId'])
                     allAircrafts.append(airplane)
                     break
         return allAircrafts
