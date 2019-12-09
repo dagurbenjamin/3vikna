@@ -14,13 +14,14 @@ class CrewIO():
             reader = csv.DictReader(csvfile)
             for row in reader:
                 if ssn_toFind == '0':
-                    employee = Crew(row['ssn'], row['name'], row['role'], row['rank'], row['licence'],
+                    employee = Crew(row['ssn'], row['name'], row['role'], row['rank'], row['crewlicense'],
                                     row['address'], row['phonenumber'], row['email'], row['id'])
                     allcrew.append(employee)
                 elif row['ssn'] == ssn_toFind:
-                    employee = Crew(row['ssn'], row['name'], row['role'], row['rank'], row['licence'],
+                    employee = Crew(row['ssn'], row['name'], row['role'], row['rank'], row['crewlicense'],
                                     row['address'], row['phonenumber'], row['email'], row['id'])
-                    allcrew.append(employee)
+                    
+                    return employee
                     break
             return allcrew  # samt bara 1
 
