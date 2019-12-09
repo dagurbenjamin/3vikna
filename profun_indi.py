@@ -41,5 +41,5 @@ replacement_FlightServiceManager = '2200763823'
 replacement_FlightAttendant = '3003962187'
 input_index = 1
 index_to_replace = input_index + 3
-changed_voyage = DestinationsLL().update_destination(
-    destination_to_change_input, replacement_value, index_to_replace)
+changed_voyage = VoyagesLL().update_one_voyage(
+    voyage_to_change, replacement_Captain, index_to_replace)

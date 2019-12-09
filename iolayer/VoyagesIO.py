@@ -50,13 +50,12 @@ class VoyagesIO():
             for row in reader:
                 if voyageID == '0':
                     voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['captain'], row['copilot'],
-                                 row['FlightServiceManager'], row['flightAttendant'])
+                                     row['FlightServiceManager'], row['flightAttendant'])
                     all_voyages.append(voyage)
                 elif row['voyageID'] == voyageID:
                     voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['captain'],
-                                 row['copilot'], row['FlightServiceManager'], row['flightAttendant'])
+                                     row['copilot'], row['FlightServiceManager'], row['flightAttendant'])
                     all_voyages.append(voyage)
-                break
         return all_voyages
 
     def write_in_voyages_flights(self, new_voyage=''):
@@ -65,9 +64,9 @@ class VoyagesIO():
         f.close()
 
     def overwrite_voyage_file(self, all_voyages_list):
-        f = open("./data_files/CrewFile.csv", "w")
+        f = open("./data_files/VoyagesFile.csv", "w")
         for line in all_voyages_list:
             str_voyage = ','.join(line)
             a_voyage = str_voyage + "\n"
             f.write(a_voyage)
-            f.close()
+        f.close()
