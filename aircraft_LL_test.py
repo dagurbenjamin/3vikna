@@ -1,10 +1,10 @@
 import csv
 import os
-from modules.aircraft.Aircraft import Aircraft
-from modules.aircraft_type.Aircraft_type import Aircraft_type
+from modules.aircraft import Aircraft
+from modules.aircraft_type import Aircraft_type
 
 
-class AirplanesIO():
+class AirplanesLL():
     def __init__(self, a_str=''):
         self.a_str = a_str
 
@@ -41,3 +41,6 @@ class AirplanesIO():
         f = open("AirplanesFile.csv", "a")
         f.write(new_airplane)
         f.close()
+
+    
+
