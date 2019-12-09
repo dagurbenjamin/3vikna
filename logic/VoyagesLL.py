@@ -1,4 +1,5 @@
 from IOLAYER.IOAPI import IOAPI
+from iolayer.VoyagesIO import VoyagesIO
 
 
 class VoyagesLL():
@@ -10,22 +11,13 @@ class VoyagesLL():
         new_voyage_list = ','.join(new_voyage_list)
         return new_voyage_list
 
-    def get_all_voyages_dict(self):
-        title = 'id number, date, time, staff status'
-        all_voyages_dict = {}
-        title_to_list = title.split(',')
-        voyagesInfo = IOAPI().load_voyages_from_file()
-        for line in voyagesInfo:
-            taka_newline = line.strip('\n')
-            line_to_list = taka_newline.split(',')
-            Id = line_to_list[0]
-            dict1 = dict(zip(title_to_list, line_to_list[1:]))
-            all_voyages_dict[Id] = dict1
-        return all_voyages_dict
-
     def get_voyage(self):
         # title = "id number, date, time, staff status"?
-        
 
-    def update_voyage(self, updatedVoyage):
-        IOAPI().store_voyage_to_file(updatedVoyage)
+    def update_one_voyage(self, voyage_to_change, replacement_value, index_to_replace):
+        allvoyage = VoyagesIO().load_voyages_from_file(voyage_to_change)
+        for voyage in allvoyage:
+            str_voyage = str(voyage)
+            list_voyage = str_voyage.split(',')
+            list_voyage[index_to_replace] = replacement_value
+            EmployeesLL().change_the_big_list(employee_to_change_input, list_mem)

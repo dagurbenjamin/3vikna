@@ -3,7 +3,8 @@
 
 class UpcomingFlights:
 
-    def __init__(self, flightNumber, departingFrom, arrivingAt, departure, arrival):
+    def __init__(self, voyageID, flightNumber, departingFrom, arrivingAt, departure, arrival):
+        self.voyageID = voyageID
         self.flightNumber = flightNumber
         self.departingFrom = departingFrom
         self.arrivingAt = arrivingAt
@@ -14,7 +15,10 @@ class UpcomingFlights:
         return self.__str__()
 
     def __str__(self):
-        return "{},{},{},{},{}".format(self.flightNumber, self.departingFrom, self.arrivingAt, self.departure, self.arrival)
+        return "{},{},{},{},{},{}".format(self.voyageID, self.flightNumber, self.departingFrom, self.arrivingAt, self.departure, self.arrival)
+
+    def get_voyageID(self):
+        return self.voyageID
 
     def get_flightNumber(self):
         return self.flightNumber
@@ -30,6 +34,9 @@ class UpcomingFlights:
 
     def get_arrival(self):
         return self.arrival
+
+    def set_voyageID(self, new):
+        self.voyageID = new
 
     def set_flightNumber(self, new):
         self.flightNumber = new
