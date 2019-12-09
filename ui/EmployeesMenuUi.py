@@ -22,8 +22,18 @@ class EmployeesMenu():
         input_command = ''
         while input_command != 'q':
             self.header(one_employee.get_name())
-            print('{}{}{} \n{}{}{}'.format(one_employee.get_role(),one_employee.get_rank(),one_employee.get_license(), one_employee.get_social(),one_employee.get_address(),one_employee.get_phone() ))
+            print('\n{:^15}{:^32}{:^23}'.format('Role','Rank','License'))
+            print('{:^15}{:^32}{:^25}'.format('-'*6,'-'*8,'-'*12))
+            print('{:^15}{:^33}{:^23}\n'.format(one_employee.get_role(),one_employee.get_rank(),one_employee.get_license()))
+            print('{:^13}{:^38}{:^14}'.format('SSN','Address','Phone number'))
+            print('{:^15}{:^32}{:^22}'.format('-'*10,'-'*9,'-'*12))
+            print('{:^15}{:^36}{:^15}\n'.format(one_employee.get_social(),one_employee.get_address(),one_employee.get_phone()))
+            print('\n\n1. Back to Main menu\n2. Back to Submenu\n3. Back one page\n')
+            
             input_command = input("Input command: ").lower()
+            if input_command == '3':
+                a = EmployeesMenu().get_all_employees()
+
 
 
     
@@ -41,8 +51,25 @@ class EmployeesMenu():
                 counter += 1
             print('')
             input_command = input("Input command: ").lower()
+        
             if input_command == '1':
                 EmployeesMenu().get_employee(all_employees[0][0])
+            elif input_command == '2':
+                EmployeesMenu().get_employee(all_employees[1][0])
+            elif input_command == '3':
+                EmployeesMenu().get_employee(all_employees[2][0])
+            elif input_command == '4':
+                EmployeesMenu().get_employee(all_employees[3][0])
+            elif input_command == '5':
+                EmployeesMenu().get_employee(all_employees[4][0])
+            elif input_command == '6':
+                EmployeesMenu().get_employee(all_employees[5][0])
+            elif input_command == '7':
+                EmployeesMenu().get_employee(all_employees[6][0])
+            elif input_command == '8':
+                EmployeesMenu().get_employee(all_employees[7][0])
+
+
 
             
 
