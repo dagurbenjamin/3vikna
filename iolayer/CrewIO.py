@@ -36,7 +36,7 @@ class CrewIO():
         return all_p_or_c
 
     def write_in_file(self, new_crew_member=''):
-        f = open("CrewFile.csv", "a")
+        f = open("/data_files/CrewFile.csv", "a")
         f.write(new_crew_member)
         f.close()
 
@@ -44,7 +44,7 @@ class CrewIO():
         #        all_employees_list = EmployeesLL().change_the_big_list()
         f = open("./data_files/CrewFile.csv", "w")
         for line in all_employees_list:
-            foo = ','.join(line)
-            print(foo)
-            f.write(foo)
+            str_line = ','.join(line)
+            a_line = str_line + "\n"
+            f.write(a_line)
         f.close()

@@ -5,13 +5,8 @@
 # from iolayer.VoyagesIO import VoyagesIO
 # from modules.Crew import Crew
 from logic.EmployeesLL import EmployeesLL
-
-#x = IOAPI().load_destination_from_file()
-# print('')
-# b = IOAPI().load_crew_from_file()
-# c = Crew("", "")
-# IOAPI().store_crew_to_file(c)
-
+from iolayer.DestinationsIO import DestinationsIO
+from logic.DestinationsLL import DestinationsLL
 
 # x = AirplanesIO().load_airplanes_from_file()
 # y = AirplanesIO().load_airplanesinfo_from_file()
@@ -22,13 +17,17 @@ from logic.EmployeesLL import EmployeesLL
 
 from iolayer.CrewIO import CrewIO
 
-inputt = '2211658134'
+employee_to_change_input = '2211658134'
 replacement_value = 'Captain'
 input_index = 2
 index_to_replace = input_index + 1
 changed_employee = EmployeesLL().change_value_for_one_employee(
-    inputt, replacement_value, index_to_replace)
-input_value = '0'
-all_employees_list = EmployeesLL().change_the_big_list(
-    inputt, input_value, changed_employee)
-foo = CrewIO().overwrite_crew_file(all_employees_list)
+    employee_to_change_input, replacement_value, index_to_replace)
+
+
+destination_to_change_input = 'LYR'
+replacement_value = 'Doddi'
+input_index = 1
+index_to_replace = input_index + 3
+changed_destination = DestinationsLL().update_destination(
+    destination_to_change_input, replacement_value, index_to_replace)

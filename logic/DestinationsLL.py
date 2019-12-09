@@ -1,4 +1,5 @@
-from LLAPI import LLAPI
+
+from iolayer.DestinationsIO import DestinationsIO
 
 
 class DestinationsLL():
@@ -11,12 +12,26 @@ class DestinationsLL():
         new_destination_list = ','.join(new_destination_list)
         return new_destination_list
 
-    def get_all_destinations(self):
-        pass
+    def update_destination(self, destination_to_change_input, replacement_value, index_to_replace):
+        all_destinatios = DestinationsIO().load_destination_from_file(
+            destination_to_change_input)
+        for destination in all_destinatios:
+            str_dest = str(destination)
+            list_destination = str_dest.split(',')
+            list_destination[index_to_replace] = replacement_value
+            DestinationsLL().change_the_big_destinations_list(
+                destination_to_change_input, list_destination)
 
-    def get_destination(self):
-        pass
-
-    def update_destination(self, destinations_id_input):
-        # get the destination file from data layer
-        pass
+    def change_the_big_destinations_list(self, destination_to_change_input, changed_destination, input_value='0'):
+        Destinations_all = DestinationsIO().load_destination_from_file(input_value)
+        the_list = []
+        for dest in Destinations_all:
+            str_destination = str(dest)
+            list_dest = str_destination.split(',')
+            if list_dest[0] == destination_to_change_input:
+                list_dest = changed_destination
+            the_list.append(list_dest)
+        header = ['id', 'destination', 'country', 'distance', 'contactname',
+                  'emergencynumber', 'flighttime', 'destinationnumber']
+        the_list.insert(0, header)
+        DestinationsIO().overwrite_destination_file(the_list)

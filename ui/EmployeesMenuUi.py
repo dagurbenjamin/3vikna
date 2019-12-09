@@ -13,28 +13,53 @@ class EmployeesMenu():
         while True:
             employee_id = self.'''
 
-    def header(self):
+    def header(self, title):
         print('*'*65,'\n')
         print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
-        print("\n {}\n \n {} \n    ".format("*"*65, "{}Employees{}".format(" "*25, " "*30), "-"*65))
+        print("\n {}\n \n {} \n    ".format("*"*65, "{}{}{}".format(" "*23, title, " "*30), "-"*65))
+    
+    def get_employee(self, ssn):
+        one_employee = EmployeesLL().get_one_employee(ssn)
+        print(one_employee)
+        input_command = ''
+        while input_command != 'q':
+            self.header(one_employee)
+            print('')
+            input_command = input("Input command: ").lower()
+
+
     
     def get_all_employees(self):
         input_command = ''
         while input_command != 'q':
-            self.header()
-            print('{:^7}{:^13}{:^15}{:^15}{:^15}{:^15}{:^15}{:^15}{:^15}'.format('SSN', 'Name', 'Role', 'Rank', 'Lisence', 'Address', 'Phone number', 'Email', 'ID'))
-            print('-'*85)
+            self.header('All Employees')
+            print('{:^20}{:^20}{:^18}'.format('SSN', 'Name', 'Role'))
+            print('{:^20}{:^19}{:^20}'.format('-'*10, '-'*17, '-'*10))
             all_employees = EmployeesLL().get_all_employees()
+            counter = 0
             for line in all_employees:
-                print(line)
+                line_counter = counter + 1
+                print('{:^5}{:^5}{:^30}{:^10}'.format(str(line_counter) + '.' ,all_employees[counter][0], all_employees[counter][1], all_employees[counter][2]))
+                counter += 1
             print('')
-            input_command = input("Input employee ssn: ")
+            input_command = input("Input command: ").lower()
+            if input_command == '1':
+                a = EmployeesMenu().get_employee(all_employees[0][0])
+
+            
+
+                
+                
+
+
+
+
 
 
     def print_employees_menu(self):
         input_command = ''
         while input_command != 'q':
-            self.header()
+            self.header('Employees')
             print('Menu\n-----\n1. Create New Employee\n2. Get All Employees\n3. Update Employee\n4. Back to Main menu\n')
 
             input_command = input('Input Command: ').lower()
