@@ -1,5 +1,4 @@
 from logic.EmployeesLL import EmployeesLL
-from iolayer.CrewIO import CrewIO
 from modules.Crew import Crew
 import string
 import os
@@ -7,7 +6,7 @@ import os
 class EmployeesMenu():
 
     def __init__(self):
-        self.employee = CrewIO()
+        self.employee = EmployeesLL()
 
     '''def select_employee(self, employee):
         while True:
@@ -19,12 +18,11 @@ class EmployeesMenu():
         print("\n {}\n \n {} \n    ".format("*"*65, "{}{}{}".format(" "*23, title, " "*30), "-"*65))
     
     def get_employee(self, ssn):
-        one_employee = EmployeesLL().get_one_employee(ssn)
-        print(one_employee)
+        one_employee = EmployeesLL().get_one_employee(ssn)        
         input_command = ''
         while input_command != 'q':
-            self.header(one_employee)
-            print('')
+            self.header(one_employee.get_name())
+            print('{}{}{} \n{}{}{}'.format(one_employee.get_role(),one_employee.get_rank(),one_employee.get_license(), one_employee.get_social(),one_employee.get_address(),one_employee.get_phone() ))
             input_command = input("Input command: ").lower()
 
 
@@ -44,7 +42,7 @@ class EmployeesMenu():
             print('')
             input_command = input("Input command: ").lower()
             if input_command == '1':
-                a = EmployeesMenu().get_employee(all_employees[0][0])
+                EmployeesMenu().get_employee(all_employees[0][0])
 
             
 

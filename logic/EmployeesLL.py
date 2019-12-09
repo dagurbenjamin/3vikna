@@ -43,4 +43,7 @@ class EmployeesLL():
 
     def get_one_employee(self, ssn):
         one_employee = CrewIO().load_crew_from_file(ssn)
+        print(type(one_employee),'her')
         return one_employee
+
+    
