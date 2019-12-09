@@ -39,15 +39,10 @@ class EmployeesLL():
 
     def get_all_employees(self):
         all_employees = CrewIO().load_crew_from_file('0')
-        return all_employees
-
-# KEYRIR ÞETTA I MAIN/PROFUN_INDI/PROFUN_DAGUR
-
-# inputt = '2211658134'
-# replacement_value = 'Captain'
-# input_index = 2
-# index_to_replace = input_index + 1
-# changed_employee = EmployeesLL().change_value_for_one_employee(
-#     inputt, replacement_value, index_to_replace)
-# input_value = '0'
-# EmployeesLL().change_the_big_list(inputt, input_value, changed_employee)
+        a_list = []
+        for member in all_employees:
+            str_member = str(member)
+            list_employe = str_member.split(',')
+            list_of_ssn_name_and_rank = list_employe[:3]
+            a_list.append(list_of_ssn_name_and_rank)
+        return list_of_ssn_name_and_rank

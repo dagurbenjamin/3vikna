@@ -36,7 +36,7 @@ class LLAPI():
 
     def save_new_destination(self, newDestination):
         IOAPI().store_destination_to_file(newDestination)
-    
+
     def get_all_airplanes(self):
         title = 'planeTypeId'
         all_airplanes_dict = {}
@@ -49,7 +49,6 @@ class LLAPI():
             dict1 = dict(zip(title_to_list, line_to_list[1:]))
             all_airplanes_dict[Id] = dict1
         return all_airplanes_dict
-
 
     def get_airplane_types(self):
         title = 'manufacturer,model,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan'
