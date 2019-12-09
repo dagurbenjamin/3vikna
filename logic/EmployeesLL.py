@@ -42,7 +42,12 @@ class EmployeesLL():
         a_list = []
         for member in all_employees:
             str_member = str(member)
-            list_employe = str_member.split(',')
-            list_of_ssn_name_and_rank = list_employe[:3]
+            list_employee = str_member.split(',')
+            list_of_ssn_name_and_rank = list_employee[:3]
             a_list.append(list_of_ssn_name_and_rank)
-        return list_of_ssn_name_and_rank
+        return a_list
+
+    def get_one_employee(self, ssn):
+        one_employee = CrewIO().load_crew_from_file(ssn)
+        return one_employee
+
