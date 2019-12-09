@@ -15,6 +15,7 @@ class EmployeesLL():
 
     def update_employee(self, employee_id_input):
         # get the crew file from data layer
+        # þetta er þá óþarfi ekki satt?
         pass
 
     def change_value_for_one_employee(self, inputt, replacement_value, index_to_replace):
