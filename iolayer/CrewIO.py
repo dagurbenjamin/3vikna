@@ -45,3 +45,22 @@ class CrewIO():
             print(foo)
             f.write(foo)
         f.close()
+
+    def get_all_employees_list(self):
+        all_employees_list = []
+        all_employees = CrewIO().load_crew_from_file('0')
+        all_employees = str(all_employees)
+        print(all_employees)
+        for line in all_employees:
+            line = str(line)
+            employee_list = []
+            employee_list = line.split(',')
+            all_employees_list.append(employee_list)
+            return all_employees_list
+        '''
+        for line in all_employees:
+            employee_list = []
+            employee_list = line.split(',')
+            all_employees_list.append(employee_list)
+            '''
+        return all_employees_list

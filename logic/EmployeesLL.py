@@ -36,6 +36,10 @@ class EmployeesLL():
             a_list.append(list_member)
         return a_list
 
+    def get_all_employees(self):
+        all_employees = CrewIO().get_all_employees_list()
+        return all_employees
+
 # KEYRIR ÞETTA I MAIN/PROFUN_INDI/PROFUN_DAGUR
 
 # inputt = '2211658134'

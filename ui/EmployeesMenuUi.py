@@ -1,3 +1,4 @@
+from logic.EmployeesLL import EmployeesLL
 from iolayer.CrewIO import CrewIO
 from modules.Crew import Crew
 import string
@@ -16,6 +17,18 @@ class EmployeesMenu():
         print('*'*65,'\n')
         print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
         print("\n {}\n \n {} \n    ".format("*"*65, "{}Employees{}".format(" "*25, " "*30), "-"*65))
+    
+    def get_all_employees(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header()
+            print('{:^7}{:^13}{:^15}{:^15}{:^15}{:^15}{:^15}{:^15}{:^15}'.format('SSN', 'Name', 'Role', 'Rank', 'Lisence', 'Address', 'Phone number', 'Email', 'ID'))
+            print('-'*85)
+            all_employees = EmployeesLL().get_all_employees()
+            for line in all_employees:
+                print(line)
+            print('')
+            input_command = input("Input employee ssn: ")
 
 
     def print_employees_menu(self):
@@ -28,8 +41,9 @@ class EmployeesMenu():
             if input_command == '1':
                 pass
             elif input_command == '2':
-                pass
+                a = EmployeesMenu().get_all_employees()
             elif input_command == '3':
                 pass
             elif input_command == '4':
                 pass
+    
