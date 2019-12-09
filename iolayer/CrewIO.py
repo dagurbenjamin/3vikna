@@ -44,7 +44,7 @@ class CrewIO():
         #        all_employees_list = EmployeesLL().change_the_big_list()
         f = open("./data_files/CrewFile.csv", "w")
         for line in all_employees_list:
-            foo = ','.join(line)
-            print(foo)
-            f.write(foo)
+            str_line = ','.join(line)
+            a_line = str_line + "\n"
+            f.write(a_line)
         f.close()
