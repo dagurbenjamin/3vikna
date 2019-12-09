@@ -1,4 +1,6 @@
 import csv
+
+# from logic.EmployeesLL import EmployeesLL
 from modules.Crew import Crew
 
 
@@ -20,7 +22,7 @@ class CrewIO():
                                     row['address'], row['phonenumber'], row['email'], row['id'])
                     allcrew.append(employee)
                     break
-        return allcrew  # samt bara 1
+            return allcrew  # samt bara 1
 
     def load_pilot_or_cabincrew(self, p_or_c_input):
         all_p_or_c = []
@@ -38,29 +40,11 @@ class CrewIO():
         f.write(new_crew_member)
         f.close()
 
-    def overwrite_crew_file(self, updated_employees_str=''):
-        f = open("CrewFile.csv", "w")
+    def overwrite_crew_file(self, all_employees_list):
+        #        all_employees_list = EmployeesLL().change_the_big_list()
+        f = open("./data_files/CrewFile.csv", "w")
         for line in all_employees_list:
             foo = ','.join(line)
             print(foo)
             f.write(foo)
         f.close()
-
-    def get_all_employees_list(self):
-        all_employees_list = []
-        all_employees = CrewIO().load_crew_from_file('0')
-        all_employees = str(all_employees)
-        print(all_employees)
-        for line in all_employees:
-            line = str(line)
-            employee_list = []
-            employee_list = line.split(',')
-            all_employees_list.append(employee_list)
-            return all_employees_list
-        '''
-        for line in all_employees:
-            employee_list = []
-            employee_list = line.split(',')
-            all_employees_list.append(employee_list)
-            '''
-        return all_employees_list
