@@ -38,7 +38,7 @@ class EmployeesLL():
         return a_list
 
     def get_all_employees(self):
-        all_employees = CrewIO().get_all_employees_list()
+        all_employees = CrewIO().load_crew_from_file('0')
         return all_employees
 
 # KEYRIR ÞETTA I MAIN/PROFUN_INDI/PROFUN_DAGUR
