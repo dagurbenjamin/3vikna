@@ -12,8 +12,8 @@ from modules.Crew import Crew
 # IOAPI().store_crew_to_file(c)
 
 
-#x = AirplanesIO().load_airplanes_from_file()
-#y = AirplanesIO().load_airplanesinfo_from_file()
+x = AirplanesIO().load_airplanes_from_file()
+y = AirplanesIO().load_airplanesinfo_from_file()
 # a = CrewIO().load_crew_from_file()
 # b = DestinationsIO().load_destination_from_file()
 # c = VoyagesIO().load_past_flights_from_file()
