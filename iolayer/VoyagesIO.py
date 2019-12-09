@@ -43,15 +43,31 @@ class VoyagesIO():
         f.write(new_past_flight)
         f.close()
 
-    def load_voyages_from_file(self):
+    def load_voyages_from_file(self, voyageID):
         all_voyages = []
         with open('./data_files/VoyagesFile.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
+                if voyageID == '0'
                 voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['captain'], row['copilot'],
                                  row['FlightServiceManager'], row['flightAttendant'])
                 all_voyages.append(voyage)
+                elif row['voyageID'] == voyageID:
+                voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['captain'],
+                                 row['copilot'], row['FlightServiceManager'], row['flightAttendant'])
+                all_voyages.append(voyage)
+                break
         return all_voyages
 
+    def write_in_voyages_flights(self, new_voyage=''):
+        f = open("./data_files/VoyagesFile.csv", "a")
+        f.write(new_voyage)
+        f.close()
 
-VoyagesIO().load_voyages_from_file()
+    def overwrite_voyage_file(self, all_voyages_list):
+        f = open("./data_files/CrewFile.csv", "w")
+        for line in all_voyages_list:
+            str_voyage = ','.join(line)
+            a_voyage = str_voyage + "\n"
+            f.write(a_voyage)
+            f.close()

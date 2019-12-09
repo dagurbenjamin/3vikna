@@ -5,50 +5,11 @@ class LLAPI():
     def __init__(self, a_str=''):
         self.a_str = a_str
 
-    def get_all_employees_dict(self):
-        title = 'ssn,name,role,rank,licence,address,phonenumber'
-        all_employees_dict = {}
-        title_to_list = title.split(',')
-        employeesInfo = IOAPI().load_crew_from_file()
-        for line in employeesInfo:
-            taka_newline = line.strip('\n')
-            line_to_list = taka_newline.split(',')
-            Id = line_to_list[-1]
-            dict1 = dict(zip(title_to_list, line_to_list))
-            all_employees_dict[Id] = dict1
-        return all_employees_dict
-
     def save_new_employee(self, newEmployee):
         IOAPI().store_crew_to_file(newEmployee)
 
-    def get_all_destinations_dict(self):
-        title = 'destination,country,distance,contactname,emergencynumber,flighttime,destinationnumber'
-        all_destinations_dict = {}
-        title_to_list = title.split(',')
-        destinationsInfo = IOAPI().load_destination_from_file()
-        for line in destinationsInfo:
-            taka_newline = line.strip('\n')
-            line_to_list = taka_newline.split(',')
-            Id = line_to_list[0]
-            dict1 = dict(zip(title_to_list, line_to_list[1:]))
-            all_destinations_dict[Id] = dict1
-        return all_destinations_dict
-
     def save_new_destination(self, newDestination):
         IOAPI().store_destination_to_file(newDestination)
-
-    def get_all_airplanes(self):
-        title = 'planeTypeId'
-        all_airplanes_dict = {}
-        title_to_list = title.split(',')
-        all_airplanes_info = IOAPI().load_airplanes_from_file()
-        for line in all_airplanes_info:
-            remove_newline = line.strip('\n')
-            line_to_list = remove_newline.split(',')
-            Id = line_to_list[0]
-            dict1 = dict(zip(title_to_list, line_to_list[1:]))
-            all_airplanes_dict[Id] = dict1
-        return all_airplanes_dict
 
     def get_airplane_types(self):
         title = 'manufacturer,model,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan'
