@@ -16,6 +16,7 @@ from iolayer.VoyagesIO import VoyagesIO
 # d = VoyagesIO().load_upcoming_flights_from_file()
 
 from iolayer.CrewIO import CrewIO
+from logic.VoyagesLL import VoyagesLL
 
 # employee_to_change_input = '2211658134'
 # replacement_value = 'Captain'
@@ -32,4 +33,13 @@ from iolayer.CrewIO import CrewIO
 # changed_destination = DestinationsLL().update_destination(
 #     destination_to_change_input, replacement_value, index_to_replace)
 
-VoyagesIO().load_voyages_from_file()
+
+voyage_to_change = '3'
+replacement_Captain = '2706838569'
+replacement_Copilot = '1900769521'
+replacement_FlightServiceManager = '2200763823'
+replacement_FlightAttendant = '3003962187'
+input_index = 1
+index_to_replace = input_index + 3
+changed_voyage = DestinationsLL().update_destination(
+    destination_to_change_input, replacement_value, index_to_replace)
