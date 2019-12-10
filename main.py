@@ -15,7 +15,8 @@ def airplanes_main():
 
 def destination_main():
     destination = DestinationsMenu()
-    destination.print_destinations_menu()
+    destination.print_destinations
+    _menu()
 
 def employees_main():
     employees = EmployeesMenu()
