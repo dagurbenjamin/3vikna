@@ -5,7 +5,7 @@ from ui.VoyagesMenuUI import VoyagesMenu
 import os
 import ctypes
 
-def fullscreen():
+def fullscreen():   
     pass
 
 def airplanes_main():

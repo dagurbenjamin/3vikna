@@ -43,12 +43,12 @@ class EmployeesMenu():
         input_command = ''
         while input_command != 'q':
             self.header('Pilots')
-            print('\n{:^15}{:^32}{:^10}{:^15}'.format('Name','SSN','Rank','License'))
-            print('{:^15}{:^32}{:^10}{:^15}'.format('-'*6,'-'*8,'-'*12,'-'*12))
+            print('\n{:^22}{:^23}{:^15}{:^20}'.format('Name','SSN','Rank','License'))
+            print('{:^22}{:^25}{:^8}{:^18}'.format('-'*6,'-'*8,'-'*12,'-'*12))
             counter = 0
             for line in pilots:
                 line_counter = counter + 1
-                print('{:^5}{:^15}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', pilots[counter].get_name() , pilots[counter].get_social() , pilots[counter].get_rank() , pilots[counter].get_license()))
+                print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', pilots[counter].get_name() , pilots[counter].get_social() , pilots[counter].get_rank() , pilots[counter].get_license()))
                 counter += 1
             print('')
             input_command = input('Enter input command: ').lower()
