@@ -35,3 +35,7 @@ class DestinationsLL():
                   'emergencynumber', 'flighttime', 'destinationnumber']
         the_list.insert(0, header)
         DestinationsIO().overwrite_destination_file(the_list)
+
+    def get_destination(self, destination_id):
+        one_destination = DestinationsIO().load_destination_from_file(destination_id)
+        return one_destination
