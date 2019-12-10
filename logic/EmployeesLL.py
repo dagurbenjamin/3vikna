@@ -43,5 +43,8 @@ class EmployeesLL():
 
     def get_one_employee(self, ssn):
         one_employee = CrewIO().load_crew_from_file(ssn)
-        print(type(one_employee), 'her')
         return one_employee
+
+    def get_pilots(self, p_or_c_input):
+        pilots = CrewIO().load_pilot_or_cabincrew(p_or_c_input)
+        return pilots

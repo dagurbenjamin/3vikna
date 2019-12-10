@@ -18,7 +18,8 @@ class EmployeesMenu():
         print("\n {}\n \n {} \n    ".format("*"*65, "{}{}{}".format(" "*23, title, " "*30), "-"*65))
     
     def get_employee(self, ssn):
-        one_employee = EmployeesLL().get_one_employee(ssn)        
+        one_employee = EmployeesLL().get_one_employee(ssn)
+        print(one_employee)
         input_command = ''
         while input_command != 'q':
             self.header(one_employee.get_name())
@@ -28,11 +29,58 @@ class EmployeesMenu():
             print('{:^13}{:^38}{:^14}'.format('SSN','Address','Phone number'))
             print('{:^15}{:^32}{:^22}'.format('-'*10,'-'*9,'-'*12))
             print('{:^15}{:^36}{:^15}\n'.format(one_employee.get_social(),one_employee.get_address(),one_employee.get_phone()))
-            print('\n\n1. Back to Main menu\n2. Back to Submenu\n3. Back one page\n')
+            print('\n\n1. Back to Main menu\n2. Back to All Employees\n3. Back to All Pilots\n')
             
             input_command = input("Input command: ").lower()
-            if input_command == '3':
-                a = EmployeesMenu().get_all_employees()
+            if input_command == '2':
+                EmployeesMenu().get_all_employees()
+            elif input_command == '3':
+                EmployeesMenu().get_all_pilots('Pilot')
+
+
+    def get_all_pilots(self, p_or_c_input):
+        pilots = EmployeesLL().get_pilots(p_or_c_input)
+        input_command = ''
+        while input_command != 'q':
+            self.header('Pilots')
+            print('\n{:^15}{:^32}{:^10}{:^15}'.format('Name','SSN','Rank','License'))
+            print('{:^15}{:^32}{:^10}{:^15}'.format('-'*6,'-'*8,'-'*12,'-'*12))
+            counter = 0
+            for line in pilots:
+                line_counter = counter + 1
+                print('{:^5}{:^15}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', pilots[counter].get_name() , pilots[counter].get_social() , pilots[counter].get_rank() , pilots[counter].get_license()))
+                counter += 1
+            print('')
+            input_command = input('Enter input command: ').lower()
+            if input_command == '1':
+                EmployeesMenu().get_employee(pilots[0].get_social())
+            elif input_command == '2':
+                EmployeesMenu().get_employee(pilots[1].get_social())
+            elif input_command == '3':
+                EmployeesMenu().get_employee(pilots[2].get_social())
+            elif input_command == '4':
+                EmployeesMenu().get_employee(pilots[3].get_social())
+            elif input_command == '5':
+                EmployeesMenu().get_employee(pilots[4].get_social())
+            elif input_command == '6':
+                EmployeesMenu().get_employee(pilots[5].get_social())
+            elif input_command == '7':
+                EmployeesMenu().get_employee(pilots[6].get_social())
+            elif input_command == '8':
+                EmployeesMenu().get_employee(pilots[7].get_social())
+            elif input_command == '9':
+                EmployeesMenu().get_employee(pilots[8].get_social())
+            elif input_command == '10':
+                EmployeesMenu().get_employee(pilots[9].get_social())
+            elif input_command == '11':
+                EmployeesMenu().get_employee(pilots[10].get_social())
+            elif input_command == '12':
+                EmployeesMenu().get_employee(pilots[11].get_social())
+
+
+
+            
+
 
 
 
@@ -50,6 +98,7 @@ class EmployeesMenu():
                 print('{:^5}{:^5}{:^30}{:^10}'.format(str(line_counter) + '.' ,all_employees[counter][0], all_employees[counter][1], all_employees[counter][2]))
                 counter += 1
             print('')
+            print('\nPilots. Get all pilots')
             input_command = input("Input command: ").lower()
             
             if input_command == '1':
@@ -68,6 +117,10 @@ class EmployeesMenu():
                 EmployeesMenu().get_employee(all_employees[6][0])
             elif input_command == '8':
                 EmployeesMenu().get_employee(all_employees[20][0])
+            elif input_command == 'pilots':
+                EmployeesMenu().get_all_pilots('Pilot')
+
+        
 
 
 
