@@ -37,11 +37,12 @@ class VoyagesLL():
         all_voyages_list.insert(0, header)
         VoyagesIO().overwrite_voyage_file(all_voyages_list)
 
-    def is_voyage_fully_staffed(self):
-        voyages = VoyagesIO().load_voyages_from_file()
+    def is_voyage_fully_staffed(self, voyageID):
+        voyages = VoyagesIO().load_voyages_from_file(voyageID)
         for line in voyages:
-            print(line)
-
-
-x = is_voyage_fully_staffed()
-print(x)
+            str_voyage = str(line)
+            list_voyage = str_voyage.split(',')
+            if list_voyage[3] == 'x' or list_voyage[4] == 'x' or list_voyage[5] == 'x' or list_voyage[6] == 'x':
+                return print('Voyage is not fully staffed!')
+            else:
+                return print('Voyage is fully staffed!')

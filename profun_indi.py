@@ -34,18 +34,20 @@ from logic.VoyagesLL import VoyagesLL
 #     destination_to_change_input, replacement_value, index_to_replace)
 
 
-# voyage_to_change = '3'
+# number_voyage_to_change = '3'
 # replacement_Captain = '2706838569'
 # replacement_Copilot = '1900769521'
 # replacement_FlightServiceManager = '2200763823'
 # replacement_FlightAttendant = '3003962187'
-# input_index = 3
+# input_index = 4
 # index_to_replace = input_index + 2
 # changed_voyage = VoyagesLL().update_one_voyage(
-#     number_voyage_to_change, replacement_value, index_to_replace)
+#     number_voyage_to_change, replacement_Captain, index_to_replace)
 
 # Voyage_to_find = '2'
 # x = VoyagesIO().load_upcoming_flights_from_file(Voyage_to_find)
 # print(x)
 
-x = VoyagesLL().is_voyage_fully_staffed()
+voyageID = '2'
+
+x = VoyagesLL().is_voyage_fully_staffed(voyageID)
