@@ -1,5 +1,6 @@
 
 from iolayer.VoyagesIO import VoyagesIO
+from logic.EmployeesLL import EmployeesLL
 
 
 class VoyagesLL():
@@ -16,8 +17,13 @@ class VoyagesLL():
         for voyage in one_voyage:
             str_voyage = str(voyage)
             list_voyage = str_voyage.split(',')
-            list_voyage[index_to_replace] = replacement_value
-            VoyagesLL().change_the_big_voyage_list(number_voyage_to_change, list_voyage)
+            employees_working_same_day = EmployeesLL(
+            ).employees_working(list_voyage[2])
+            if replacement_value in employees_working_same_day:
+                return print('cant add employee, hes working this day')
+            else:
+                list_voyage[index_to_replace] = replacement_value
+                VoyagesLL().change_the_big_voyage_list(number_voyage_to_change, list_voyage)
 
     def change_the_big_voyage_list(self, number_voyage_to_change, new_list_voyage, input_value='0'):
         all_voyages = VoyagesIO().load_voyages_from_file(input_value)
