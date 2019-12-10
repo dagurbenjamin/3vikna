@@ -4,6 +4,7 @@ from iolayer.CrewIO import CrewIO
 from modules.Crew import Crew
 from iolayer.VoyagesIO import VoyagesIO
 
+
 class EmployeesLL():
 
     def __init__(self, new_empl_list=[]):
@@ -49,7 +50,7 @@ class EmployeesLL():
         pilots = CrewIO().load_pilot_or_cabincrew(p_or_c_input)
         return pilots
 
-    def employees_working(self, inputt):
+    def employees_working(self, inputt, voyageID='0'):
         x = VoyagesIO().load_voyages_from_file(voyageID)
         for line in x:
             if line.date == inputt:

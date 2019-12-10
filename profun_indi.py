@@ -35,20 +35,20 @@ from logic.VoyagesLL import VoyagesLL
 
 
 number_voyage_to_change = '3'
-replacement_value = '2706838569'
-#replacement_value = '1900769521'
-#replacement_value = '2200763823'
-#replacement_value = '3003962187'
-input_index = 4
+replacement_value = '2910858778'
+# replacement_value = '1900769521'
+# replacement_value = '2200763823'
+# replacement_value = '3003962187'
+input_index = 1
 index_to_replace = input_index + 3
 changed_voyage = VoyagesLL().update_one_voyage(
     number_voyage_to_change, replacement_value, index_to_replace)
-
+# print(changed_voyage)
 # Voyage_to_find = '2'
 # x = VoyagesIO().load_upcoming_flights_from_file(Voyage_to_find)
 # print(x)
 
-# voyageID = '2'
+# voyageID = '0'
 
 # x = VoyagesLL().is_voyage_fully_staffed(voyageID)
 
@@ -66,3 +66,7 @@ changed_voyage = VoyagesLL().update_one_voyage(
 
 
 # list_voyages_by_day(date, Voyage_to_find)
+
+# inputt = '2019-12-22'
+# x = EmployeesLL().employees_working(inputt, voyageID)
+# print(x)
