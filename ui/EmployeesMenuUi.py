@@ -98,7 +98,7 @@ class EmployeesMenu():
                 print('{:^5}{:^5}{:^30}{:^10}'.format(str(line_counter) + '.' ,all_employees[counter][0], all_employees[counter][1], all_employees[counter][2]))
                 counter += 1
             print('')
-            print('\nPilots. Get all pilots')
+            print('\nGet all pilots......"Pilots"')
             input_command = input("Input command: ").lower()
             
             if input_command == '1':
