@@ -18,7 +18,7 @@ class DestinationsIO():
                 elif row['id'] == destination_id:
                     destination = Destinations(row['id'], row['destination'], row['country'], row['distance'],
                                                row['contactname'], row['emergencynumber'], row['flighttime'], row['destinationnumber'])
-                    alldestinations.append(destination)
+                    return destination
                     break
         return alldestinations
 
