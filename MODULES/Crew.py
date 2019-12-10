@@ -1,6 +1,6 @@
 class Crew:
 
-    def __init__(self, social, name, role, rank, crewlicense, address, phone, email, user_id):
+    def __init__(self, social, name, role, rank, crewlicense, address, phone, email):
         self.social = social
         self.name = name
         self.role = role
@@ -9,11 +9,10 @@ class Crew:
         self.address = address
         self.phone = phone
         self.email = email
-        self.user_id = user_id
 
     def __str__(self):
-        return "{},{},{},{},{},{},{},{},{}".format(self.social, self.name, self.role, self.rank, self.crewlicense,
-                                                   self.address, self.phone, self.email, self.user_id)
+        return "{},{},{},{},{},{},{},{}".format(self.social, self.name, self.role, self.rank, self.crewlicense,
+                                                self.address, self.phone, self.email)
 
     def __repr__(self):
         return self.__str__()
@@ -42,5 +41,26 @@ class Crew:
     def get_email(self):
         return self.email
 
-    def get_id(self):
-        return self.user_id
+    def set_social(self, new):
+        self.social = new
+
+    def set_name(self, new):
+        self.name = new
+
+    def set_role(self, new):
+        self.role = new
+
+    def set_rank(self, new):
+        self.rank = new
+
+    def set_license(self, new):
+        self.license = new
+
+    def set_address(self, new):
+        self.address = new
+
+    def set_phone(self, new):
+        self.phone = new
+
+    def set_email(self, new):
+        self.email = new
