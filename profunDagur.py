@@ -6,30 +6,17 @@ from modules.Crew import Crew
 from datetime import datetime, date
 from modules.Voyages import Voyages
 import csv
+voyageID = "0"
+inputt = "2019-12-20"
 
-def overwrite_in_right_rows():
-    x = VoyagesIO().load_voyages_from_file()
-    reader = csv.DictReader(x)
-    for row in reader:
+def employees_working(self, inputt):
+    x = VoyagesIO().load_voyages_from_file(voyageID)
+    for line in x:
+        if line.date == inputt:
+            return line.captain,line.copilot,line.flightAttendant,line.FlightServiceManager,line.destination
+        else:
+            False
 
-
-
-    for flights in x:
-        flights = object(flights)
-
-        print(flights)
-        #flight_date = flights[3]
-        #flight_date = flight_date.split("-")
-        #print(flight_date)
-
-        #flight_date2 = str(flight_date1)
-
-        #flight_date3 = flight_date2.split("T")
-        #print(flight_date3)
-    #date_and_time = datetime(flight_date[3])
-   # print(date_and_time)
-
-overwrite_in_right_rows()
-
+employees_working(self, inputt)
 
 
