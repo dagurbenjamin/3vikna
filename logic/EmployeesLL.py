@@ -2,7 +2,7 @@
 # from IOLAYER.IOAPI import IOAPI
 from iolayer.CrewIO import CrewIO
 from modules.Crew import Crew
-
+from iolayer.VoyagesIO import VoyagesIO
 
 class EmployeesLL():
 
@@ -48,3 +48,11 @@ class EmployeesLL():
     def get_pilots(self, p_or_c_input):
         pilots = CrewIO().load_pilot_or_cabincrew(p_or_c_input)
         return pilots
+
+    def employees_working(self, inputt):
+        x = VoyagesIO().load_voyages_from_file(voyageID)
+        for line in x:
+            if line.date == inputt:
+                return line.captain, line.copilot, line.flightAttendant, line.FlightServiceManager, line.destination
+            else:
+                False
