@@ -15,12 +15,11 @@ class CrewIO():
             for row in reader:
                 if ssn_toFind == '0':
                     employee = Crew(row['ssn'], row['name'], row['role'], row['rank'], row['crewlicense'],
-                                    row['address'], row['phonenumber'], row['email'], row['id'])
+                                    row['address'], row['phonenumber'], row['email'])
                     allcrew.append(employee)
                 elif row['ssn'] == ssn_toFind:
                     employee = Crew(row['ssn'], row['name'], row['role'], row['rank'], row['crewlicense'],
-                                    row['address'], row['phonenumber'], row['email'], row['id'])
-                    
+                                    row['address'], row['phonenumber'], row['email'])
                     return employee
                     break
             return allcrew  # samt bara 1
@@ -32,7 +31,7 @@ class CrewIO():
             for row in reader:
                 if (row['role'] == p_or_c_input):
                     employee = Crew(row['ssn'], row['name'], row['role'], row['rank'],
-                                    row['crewlicense'], row['address'], row['phonenumber'], row['email'], row['id'])
+                                    row['crewlicense'], row['address'], row['phonenumber'], row['email'])
                     all_p_or_c.append(employee)
         return all_p_or_c
 
@@ -42,7 +41,6 @@ class CrewIO():
         f.close()
 
     def overwrite_crew_file(self, all_employees_list):
-        #        all_employees_list = EmployeesLL().change_the_big_list()
         f = open("./data_files/CrewFile.csv", "w")
         for line in all_employees_list:
             str_line = ','.join(line)

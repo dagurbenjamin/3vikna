@@ -13,9 +13,9 @@ class EmployeesMenu():
             employee_id = self.'''
 
     def header(self, title):
-        print('*'*65,'\n')
+        print('*'*75,'\n')
         print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
-        print("\n {}\n \n {} \n    ".format("*"*65, "{}{}{}".format(" "*23, title, " "*30), "-"*65))
+        print("\n {}\n \n {} \n    ".format("*"*75, "{}{}{}".format(" "*23, title, " "*30), "-"*65))
     
     def get_employee(self, ssn):
         one_employee = EmployeesLL().get_one_employee(ssn)
@@ -43,12 +43,12 @@ class EmployeesMenu():
         input_command = ''
         while input_command != 'q':
             self.header('Pilots')
-            print('\n{:^15}{:^32}{:^10}{:^15}'.format('Name','SSN','Rank','License'))
-            print('{:^15}{:^32}{:^10}{:^15}'.format('-'*6,'-'*8,'-'*12,'-'*12))
+            print('\n{:^22}{:^23}{:^15}{:^20}'.format('Name','SSN','Rank','License'))
+            print('{:^22}{:^25}{:^8}{:^18}'.format('-'*6,'-'*8,'-'*12,'-'*12))
             counter = 0
             for line in pilots:
                 line_counter = counter + 1
-                print('{:^5}{:^15}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', pilots[counter].get_name() , pilots[counter].get_social() , pilots[counter].get_rank() , pilots[counter].get_license()))
+                print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', pilots[counter].get_name() , pilots[counter].get_social() , pilots[counter].get_rank() , pilots[counter].get_license()))
                 counter += 1
             print('')
             input_command = input('Enter input command: ').lower()
@@ -98,7 +98,7 @@ class EmployeesMenu():
                 print('{:^5}{:^5}{:^30}{:^10}'.format(str(line_counter) + '.' ,all_employees[counter][0], all_employees[counter][1], all_employees[counter][2]))
                 counter += 1
             print('')
-            print('\nPilots. Get all pilots')
+            print('\nGet all pilots......"Pilots"')
             input_command = input("Input command: ").lower()
             
             if input_command == '1':
