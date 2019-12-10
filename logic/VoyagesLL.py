@@ -28,7 +28,7 @@ class VoyagesLL():
             if list_voyage[0] == number_voyage_to_change:
                 list_voyage = new_list_voyage
             all_voyages_list.append(list_voyage)
-        header = ['voyageID', 'planeInsignia', 'date', 'captain',
+        header = ['voyageID', 'planeInsignia', 'date', 'destination', 'captain',
                   'copilot', 'FlightServiceManager', 'flightAttendant']
         all_voyages_list.insert(0, header)
         VoyagesIO().overwrite_voyage_file(all_voyages_list)
@@ -38,7 +38,7 @@ class VoyagesLL():
         for line in voyages:
             str_voyage = str(line)
             list_voyage = str_voyage.split(',')
-            if list_voyage[3] == 'x' or list_voyage[4] == 'x' or list_voyage[5] == 'x' or list_voyage[6] == 'x':
+            if list_voyage[4] == 'x' or list_voyage[5] == 'x' or list_voyage[6] == 'x' or list_voyage[7] == 'x':
                 return print('Voyage is not fully staffed!')
             else:
                 return print('Voyage is fully staffed!')
