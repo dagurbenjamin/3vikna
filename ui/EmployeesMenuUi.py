@@ -120,6 +120,40 @@ class EmployeesMenu():
             elif input_command == 'pilots':
                 EmployeesMenu().get_all_pilots('Pilot')
 
+    def create_new_employee(self):
+        self.header('Create New Employee')
+        input_command = ''
+        new_employee = ""
+        new_employee_list = []
+        while input_command != 'q':
+            input_command = input('SSN of Employee: ')
+            new_employee_list.append(input_command)
+            input_command = input('Name of Employee: ')
+            new_employee_list.append(input_command)
+            input_command = input('Role of Employee: ')
+            new_employee_list.append(input_command)
+            input_command = input('Rank of Employee: ')
+            new_employee_list.append(input_command)
+            input_command = input('License of Employee: ')
+            new_employee_list.append(input_command)
+            input_command = input('Address of Employee: ')
+            new_employee_list.append(input_command)
+            input_command = input('Phone number of Employee: ')
+            new_employee_list.append(input_command)
+            input_command = input('Email of Employee: ')
+            new_employee_list.append(input_command)
+            print(new_employee_list)
+            self.header(new_employee_list[1])
+            print('\n{:^15}{:^32}{:^23}'.format('Role','Rank','License'))
+            print('{:^15}{:^32}{:^25}'.format('-'*6,'-'*8,'-'*12))
+            print('{:^15}{:^33}{:^23}\n'.format(new_employee_list[2],new_employee_list[3],new_employee_list[4]))
+            print('{:^13}{:^38}{:^14}{:^14}'.format('SSN','Address','Phone number','Email'))
+            print('{:^15}{:^32}{:^22}{}'.format('-'*10,'-'*9,'-'*12,'-'*12))
+            print('{:^15}{:^36}{:^15}{}\n'.format(new_employee_list[0],new_employee_list[5],new_employee_list[6],new_employee_list[7]))
+            print('\nIs this correct?\n-----\n1. Yes\n2. No\n')
+            input_command = input('Input Command: ')
+            
+
         
 
 
@@ -142,9 +176,9 @@ class EmployeesMenu():
 
             input_command = input('Input Command: ').lower()
             if input_command == '1':
-                pass
+                EmployeesMenu().create_new_employee()
             elif input_command == '2':
-                a = EmployeesMenu().get_all_employees()
+                EmployeesMenu().get_all_employees()
             elif input_command == '3':
                 pass
             elif input_command == '4':
