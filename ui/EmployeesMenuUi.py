@@ -13,9 +13,9 @@ class EmployeesMenu():
             employee_id = self.'''
 
     def header(self, title):
-        print('*'*65,'\n')
+        print('*'*75,'\n')
         print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
-        print("\n {}\n \n {} \n    ".format("*"*65, "{}{}{}".format(" "*23, title, " "*30), "-"*65))
+        print("\n {}\n \n {} \n    ".format("*"*75, "{}{}{}".format(" "*23, title, " "*30), "-"*65))
     
     def get_employee(self, ssn):
         one_employee = EmployeesLL().get_one_employee(ssn)

@@ -29,9 +29,9 @@ def voyages_main():
 def main():
     input_command = ''
     while input_command != 'q':
-        print('*'*65,'\n')
+        print('*'*75,'\n')
         print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
-        print('\n','*'*65,'\n')
+        print('\n','*'*75,'\n')
         print('Main menu\n----------\n1. Airplanes\n2. Destinations\n3. Employees\n4. Voyage\n')
         input_command = input('Input Command: ').lower()
         if input_command == '1':
