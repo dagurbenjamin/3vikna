@@ -32,7 +32,7 @@ class CrewIO():
             for row in reader:
                 if (row['role'] == p_or_c_input):
                     employee = Crew(row['ssn'], row['name'], row['role'], row['rank'],
-                                    row['licence'], row['address'], row['phonenumber'], row['email'], row['id'])
+                                    row['crewlicense'], row['address'], row['phonenumber'], row['email'], row['id'])
                     all_p_or_c.append(employee)
         return all_p_or_c
 
