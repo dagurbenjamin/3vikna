@@ -9,21 +9,21 @@ class EmployeesLL():
     def __init__(self, new_empl_list=[]):
         self.new_empl_list = new_empl_list
 
-    def change_value_for_one_employee(self, employee_to_change_input, replacement_value, index_to_replace):
+    def change_value_for_one_employee(self, employee_to_change_ssn_input, replacement_value, index_to_replace):
         allCrew = CrewIO().load_crew_from_file(employee_to_change_input)
         for member in allCrew:
             str_member = str(member)
             list_mem = str_member.split(',')
             list_mem[index_to_replace] = replacement_value
-            EmployeesLL().change_the_big_list(employee_to_change_input, list_mem)
+            EmployeesLL().change_the_big_list(employee_to_change_ssn_input, list_mem)
 
-    def change_the_big_list(self, employee_to_change_input, changed_employee, input_value='0'):
+    def change_the_big_list(self, employee_to_change_ssn_input, changed_employee, input_value='0'):
         x = CrewIO().load_crew_from_file(input_value)
         a_list = []
         for member in x:
             str_member = str(member)
             list_member = str_member.split(',')
-            if list_member[0] == employee_to_change_input:
+            if list_member[0] == employee_to_change_ssn_input:
                 list_member = changed_employee
             a_list.append(list_member)
         header = ['ssn', 'name', 'role', 'rank', 'licence',
