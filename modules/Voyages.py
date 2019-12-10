@@ -1,9 +1,10 @@
 class Voyages:
 
-    def __init__(self, voyageID, planeInsignia, date, captain, copilot, FlightServiceManager, flightAttendant):
+    def __init__(self, voyageID, planeInsignia, date, destination, captain, copilot, FlightServiceManager, flightAttendant):
         self.voyageID = voyageID
         self.planeInsignia = planeInsignia
         self.date = date
+        self.destination = destination
         self.captain = captain
         self.copilot = copilot
         self.FlightServiceManager = FlightServiceManager
@@ -23,6 +24,9 @@ class Voyages:
 
     def get_date(self):
         return self.date
+
+    def get_destination(self):
+        return self.destination
 
     def get_captain(self):
         return self.captain
@@ -44,6 +48,9 @@ class Voyages:
 
     def set_date(self, new):
         self.date = new
+
+    def set_destination(self, new):
+        self.destination = new
 
     def set_captain(self, new):
         self.captain = new

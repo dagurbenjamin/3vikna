@@ -60,11 +60,11 @@ class VoyagesIO():
             reader = csv.DictReader(csvfile)
             for row in reader:
                 if voyageID == '0':
-                    voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['captain'], row['copilot'],
+                    voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['destination'], row['captain'], row['copilot'],
                                      row['FlightServiceManager'], row['flightAttendant'])
                     all_voyages.append(voyage)
                 elif row['voyageID'] == voyageID:
-                    voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['captain'],
+                    voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['destination'], row['captain'],
                                      row['copilot'], row['FlightServiceManager'], row['flightAttendant'])
                     all_voyages.append(voyage)
         return all_voyages
