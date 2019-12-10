@@ -11,10 +11,6 @@ class VoyagesLL():
         new_voyage_list = ','.join(new_voyage_list)
         return new_voyage_list
 
-    def get_voyage(self):
-        pass
-        # title = "id number, date, time, staff status"?
-
     def update_one_voyage(self, number_voyage_to_change, replacement_value, index_to_replace):
         allvoyage = VoyagesIO().load_voyages_from_file(number_voyage_to_change)
         for voyage in allvoyage:

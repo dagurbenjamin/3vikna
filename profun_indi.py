@@ -48,6 +48,31 @@ from logic.VoyagesLL import VoyagesLL
 # x = VoyagesIO().load_upcoming_flights_from_file(Voyage_to_find)
 # print(x)
 
-voyageID = '2'
+# voyageID = '2'
 
-x = VoyagesLL().is_voyage_fully_staffed(voyageID)
+# x = VoyagesLL().is_voyage_fully_staffed(voyageID)
+
+# date = '2019-12-20'
+Voyage_to_find = '1'
+
+
+# def list_voyages_by_day(date, Voyage_to_find):
+#     all_voyages = VoyagesIO().load_voyages_from_file(Voyage_to_find)
+#     for line in all_voyages:
+#         str_voyage = str(line)
+#         list_voyage = str_voyage.split(',')
+#         if list_voyage[2] == date:
+#             print(line)
+
+
+# list_voyages_by_day(date, Voyage_to_find)
+
+def get_all_voyage_information(Voyage_to_find):
+    the_voyage = VoyagesIO().load_voyages_from_file(Voyage_to_find)
+    for line in the_voyage:
+        str_voyage = str(line)
+        list_voyage = str_voyage.split(',')
+        print(list_voyage)
+
+
+get_all_voyage_information(Voyage_to_find)
