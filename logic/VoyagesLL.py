@@ -12,8 +12,8 @@ class VoyagesLL():
         return new_voyage_list
 
     def update_one_voyage(self, number_voyage_to_change, replacement_value, index_to_replace):
-        allvoyage = VoyagesIO().load_voyages_from_file(number_voyage_to_change)
-        for voyage in allvoyage:
+        one_voyage = VoyagesIO().load_voyages_from_file(number_voyage_to_change)
+        for voyage in one_voyage:
             str_voyage = str(voyage)
             list_voyage = str_voyage.split(',')
             list_voyage[index_to_replace] = replacement_value
