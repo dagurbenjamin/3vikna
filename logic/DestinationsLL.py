@@ -7,10 +7,8 @@ class DestinationsLL():
     def __init__(self, new_dest_list=[]):
         self.new_dest_list = new_dest_list
 
-    def create_destination(self, new_destination_list):
-        # id,destination,country,distance,contactname,emergencynumber,flighttime,destinationnumber
-        new_destination_list = ','.join(new_destination_list)
-        return new_destination_list
+    def save_new_destination(self, new_destination_list):
+        DestinationsIO().write_in_destination_file(new_destination_list)
 
     def update_destination(self, destination_to_change_input, replacement_value, index_to_replace):
         all_destinatios = DestinationsIO().load_destination_from_file(
