@@ -1,6 +1,8 @@
 
 from iolayer.VoyagesIO import VoyagesIO
 from logic.EmployeesLL import EmployeesLL
+import datetime
+import time
 
 
 class VoyagesLL():
@@ -48,3 +50,38 @@ class VoyagesLL():
                 return print('Voyage is not fully staffed!')
             else:
                 return print('Voyage is fully staffed!')
+
+    def list_voyages_by_day(date, the_input='0'):
+        all_voyages = VoyagesIO().load_voyages_from_file(the_input)
+        for line in all_voyages:
+            str_voyage = str(line)
+            list_voyage = str_voyage.split(',')
+            if list_voyage[2] == date:
+                str_voyage = str(line)
+                list_voyage = str_voyage.split(',')
+                print(line)
+                if list_voyage[4] == 'x' or list_voyage[5] == 'x' or list_voyage[6] == 'x' or list_voyage[7] == 'x':
+                    print('Voyage is not fully staffed!')
+                else:
+                    print('Voyage is fully staffed!')
+
+    def list_voyages_by_week(self, weeknumber, the_input='0'):
+        WEEK = weeknumber - 2  # as it starts with 0 and you want week to start from sunday
+        startdate = time.asctime(time.strptime('2019 %d 0' % WEEK, '%Y %W %w'))
+        startdate = datetime.datetime.strptime(
+            startdate, '%a %b %d %H:%M:%S %Y')
+        dates = [startdate.strftime('%Y-%m-%d')]
+        for i in range(1, 7):
+            day = startdate + datetime.timedelta(days=i)
+            dates.append(day.strftime('%Y-%m-%d'))
+        all_voyages = VoyagesIO().load_voyages_from_file(the_input)
+        all_voyages_in_that_week = []
+        for line in all_voyages:
+            str_voyage = str(line)
+            list_voyage = str_voyage.split(',')
+            if list_voyage[2] in dates:
+                print(list_voyage)
+                if list_voyage[4] == 'x' or list_voyage[5] == 'x' or list_voyage[6] == 'x' or list_voyage[7] == 'x':
+                    print('Voyage is not fully staffed!')
+                else:
+                    print('Voyage is fully staffed!')
