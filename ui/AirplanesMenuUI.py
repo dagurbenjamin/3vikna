@@ -122,5 +122,61 @@ class AirplanesMenu():
     def create_airplane_type(self):
         self.header('Create New Airplane Type')
         input_command = ''
-        new_employee = ''
-        new_employee_list = []
+        new_airplane_type = ''
+        new_airplane_type_list = []
+        while input_command != 'q':
+            input_command = input('planeTypeId: ')
+            new_airplane_type_list.append(input_command)
+            input_command = input('manufacturer: ')
+            new_airplane_type_list.append(input_command)
+            input_command = input('model: ')
+            new_airplane_type_list.append(input_command)
+            input_command = input('capacity: ')
+            new_airplane_type_list.append(input_command)
+            input_command = input('emptyWeight: ')
+            new_airplane_type_list.append(input_command)
+            input_command = input('maxTakeoffWeight: ')
+            new_airplane_type_list.append(input_command)
+            input_command = input('unitThrust: ')
+            new_airplane_type_list.append(input_command)
+            input_command = input('serviceCeiling: ')
+            new_airplane_type_list.append(input_command)
+            input_command = input('length: ')
+            new_airplane_type_list.append(input_command)
+            input_command = input('height: ')
+            new_airplane_type_list.append(input_command)
+            input_command = input('wingspan: ')
+            new_airplane_type_list.append(input_command)
+            self.header('New Airplane Type')
+            print('\n{:^15}{:^32}{:^23}'.format(
+                'planeTypeId', 'manufacturer', 'model'))
+            print('{:^15}{:^32}{:^25}'.format('-'*15, '-'*8, '-'*10))
+            print('{:^15}{:^33}{:^23}\n'.format(
+                new_airplane_type_list[0], new_airplane_type_list[1], new_airplane_type_list[2]))
+            print('\n{:^15}{:^32}{:^23}'.format(
+                'capacity', 'emptyWeight', 'maxTakeoffWeight'))
+            print('{:^15}{:^32}{:^25}'.format('-'*15, '-'*8, '-'*15))
+            print('{:^15}{:^33}{:^23}\n'.format(
+                new_airplane_type_list[3], new_airplane_type_list[4], new_airplane_type_list[5]))
+            print('\n{:^15}{:^32}{:^23}'.format(
+                'unitThrust', 'serviceCeiling', 'length'))
+            print('{:^15}{:^32}{:^25}'.format('-'*15, '-'*8, '-'*15))
+            print('{:^15}{:^33}{:^23}\n'.format(
+                new_airplane_type_list[6], new_airplane_type_list[7], new_airplane_type_list[8]))
+            print('\n{:^15}{:^23}'.format('height', 'wingspan'))
+            print('{:^15}{:^25}'.format('-'*15, '-'*15))
+            print('{:^15}{:^23}\n'.format(
+                new_airplane_type_list[9], new_airplane_type_list[10]))
+            print('\nIs this correct?\n-----\n1. Yes\n2. No\n')
+            input_command = input('Input Command: ')
+            if input_command == '1':
+                new_airplane_type = ','.join([str(elem)
+                                              for elem in new_airplane_type_list])
+                AirplanesLL().save_new_airplane_info(new_airplane_type)
+                print('\nAirplane added!\n')
+                AirplanesMenu().get_all_airplanes()
+            elif input_command == '2':
+                continue
+
+# geta save-að airplane type og fæ ekki að inputta yes or no i save
+# kemur bara aftur "planetypeID"
