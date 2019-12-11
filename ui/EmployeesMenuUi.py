@@ -189,7 +189,7 @@ class EmployeesMenu():
                 one_employee.set_license(input_command)
                 one_employee_list = str(one_employee).split(',')
                 EmployeesLL().change_the_big_list(one_employee.get_social(), one_employee_list)
-                input_command = input('Role of Employee: ')
+                continue
             elif input_command == '4':
                 input_command = input('New Address of Employee: ')
                 one_employee.set_address(input_command)
@@ -208,6 +208,8 @@ class EmployeesMenu():
                 one_employee_list = str(one_employee).split(',')
                 EmployeesLL().change_the_big_list(one_employee.get_social(), one_employee_list)
                 input_command = input('Role of Employee: ')
+            elif input_command == '7':
+                EmployeesMenu().update_employee()
 
     
     def update_employee(self):
