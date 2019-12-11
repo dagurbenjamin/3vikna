@@ -34,15 +34,15 @@ from logic.VoyagesLL import VoyagesLL
 #     destination_to_change_input, replacement_value, index_to_replace)
 
 
-number_voyage_to_change = '3'
-replacement_value = '2910858778'
+# number_voyage_to_change = '3'
+# replacement_value = '2910858778'
 # replacement_value = '1900769521'
 # replacement_value = '2200763823'
 # replacement_value = '3003962187'
-input_index = 1
-index_to_replace = input_index + 3
-changed_voyage = VoyagesLL().update_one_voyage(
-    number_voyage_to_change, replacement_value, index_to_replace)
+# input_index = 1
+# index_to_replace = input_index + 3
+# changed_voyage = VoyagesLL().update_one_voyage(
+#     number_voyage_to_change, replacement_value, index_to_replace)
 # print(changed_voyage)
 # Voyage_to_find = '2'
 # x = VoyagesIO().load_upcoming_flights_from_file(Voyage_to_find)
@@ -52,21 +52,34 @@ changed_voyage = VoyagesLL().update_one_voyage(
 
 # x = VoyagesLL().is_voyage_fully_staffed(voyageID)
 
-# date = '2019-12-20'
-#Voyage_to_find = '1'
+# date = '2019-12-21'
 
 
-# def list_voyages_by_day(date, Voyage_to_find):
-#     all_voyages = VoyagesIO().load_voyages_from_file(Voyage_to_find)
+# list_voyages_by_day(date)
+# date_list = []
+# year = str(input('input year: '))
+# date_list.append(year)
+# month = str(input('input month: '))
+# date_list.append(month)
+# day = str(input('input day: '))
+# date_list.append(day)
+# print(date_list)
+
+
+# def list_voyages_by_week(week_start, the_input='0'):
+#     all_voyages = VoyagesIO().load_voyages_from_file(the_input)
 #     for line in all_voyages:
 #         str_voyage = str(line)
 #         list_voyage = str_voyage.split(',')
 #         if list_voyage[2] == date:
+#             str_voyage = str(line)
+#             list_voyage = str_voyage.split(',')
 #             print(line)
+#             if list_voyage[4] == 'x' or list_voyage[5] == 'x' or list_voyage[6] == 'x' or list_voyage[7] == 'x':
+#                 print('Voyage is not fully staffed!')
+#             else:
+#                 print('Voyage is fully staffed!')
 
 
-# list_voyages_by_day(date, Voyage_to_find)
-
-# inputt = '2019-12-22'
-# x = EmployeesLL().employees_working(inputt, voyageID)
-# print(x)
+weeknumber = int(input('input weeknumber: '))
+x = VoyagesLL().list_voyages_by_week(weeknumber)
