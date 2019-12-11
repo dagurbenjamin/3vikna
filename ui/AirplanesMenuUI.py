@@ -7,9 +7,9 @@ class AirplanesMenu():
         pass
 
     def header(self):
-        print('*'*65,'\n')
+        print('*'*95,'\n')
         print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
-        print("\n {}\n \n {} \n    ".format("*"*65, "{}Airplanes{}".format(" "*25, " "*30), "-"*65))
+        print("\n {}\n \n {} \n    ".format("*"*95, "{}Airplanes{}".format(" "*25, " "*30), "-"*65))
 
     def print_airplanes_menu(self):
         input_command = ''

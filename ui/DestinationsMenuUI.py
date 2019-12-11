@@ -9,9 +9,9 @@ class DestinationsMenu():
         pass
 
     def header(self, title):
-        print('*'*75,'\n')
+        print('*'*95,'\n')
         print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
-        print("\n {}\n \n {} \n    ".format("*"*75, "{}{}{}".format(" "*25, title, " "*30), "-"*65))
+        print("\n {}\n \n {} \n    ".format("*"*95, "{}{}{}".format(" "*25, title, " "*30), "-"*65))
 
 
 
