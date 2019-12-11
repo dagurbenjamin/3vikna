@@ -86,7 +86,7 @@ class EmployeesMenu():
             counter = 0
             for line in cabin_crew:
                 line_counter = counter + 1
-                print('{:^5}{:^17}{:^25}{:^15}'.format(str(line_counter) + '.', cabin_crew[counter].get_name() , cabin_crew[counter].get_social() , cabin_crew[counter].get_rank()))
+                print('{:^5}{:^20}{:^25}{:^15}'.format(str(line_counter) + '.', cabin_crew[counter].get_name() , cabin_crew[counter].get_social() , cabin_crew[counter].get_rank()))
                 counter += 1
             print('')
             input_command = input('Enter input command: ').lower()
