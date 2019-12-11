@@ -39,3 +39,12 @@ class DestinationsLL():
     def get_destination(self, destination_id):
         one_destination = DestinationsIO().load_destination_from_file(destination_id)
         return one_destination
+
+    def get_all_destinations(self):
+        all_destinations = DestinationsIO().load_destination_from_file('0')
+        all_destinations_list = []
+        for destination in all_destinations:
+            str_destination = str(destination)
+            list_destination = str_destination.split(',')
+            all_destinations_list.append(list_destination)
+        return all_destinations_list
