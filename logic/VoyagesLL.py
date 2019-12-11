@@ -1,6 +1,7 @@
 
 from iolayer.VoyagesIO import VoyagesIO
-from logic.EmployeesLL import EmployeesLL
+import datetime
+import time
 
 
 class VoyagesLL():
@@ -48,3 +49,17 @@ class VoyagesLL():
                 return print('Voyage is not fully staffed!')
             else:
                 return print('Voyage is fully staffed!')
+    
+    def get_voyages(self):
+        all_voyages = VoyagesIO().load_voyages_from_file('0')
+        a_list = []
+        for voyage in all_voyages:
+            str_voyage = str(voyage)
+            list_voyage = str_voyage.split(',')
+            list_of_voyages = list_voyage
+            a_list.append(list_of_voyages)
+        return a_list
+
+    def get_one_voyage(self, voyageID):
+        one_voyage = VoyagesIO().load_voyages_from_file(voyageID)
+        return one_voyage
