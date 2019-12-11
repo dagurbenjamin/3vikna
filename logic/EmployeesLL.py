@@ -3,6 +3,7 @@
 from iolayer.CrewIO import CrewIO
 from modules.Crew import Crew
 from iolayer.VoyagesIO import VoyagesIO
+from logic.VoyagesLL import VoyagesLL
 
 
 class EmployeesLL():
@@ -49,7 +50,7 @@ class EmployeesLL():
     def get_pilots(self, p_or_c_input):
         pilots = CrewIO().load_pilot_or_cabincrew(p_or_c_input)
         return pilots
-        
+
     def get_cabin_crew(self, p_or_c_input):
         cabin_crew = CrewIO().load_pilot_or_cabincrew(p_or_c_input)
         return cabin_crew
@@ -61,7 +62,7 @@ class EmployeesLL():
                 return line.captain, line.copilot, line.flightAttendant, line.FlightServiceManager, line.destination
             else:
                 False
-    
+
     def save_new_employee(self, employee):
         CrewIO().write_in_file(employee)
 
@@ -81,5 +82,16 @@ class EmployeesLL():
         for employee in list_of_non_workers:
             if employee in list_of_workers:
                 list_of_non_workers.remove(employee)
-
         return list_of_non_workers
+
+    def get_employee_week_schedule(self, weeknumber, employee):
+        all_voyages_that_week = VoyagesLL().list_voyages_by_week(weeknumber)
+        employees_week_schedule = []
+        for voyage in all_voyages_that_week:
+            for element in voyage:
+                if element == employee:
+                    employees_week_schedule.append(voyage)
+        if len(employees_week_schedule) == 0:
+            print('employee is not working this week')
+        else:
+            print(employees_week_schedule)
