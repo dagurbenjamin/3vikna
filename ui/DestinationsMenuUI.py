@@ -157,11 +157,13 @@ class DestinationsMenu():
         input_command = ''
         while input_command != 'q':
             self.header('Destinations')
-            print('Menu\n-----\n1. Get all destinations\n2. Update destination\n3. Back to Main menu\n')
+            print('Menu\n----\n1. Create New Destination\n2. Get all destinations\n3. Update destination\n4. Back to Main menu\n')
             input_command = input('Input Command: ').lower()
             if input_command == '1':
-                DestinationsMenu().get_all_destinations()
+                DestinationsMenu().create_new_destination()
             elif input_command == '2':
-                DestinationsMenu().update_destination()
+                DestinationsMenu().get_all_destinations()
             elif input_command == '3':
+                DestinationsMenu().update_destination()
+            elif input_command == '4':
                 pass
