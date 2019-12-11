@@ -41,7 +41,7 @@ class CrewIO():
         f.close()
 
     def overwrite_crew_file(self, all_employees_list):
-        f = open("./data_files/CrewFile.csv", "w")
+        f = open("./data_files/CrewFile.csv", "w+")
         for line in all_employees_list:
             str_line = ','.join(line)
             a_line = str_line + "\n"
