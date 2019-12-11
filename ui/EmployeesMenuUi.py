@@ -15,7 +15,7 @@ class EmployeesMenu():
     def header(self, title):
         print('*'*75,'\n')
         print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
-        print("\n {}\n \n {} \n    ".format("*"*75, "{}{}{}".format(" "*23, title, " "*30), "-"*65))
+        print("\n{}\n \n {} \n    ".format("*"*75, "{}{}{}".format(" "*23, title, " "*30), "-"*65))
     
     def get_employee(self, ssn):
         one_employee = EmployeesLL().get_one_employee(ssn)
@@ -26,9 +26,9 @@ class EmployeesMenu():
             print('\n{:^15}{:^32}{:^23}'.format('Role','Rank','License'))
             print('{:^15}{:^32}{:^25}'.format('-'*6,'-'*8,'-'*12))
             print('{:^15}{:^33}{:^23}\n'.format(one_employee.get_role(),one_employee.get_rank(),one_employee.get_license()))
-            print('{:^13}{:^38}{:^14}'.format('SSN','Address','Phone number'))
-            print('{:^15}{:^32}{:^22}'.format('-'*10,'-'*9,'-'*12))
-            print('{:^15}{:^36}{:^15}\n'.format(one_employee.get_social(),one_employee.get_address(),one_employee.get_phone()))
+            print('{:^13}{:^38}{:^14}{}'.format('SSN','Address','Phone number','Email'))
+            print('{:^15}{:^32}{:^22}{}'.format('-'*10,'-'*9,'-'*12,'-'*5))
+            print('{:^15}{:^36}{:^15}{}\n'.format(one_employee.get_social(),one_employee.get_address(),one_employee.get_phone(),one_employee.get_email()))
             print('\n\n1. Back to Main menu\n2. Back to All Employees\n3. Back to All Pilots\n')
             
             input_command = input("Input command: ").lower()
@@ -123,7 +123,7 @@ class EmployeesMenu():
     def create_new_employee(self):
         self.header('Create New Employee')
         input_command = ''
-        new_employee = ""
+        new_employee = ''
         new_employee_list = []
         while input_command != 'q':
             input_command = input('SSN of Employee: ')
@@ -151,7 +151,14 @@ class EmployeesMenu():
             print('{:^15}{:^32}{:^22}{}'.format('-'*10,'-'*9,'-'*12,'-'*12))
             print('{:^15}{:^36}{:^15}{}\n'.format(new_employee_list[0],new_employee_list[5],new_employee_list[6],new_employee_list[7]))
             print('\nIs this correct?\n-----\n1. Yes\n2. No\n')
-            input_command = input('Input Command: ')
+            input_command = input('Input Command: ')  
+            if input_command == '1':
+                new_employee = ','.join([str(elem) for elem in new_employee_list]) 
+                EmployeesLL().save_new_employee(new_employee)
+                print('\nEmployee added!\n')
+                EmployeesMenu().get_all_employees()
+            elif input_command == '2':
+                continue
             
 
         

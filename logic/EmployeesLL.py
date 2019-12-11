@@ -57,3 +57,6 @@ class EmployeesLL():
                 return line.captain, line.copilot, line.flightAttendant, line.FlightServiceManager, line.destination
             else:
                 False
+    
+    def save_new_employee(self, employee):
+        CrewIO().write_in_file(employee)
