@@ -98,7 +98,7 @@ class EmployeesMenu():
                 print('{:^5}{:^5}{:^30}{:^10}'.format(str(line_counter) + '.' ,all_employees[counter][0], all_employees[counter][1], all_employees[counter][2]))
                 counter += 1
             print('')
-            print('\nGet all pilots......"Pilots"')
+            print('Get all pilots......"Pilots"')
             input_command = input("Input command: ").lower()
             
             if input_command == '1':
@@ -142,7 +142,6 @@ class EmployeesMenu():
             new_employee_list.append(input_command)
             input_command = input('Email of Employee: ')
             new_employee_list.append(input_command)
-            print(new_employee_list)
             self.header(new_employee_list[1])
             print('\n{:^15}{:^32}{:^23}'.format('Role','Rank','License'))
             print('{:^15}{:^32}{:^25}'.format('-'*6,'-'*8,'-'*12))
@@ -159,6 +158,46 @@ class EmployeesMenu():
                 EmployeesMenu().get_all_employees()
             elif input_command == '2':
                 continue
+    def update_this_employee(self):
+        pass
+
+    
+    def update_employee(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header('Update Employees')
+            print('{:^20}{:^20}{:^18}'.format('SSN', 'Name', 'Role'))
+            print('{:^20}{:^19}{:^20}'.format('-'*10, '-'*17, '-'*10))
+            all_employees = EmployeesLL().get_all_employees()
+            counter = 0
+            for line in all_employees:
+                line_counter = counter + 1
+                print('{:^5}{:^5}{:^30}{:^10}'.format(str(line_counter) + '.' ,all_employees[counter][0], all_employees[counter][1], all_employees[counter][2]))
+                counter += 1
+            print('')
+            print('Which employee would you like to update?"')
+            input_command = input("Input command: ").lower()
+            
+            if input_command == '1':
+                EmployeesMenu().get_employee(all_employees[0][0])
+            elif input_command == '2':
+                EmployeesMenu().get_employee(all_employees[1][0])
+            elif input_command == '3':
+                EmployeesMenu().get_employee(all_employees[2][0])
+            elif input_command == '4':
+                EmployeesMenu().get_employee(all_employees[3][0])
+            elif input_command == '5':
+                EmployeesMenu().get_employee(all_employees[4][0])
+            elif input_command == '6':
+                EmployeesMenu().get_employee(all_employees[5][0])
+            elif input_command == '7':
+                EmployeesMenu().get_employee(all_employees[6][0])
+            elif input_command == '8':
+                EmployeesMenu().get_employee(all_employees[20][0])
+            
+
+            
+
             
 
         
@@ -187,7 +226,7 @@ class EmployeesMenu():
             elif input_command == '2':
                 EmployeesMenu().get_all_employees()
             elif input_command == '3':
-                pass
+                EmployeesMenu().update_employee()
             elif input_command == '4':
                 pass
     
