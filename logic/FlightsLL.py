@@ -1,4 +1,3 @@
-from LLAPI import LLAPI
 from itertools import count
 from iolayer.VoyagesIO import VoyagesIO
 
@@ -22,6 +21,6 @@ class FlightsLL():
         past_flight_info = VoyagesIO().load_past_flights_from_file(Voyage_to_find)
         return past_flight_info
 
-    def get_voyage_flights(self):
+    def get_voyage_flights(self, Voyage_to_find):
         voyage_flights = VoyagesIO().load_upcoming_flights_from_file(Voyage_to_find)
         return voyage_flights
