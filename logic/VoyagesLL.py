@@ -56,7 +56,7 @@ class VoyagesLL():
         for voyage in all_voyages:
             str_voyage = str(voyage)
             list_voyage = str_voyage.split(',')
-            list_of_voyages = list_voyage[:]
+            list_of_voyages = list_voyage
             a_list.append(list_of_voyages)
         return a_list
 

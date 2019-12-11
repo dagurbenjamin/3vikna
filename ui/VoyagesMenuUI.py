@@ -25,10 +25,10 @@ class VoyagesMenu():
             print('{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}'.format('-'*5, '-'*5, '-'*5, '-'*5, '-'*5, '-'*5, '-'*5, '-'*5))
             all_voyages = VoyagesLL().get_voyages()
             counter = 0
-            print(all_voyages)
+            
             for line in all_voyages:
                 line_counter = counter + 1
-                print('{:^5}{:^5}{:^5}{:^5}{:^5}{:^5}{:^10}{}{}'.format(str(line_counter) + '.', all_voyages[counter][0], all_voyages[counter][1], all_voyages[counter][2], all_voyages[counter][3], all_voyages[counter][4], all_voyages[counter][5], all_voyages[counter][6], all_voyages[counter][7]))
+                print('{:^5}{:^5}{:^5}{:^5}{:^5}{:^5}{:^10}{:^10}{:^10}'.format(str(line_counter) + '.', all_voyages[counter][0], all_voyages[counter][1], all_voyages[counter][2], all_voyages[counter][3], all_voyages[counter][4], all_voyages[counter][5], all_voyages[counter][6], all_voyages[counter][7]))
                 counter += 1
             print('')
             input_command = input('Input Command: ').lower()
