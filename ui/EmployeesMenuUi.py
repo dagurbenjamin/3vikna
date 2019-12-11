@@ -19,7 +19,6 @@ class EmployeesMenu():
     
     def get_employee(self, ssn):
         one_employee = EmployeesLL().get_one_employee(ssn)
-        print(one_employee)
         input_command = ''
         while input_command != 'q':
             self.header(one_employee.get_name())
@@ -158,8 +157,57 @@ class EmployeesMenu():
                 EmployeesMenu().get_all_employees()
             elif input_command == '2':
                 continue
-    def update_this_employee(self):
-        pass
+
+    def update_this_employee(self, ssn):
+        one_employee = EmployeesLL().get_one_employee(ssn)
+        input_command = ''
+        while input_command != 'q':
+            self.header(one_employee.get_name())
+            print('\n{:^15}{:^32}{:^23}'.format('Role','Rank','License'))
+            print('{:^15}{:^32}{:^25}'.format('-'*6,'-'*8,'-'*12))
+            print('{:^15}{:^33}{:^23}\n'.format(one_employee.get_role(),one_employee.get_rank(),one_employee.get_license()))
+            print('{:^13}{:^38}{:^14}{:^14}'.format('SSN','Address','Phone number','Email'))
+            print('{:^15}{:^32}{:^22}{}'.format('-'*10,'-'*9,'-'*12,'-'*5))
+            print('{:^15}{:^36}{:^15}{}\n'.format(one_employee.get_social(),one_employee.get_address(),one_employee.get_phone(),one_employee.get_email()))
+            print('What would you like to update?')
+            print('{}\n1. Role\n2. Rank\n3. License\n4. Address\n5. Phone number\n6. Email\n7. Back one page'.format('-'*6))
+            
+            input_command = input("Input command: ").lower()
+            if input_command == '1':
+                input_command = input('New role of employee: ')
+                one_employee.set_role(input_command)
+                one_employee_list = str(one_employee).split(',')
+                EmployeesLL().change_the_big_list(one_employee.get_social(), one_employee_list)
+            elif input_command == '2':
+                input_command = input('New rank of employee: ')
+                one_employee.set_rank(input_command)
+                one_employee_list = str(one_employee).split(',')
+                EmployeesLL().change_the_big_list(one_employee.get_social(), one_employee_list)
+                input_command = input('Role of Employee: ')
+            elif input_command == '3':
+                input_command = input('New License of Employee: ')
+                one_employee.set_license(input_command)
+                one_employee_list = str(one_employee).split(',')
+                EmployeesLL().change_the_big_list(one_employee.get_social(), one_employee_list)
+                input_command = input('Role of Employee: ')
+            elif input_command == '4':
+                input_command = input('New Address of Employee: ')
+                one_employee.set_address(input_command)
+                one_employee_list = str(one_employee).split(',')
+                EmployeesLL().change_the_big_list(one_employee.get_social(), one_employee_list)
+                input_command = input('Role of Employee: ')
+            elif input_command == '5':
+                input_command = input('New Phone number of Employee: ')
+                one_employee.set_phone(input_command)
+                one_employee_list = str(one_employee).split(',')
+                EmployeesLL().change_the_big_list(one_employee.get_social(), one_employee_list)
+                input_command = input('Role of Employee: ')
+            elif input_command == '6':
+                input_command = input('New Email of Employee: ')
+                one_employee.set_rank(input_command)
+                one_employee_list = str(one_employee).split(',')
+                EmployeesLL().change_the_big_list(one_employee.get_social(), one_employee_list)
+                input_command = input('Role of Employee: ')
 
     
     def update_employee(self):
@@ -179,21 +227,21 @@ class EmployeesMenu():
             input_command = input("Input command: ").lower()
             
             if input_command == '1':
-                EmployeesMenu().get_employee(all_employees[0][0])
+                EmployeesMenu().update_this_employee(all_employees[0][0])
             elif input_command == '2':
-                EmployeesMenu().get_employee(all_employees[1][0])
+                EmployeesMenu().update_this_employee(all_employees[1][0])
             elif input_command == '3':
-                EmployeesMenu().get_employee(all_employees[2][0])
+                EmployeesMenu().update_this_employee(all_employees[2][0])
             elif input_command == '4':
-                EmployeesMenu().get_employee(all_employees[3][0])
+                EmployeesMenu().update_this_employee(all_employees[3][0])
             elif input_command == '5':
-                EmployeesMenu().get_employee(all_employees[4][0])
+                EmployeesMenu().update_this_employee(all_employees[4][0])
             elif input_command == '6':
-                EmployeesMenu().get_employee(all_employees[5][0])
+                EmployeesMenu().update_this_employee(all_employees[5][0])
             elif input_command == '7':
-                EmployeesMenu().get_employee(all_employees[6][0])
+                EmployeesMenu().update_this_employee(all_employees[6][0])
             elif input_command == '8':
-                EmployeesMenu().get_employee(all_employees[20][0])
+                EmployeesMenu().update_this_employee(all_employees[20][0])
             
 
             

@@ -27,7 +27,7 @@ class EmployeesLL():
             if list_member[0] == employee_to_change_ssn_input:
                 list_member = changed_employee
             a_list.append(list_member)
-        header = ['ssn', 'name', 'role', 'rank', 'licence',
+        header = ['ssn', 'name', 'role', 'rank', 'crewlicense',
                   'address', 'phonenumber', 'email']
         a_list.insert(0, header)
         CrewIO().overwrite_crew_file(a_list)

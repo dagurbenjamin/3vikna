@@ -54,7 +54,7 @@ class Crew:
         self.rank = new
 
     def set_license(self, new):
-        self.license = new
+        self.crewlicense = new
 
     def set_address(self, new):
         self.address = new
