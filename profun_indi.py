@@ -82,4 +82,9 @@ from logic.VoyagesLL import VoyagesLL
 
 
 weeknumber = int(input('input weeknumber: '))
-x = VoyagesLL().list_voyages_by_week(weeknumber)
+# x = VoyagesLL().list_voyages_by_week(weeknumber)
+
+employee = '2504939263'
+
+
+EmployeesLL().get_employee_week_schedule(weeknumber, employee)

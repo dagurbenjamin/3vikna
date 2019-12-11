@@ -1,6 +1,5 @@
 
 from iolayer.VoyagesIO import VoyagesIO
-from logic.EmployeesLL import EmployeesLL
 import datetime
 import time
 
@@ -80,8 +79,10 @@ class VoyagesLL():
             str_voyage = str(line)
             list_voyage = str_voyage.split(',')
             if list_voyage[2] in dates:
-                print(list_voyage)
-                if list_voyage[4] == 'x' or list_voyage[5] == 'x' or list_voyage[6] == 'x' or list_voyage[7] == 'x':
-                    print('Voyage is not fully staffed!')
-                else:
-                    print('Voyage is fully staffed!')
+                all_voyages_in_that_week.append(list_voyage)
+        return all_voyages_in_that_week
+        # print(list_voyage)
+        # if list_voyage[4] == 'x' or list_voyage[5] == 'x' or list_voyage[6] == 'x' or list_voyage[7] == 'x':
+        #     print('Voyage is not fully staffed!')
+        # else:
+        #     print('Voyage is fully staffed!')
