@@ -12,15 +12,14 @@ class AirplanesIO():
         with open('./data_files/AircraftType.csv') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                if planeTypeId == '0'
-                airplaneinfo = Aircraft_type(row['planeTypeId'], row['manufacturer'], row['model'], row['capacity'], row['emptyWeight'],
-                                             row['maxTakeoffWeight'], row['unitThrust'], row['serviceCeiling'], row['length'], row['height'], row['wingspan'])
-                allAirplaneInfo.append(airplaneinfo)
+                if planeTypeId == '0':
+                    airplaneinfo = Aircraft_type(row['planeTypeId'], row['manufacturer'], row['model'], row['capacity'], row['emptyWeight'],
+                                                 row['maxTakeoffWeight'], row['unitThrust'], row['serviceCeiling'], row['length'], row['height'], row['wingspan'])
+                    allAirplaneInfo.append(airplaneinfo)
                 elif row['planeTypeId'] == planeTypeId:
-                info_about_one_airplane = Aircraft_type(row['planeTypeId'], row['manufacturer'], row['model'], row['capacity'], row['emptyWeight'],
-                                                        row['maxTakeoffWeight'], row['unitThrust'], row['serviceCeiling'], row['length'], row['height'], row['wingspan'])
-                return info_about_one_airplane
-                break
+                    info_about_one_airplane = Aircraft_type(row['planeTypeId'], row['manufacturer'], row['model'], row['capacity'], row['emptyWeight'],
+                                                            row['maxTakeoffWeight'], row['unitThrust'], row['serviceCeiling'], row['length'], row['height'], row['wingspan'])
+                    return info_about_one_airplane
         return allAirplaneInfo
 
     def write_in_airplanesinfo_file(self, new_airplane_type=''):
