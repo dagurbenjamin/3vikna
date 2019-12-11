@@ -38,7 +38,7 @@ class DestinationsMenu():
             elif input_command == '2':
                 DestinationsMenu().get_all_destinations()
 
-    def get_all_destinations(self):
+    def get_all_destinations(self): #Þarf að breyta þessu
         input_command = ''
         while input_command != 'q':
             self.header('All Destinations')
