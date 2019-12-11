@@ -81,10 +81,14 @@ from logic.VoyagesLL import VoyagesLL
 #                 print('Voyage is fully staffed!')
 
 
-weeknumber = int(input('input weeknumber: '))
-# x = VoyagesLL().list_voyages_by_week(weeknumber)
+# weeknumber = int(input('input weeknumber: '))
+# # x = VoyagesLL().list_voyages_by_week(weeknumber)
+1
+# employee = '2504939263'
 
-employee = '2504939263'
 
+# EmployeesLL().get_employee_week_schedule(weeknumber, employee)
 
-EmployeesLL().get_employee_week_schedule(weeknumber, employee)
+Voyage_to_find = '1'
+x = VoyagesIO().load_upcoming_flights_from_file(Voyage_to_find)
+print(x)

@@ -1,10 +1,10 @@
-from LLAPI import LLAPI
+
 
 from iolayer.AirplanesIO import AirplanesIO
 
 
 class AirplanesLL:
-    def __init__(self, plane_list):
+    def __init__(self, plane_list=''):
         self.plane_list = plane_list
 
     def save_new_airplane_info(self, airplaneInfo):
