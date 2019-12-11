@@ -49,6 +49,9 @@ class EmployeesLL():
     def get_pilots(self, p_or_c_input):
         pilots = CrewIO().load_pilot_or_cabincrew(p_or_c_input)
         return pilots
+    def get_cabin_crew(self, p_or_c_input):
+        cabin_crew = CrewIO().load_pilot_or_cabincrew(p_or_c_input)
+        return cabin_crew
 
     def employees_working(self, inputt, voyageID='0'):
         x = VoyagesIO().load_voyages_from_file(voyageID)
