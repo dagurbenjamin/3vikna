@@ -66,7 +66,8 @@ class VoyagesIO():
                 elif row['voyageID'] == voyageID:
                     voyage = Voyages(row['voyageID'], row['planeInsignia'], row['date'], row['destination'], row['captain'],
                                      row['copilot'], row['FlightServiceManager'], row['flightAttendant'])
-                    all_voyages.append(voyage)
+                    return voyage
+                    break
         return all_voyages
 
     def write_in_voyages_flights(self, new_voyage=''):

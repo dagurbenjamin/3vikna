@@ -61,5 +61,5 @@ class VoyagesLL():
         return a_list
 
     def get_one_voyage(self, voyageID):
-        one_employee = VoyagesIO().load_voyages_from_file('')
-        return one_employee
+        one_voyage = VoyagesIO().load_voyages_from_file(voyageID)
+        return one_voyage
