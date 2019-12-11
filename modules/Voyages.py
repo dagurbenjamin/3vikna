@@ -14,7 +14,7 @@ class Voyages:
         return self.__str__()
 
     def __str__(self):
-        return "{},{},{},{},{},{},{}".format(self.voyageID, self.planeInsignia, self.date, self.destination, self.captain, self.copilot, self.FlightServiceManager, self.flightAttendant)
+        return "{},{},{},{},{},{},{},{}".format(self.voyageID, self.planeInsignia, self.date, self.destination, self.captain, self.copilot, self.FlightServiceManager, self.flightAttendant)
 
     def get_voyageID(self):
         return self.voyageID
