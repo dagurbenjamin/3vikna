@@ -77,21 +77,31 @@ class EmployeesMenu():
             print('{:^22}{:^25}{:^8}{:^18}'.format('-'*6,'-'*8,'-'*12,'-'*12))
             NAFokkerF100_list = []
             Nabae146_list = []
+            NAFokkerf28_list = []
             for line in pilots:
                 if line.crewlicense == 'NAFokkerF100':
                     NAFokkerF100_list.append(line)
                 elif line.crewlicense == 'NABAE146':
                     Nabae146_list.append(line)
+                elif line.crewlicense == 'NAFokkerF28':
+                    NAFokkerf28_list.append(line)
             counter = 0
             for line in NAFokkerF100_list:
                 line_counter = counter + 1
                 print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', NAFokkerF100_list[counter].get_name() , NAFokkerF100_list[counter].get_social() , NAFokkerF100_list[counter].get_rank() , NAFokkerF100_list[counter].get_license()))
                 counter += 1
-            counter = 0
+            employee_counter = 0
             for line in Nabae146_list:
                 line_counter = counter + 1
-                print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', Nabae146_list[counter].get_name() , Nabae146_list[counter].get_social() , Nabae146_list[counter].get_rank() , Nabae146_list[counter].get_license()))
+                print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(employee_counter) + '.', Nabae146_list[employee_counter].get_name() , Nabae146_list[employee_counter].get_social() , Nabae146_list[employee_counter].get_rank() , Nabae146_list[employee_counter].get_license()))
                 counter += 1
+                employee_counter += 1
+            employee_counter = 0
+            for line in NAFokkerf28_list:
+                line_counter = counter + 1
+                print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', NAFokkerf28_list[employee_counter].get_name() , NAFokkerf28_list[employee_counter].get_social() , NAFokkerf28_list[employee_counter].get_rank() , NAFokkerf28_list[employee_counter].get_license()))
+                counter += 1
+                employee_counter += 1
             print('')
             print('Get Cabin Crew......."c"')
             print('All Employees........"b"')

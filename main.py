@@ -15,18 +15,15 @@ def airplanes_main():
 
 
 def destination_main():
-    destination = DestinationsMenu()
-    destination.print_destinations_menu()
+    DestinationsMenu().print_destinations_menu()
 
 
 def employees_main():
-    employees = EmployeesMenu()
-    employees.print_employees_menu()
+    EmployeesMenu().print_employees_menu()
 
 
 def voyages_main():
-    voyages = VoyagesMenu()
-    voyages.print_voyages_menu()
+    VoyagesMenu().print_voyages_menu()
 
 
 def main():
