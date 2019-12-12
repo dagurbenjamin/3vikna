@@ -59,7 +59,7 @@ class DestinationsMenu():
 
 
     def create_new_destination(self):
-        self.header('Add New Airplane')
+        self.header('Add New Destination')
         input_command = ''
         new_plane = ''
         new_destination_list = []
