@@ -44,8 +44,14 @@ class EmployeesLL():
         return a_list
 
     def get_one_employee(self, ssn):
-        one_employee = CrewIO().load_crew_from_file(ssn)
-        return one_employee
+        if ssn == 'x':
+            return 'x'
+        else:
+            one_employee = CrewIO().load_crew_from_file(ssn)
+            if one_employee == []:
+                return 'x'
+            else:
+                return one_employee
 
     def get_pilots(self, p_or_c_input):
         pilots = CrewIO().load_pilot_or_cabincrew(p_or_c_input)
