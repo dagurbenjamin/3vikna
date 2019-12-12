@@ -53,8 +53,9 @@ class EmployeesMenu():
                 print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', pilots[counter].get_name() , pilots[counter].get_social() , pilots[counter].get_rank() , pilots[counter].get_license()))
                 counter += 1
             print('')
+            print('Sort by license......"a"')
             print('Get Cabin Crew......."c"')
-            print('All Employees...."b"')
+            print('All Employees........"b"')
             input_command = input('Enter input command: ').lower()
             for item in range(1,len(pilots) + 1):
                 if input_command == str(item):
@@ -63,8 +64,46 @@ class EmployeesMenu():
                     EmployeesMenu().get_cabin_crew('CabinCrew')
                 elif input_command == 'b':
                     EmployeesMenu().get_all_employees()
-           
-    
+                elif input_command == 'a':
+                    EmployeesMenu().sort_employees_by_license(p_or_c_input)
+
+
+    def sort_employees_by_license(self, p_or_c_input):
+        pilots = EmployeesLL().get_pilots(p_or_c_input)
+        input_command = ''
+        while input_command != 'q':
+            self.header('Pilots')
+            print('\n{:^22}{:^23}{:^15}{:^20}'.format('Name','SSN','Rank','License'))
+            print('{:^22}{:^25}{:^8}{:^18}'.format('-'*6,'-'*8,'-'*12,'-'*12))
+            NAFokkerF100_list = []
+            Nabae146_list = []
+            for line in pilots:
+                if line.crewlicense == 'NAFokkerF100':
+                    NAFokkerF100_list.append(line)
+                elif line.crewlicense == 'NABAE146':
+                    Nabae146_list.append(line)
+            counter = 0
+            for line in NAFokkerF100_list:
+                line_counter = counter + 1
+                print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', NAFokkerF100_list[counter].get_name() , NAFokkerF100_list[counter].get_social() , NAFokkerF100_list[counter].get_rank() , NAFokkerF100_list[counter].get_license()))
+                counter += 1
+            counter = 0
+            for line in Nabae146_list:
+                line_counter = counter + 1
+                print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', Nabae146_list[counter].get_name() , Nabae146_list[counter].get_social() , Nabae146_list[counter].get_rank() , Nabae146_list[counter].get_license()))
+                counter += 1
+            print('')
+            print('Get Cabin Crew......."c"')
+            print('All Employees........"b"')
+            input_command = input('Enter input command: ').lower()
+            for item in range(1,len(pilots) + 1):
+                if input_command == str(item):
+                    EmployeesMenu().get_employee(pilots[item - 1].get_social())
+                elif input_command == 'p':
+                    EmployeesMenu().get_cabin_crew('CabinCrew')
+                elif input_command == 'b':
+                    pass
+
     def get_cabin_crew(self, p_or_c_input):
         cabin_crew = EmployeesLL().get_cabin_crew(p_or_c_input)
         input_command = ''
@@ -113,11 +152,6 @@ class EmployeesMenu():
                     EmployeesMenu().get_all_pilots('Pilot')
                 elif input_command == 'c':
                     EmployeesMenu().get_cabin_crew('Cabincrew')
-
-            
-            
-            
-            
 
 
     def create_new_employee(self):
