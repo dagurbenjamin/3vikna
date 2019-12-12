@@ -83,7 +83,7 @@ class VoyagesMenu():
                 print('2. Cancel\n')
                 input_command = input('Input Command: ')
                 if input_command == '1':
-                    
+                    pass
                 elif input_command == '2':
                     VoyagesMenu().print_voyages_menu()
                 
