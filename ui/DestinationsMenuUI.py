@@ -81,7 +81,7 @@ class DestinationsMenu():
             input_command = input('Insert Destination Number: ')
             new_destination_list.append(input_command)
             self.header(new_destination_list[1])
-            print('\n{:^15}{:^32}{:^23}'.format('Role', 'Destination', 'Emergency Contact', 'Emergency Number'))
+            print('\n{:^15}{:^32}{:^23}'.format('Destination', 'Country', 'Emergency Contact', 'Emergency Number'))
             print('{:^15}{:^32}{:^25}'.format('-' * 6, '-' * 8, '-' * 12, '-' * 12))
             print(
                 '{:^15}{:^33}{:^23}\n'.format(new_destination_list[1], new_destination_list[2], new_destination_list[4],
