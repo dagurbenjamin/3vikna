@@ -17,6 +17,7 @@ from iolayer.VoyagesIO import VoyagesIO
 
 from iolayer.CrewIO import CrewIO
 from logic.VoyagesLL import VoyagesLL
+from logic.AirplanesLL import AirplanesLL
 
 # employee_to_change_ssn_input = '2211658134'
 # replacement_value = 'Captain'
@@ -89,6 +90,10 @@ from logic.VoyagesLL import VoyagesLL
 
 # EmployeesLL().get_employee_week_schedule(weeknumber, employee)
 
-Voyage_to_find = '1'
-x = VoyagesIO().load_upcoming_flights_from_file(Voyage_to_find)
-print(x)
+date = '2019-12-20'
+plane_insignia = 'TF-EPG'
+x = AirplanesLL().is_airplane_available(date, plane_insignia)
+if x:
+    print('it returned true')
+else:
+    print('it returned false')

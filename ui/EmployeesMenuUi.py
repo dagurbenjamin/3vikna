@@ -33,7 +33,7 @@ class EmployeesMenu():
             
             input_command = input("Input command: ").lower()
             if input_command == '1':
-                pass
+                EmployeesMenu().get_week_schedule(ssn, one_employee.get_name())
             elif input_command == '2':
                 EmployeesMenu().get_all_employees()
             elif input_command == '3':
@@ -264,14 +264,11 @@ class EmployeesMenu():
 
 
     def print_week_schedule(self, week_schedule, ssn):
-        print('{:^73}'.format(week_schedule[0][2]))
-        print('{:^72}'.format('-'*18))
-        print('   VoyageID: {}{} planeInsignia: {}{} destination: {}'.format(week_schedule[0][0],' '*6, week_schedule[0][1],' '*6, week_schedule[0][3]))
-        print('')
-        print('{:^73}'.format(week_schedule[1][2]))
-        print('{:^72}'.format('-'*18))
-        print('   VoyageID: {}{} planeInsignia: {}{} destination: {}'.format(week_schedule[1][0],' '*6, week_schedule[1][1],' '*6, week_schedule[1][3]))
-        print('')
+        for voyage in week_schedule:
+            print('{:^73}'.format(voyage[2]))
+            print('{:^72}'.format('-'*18))
+            print('   VoyageID: {}{} planeInsignia: {}{} destination: {}'.format(voyage[0],' '*6, voyage[1],' '*6, voyage[3]))
+            print('')
         print('Menu\n-----\n1. Back to employee\n2. Back to All Employees\n3. Back to Main menu\n')
         input_command = input('Input Command: ').lower()
         if input_command == '1':

@@ -1,6 +1,7 @@
 
 
 from iolayer.AirplanesIO import AirplanesIO
+from logic.VoyagesLL import VoyagesLL
 
 
 class AirplanesLL:
@@ -38,3 +39,7 @@ class AirplanesLL:
             list_airplane = str_airplane.split(',')
             all_airplanes_list.append(list_airplane)
         return all_airplanes_list
+
+    def is_airplane_available(self, date, plane_insignia):
+        all_voyages = VoyagesLL().get_voyages()
+        print(all_voyages)
