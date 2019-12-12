@@ -61,24 +61,30 @@ class EmployeesLL():
         cabin_crew = CrewIO().load_pilot_or_cabincrew(p_or_c_input)
         return cabin_crew
 
-    def employees_working(self, inputt, voyageID='0'):
-        x = VoyagesIO().load_voyages_from_file(voyageID)
-        for line in x:
-            if line.date == inputt:
-                return line.captain, line.copilot, line.flightAttendant, line.FlightServiceManager, line.destination
-            else:
-                False
+    def employees_working(self, date_inputt, voyageID='0'):
+        all_voyages = VoyagesIO().load_voyages_from_file(voyageID)
+        employees_working_list = []
+        for line in all_voyages:
+            if line.date == date_inputt:
+                employees_list = []
+                employees_list.append(line.captain)
+                employees_list.append(line.copilot)
+                employees_list.append(line.flightAttendant)
+                employees_list.append(line.FlightServiceManager)
+                employees_list.append(line.destination)
+                employees_working_list.append(employees_list)
+        return employees_working_list
 
     def save_new_employee(self, employee):
         CrewIO().write_in_file(employee)
 
-    def employees_not_working(inputt):
+    def employees_not_working(self, day_inputt):
         list_of_non_workers = []
         list_of_workers = []
         x = VoyagesIO().load_voyages_from_file(voyageID="0")
         y = CrewIO().load_crew_from_file(ssn_toFind="0")
         for line in x:
-            if line.date == inputt:
+            if line.date == day_inputt:
                 list_of_workers.append(line.captain)
                 list_of_workers.append(line.copilot)
                 list_of_workers.append(line.FlightServiceManager)
