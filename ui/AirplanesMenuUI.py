@@ -27,16 +27,17 @@ class AirplanesMenu():
                 line_counter = counter + 1
                 print('{:^5}{:^5}{:^30}'.format(str(line_counter) + '.',
                                                 all_airplanes[counter][0], all_airplanes[counter][1]))
+                counter += 1
             print('')
             input_command = input("Input command: ").lower()
             if input_command == '1':
-                AirplanesMenu().get_airplanetype(all_airplanes[0][1])
+                AirplanesMenu().get_airplanetype(all_airplanes[0][1], all_airplanes[0][0])
 
-    def get_airplanetype(self, planeTypeId):
+    def get_airplanetype(self, planeTypeId, planeInsignia):
         one_airplanetype = AirplanesLL().get_info_about_one_airplane(planeTypeId)
         input_command = ''
         while input_command != 'q':
-            self.header(planeTypeId)
+            self.header(planeInsignia)
             print('\n{:^15}{:^32}{:^23}'.format(
                 'manufacturer', 'model', 'capacity'))
             print('{:^15}{:^32}{:^25}'.format('-'*15, '-'*8, '-'*10))
@@ -57,13 +58,13 @@ class AirplanesMenu():
             print('{:^32}'.format('-'*10))
             print('{:^36}\n'.format(one_airplanetype.get_wingspan()))
             print(
-                '\n\n1. Back to Main menu\n2. Back to All Airplanes\n3. Back to All Pilots\n')
+                '\n\n1. Back to Main menu\n2. Back to All Airplanes\n')
 
             input_command = input("Input command: ").lower()
-            if input_command == '2':
-                EmployeesMenu().get_all_employees()
-            elif input_command == '3':
-                EmployeesMenu().get_all_pilots('Pilot')
+            if input_command == '1':
+                pass
+            elif input_command == '2':
+                AirplanesMenu().get_all_airplanes()
 
     def print_airplanes_menu(self):
         input_command = ''
