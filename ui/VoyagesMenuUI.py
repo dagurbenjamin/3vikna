@@ -24,12 +24,13 @@ class VoyagesMenu():
         new_voyage_list = []
         while input_command != 'q':
             self.header('Create New Voyage')
-            input_command = input('Airplane: ')
+            input_command = input('Airplane: ').upper()
             new_voyage_list.append(input_command)
             print(' {}\n {}\n'.format('Flight 1', '-'*11))
-            input_command = input('Destination: ')
+            input_command = input('Destination: ').upper()
             new_voyage_list.append(input_command)
-            input_command = input('Departure location: ')
+            print('Departure location: {}'.format('KEF'))
+            input_command = 'KEF'
             new_voyage_list.append(input_command)
             input_command = input('Departure time: ')
             new_voyage_list.append(input_command)
@@ -59,14 +60,50 @@ class VoyagesMenu():
 
             input_command = new_voyage_list[4]
             new_voyage_list.append(input_command)
-            print('Date: {}\n'.format(input_command))
-            
-            if AirplanesLL().is_airplane_available(new_voyage_list[4], new_voyage_list[0]):
-                print('Airplane is available!')
+            print('Date: {}\n'.format(input_command))            
+            airplane_check = AirplanesLL().is_airplane_available(new_voyage_list[4], new_voyage_list[0])
+            if airplane_check:
+                print('Menu\n{}'.format('-'*5))
+                print('1. Save Voyage')
+                print('2. Cancel')
+                input_command = input('Input Command: ')
+                if input_command == '1':
+                    VoyagesLL().create_voyage(new_voyage_list)
+                elif input_command == '2':
+                    VoyagesMenu().print_voyages_menu()
             else:
-                print('Airplane is unavailable!')
+                while airplane_check == False:
+                    print('Airplane is unavailable!\n{}'.format('-'*21))
+                    input_command = input('Enter available airplane: ').upper()
+                    print('')
+                    new_voyage_list[0] = input_command
+                    airplane_check = AirplanesLL().is_airplane_available(new_voyage_list[4], new_voyage_list[0])
+                print('Menu\n{}'.format('-'*5))
+                print('1. Save Voyage')
+                print('2. Cancel\n')
+                input_command = input('Input Command: ')
+                if input_command == '1':
+                    
+                elif input_command == '2':
+                    VoyagesMenu().print_voyages_menu()
+                
+
+                
+                
+                
+
+
+
+                
+    
+                
+        
             
-            input_command = input('Check: ')
+                
+
+            
+            
+            
 
 
 
