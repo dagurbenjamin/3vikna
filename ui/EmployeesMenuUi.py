@@ -33,15 +33,8 @@ class EmployeesMenu():
             
             input_command = input("Input command: ").lower()
             if input_command == '1':
-<<<<<<< HEAD
                 pass
             elif input_command == '2':
-=======
-                EmployeesMenu().get_week_schedule(ssn, one_employee.get_name())
-            elif input_command == '2':
-                pass
-            elif input_command == '3':
->>>>>>> b6ba6f322ba980be1dae5bfdde3528409d8d36c6
                 EmployeesMenu().get_all_employees()
             elif input_command == '3':
                 EmployeesMenu().get_all_pilots('Pilot')
@@ -63,7 +56,6 @@ class EmployeesMenu():
             print('Get Cabin Crew......."c"')
             print('All Employees...."b"')
             input_command = input('Enter input command: ').lower()
-<<<<<<< HEAD
             for item in range(1,len(pilots) + 1):
                 if input_command == str(item):
                     EmployeesMenu().get_employee(pilots[item - 1].get_social())
@@ -73,34 +65,6 @@ class EmployeesMenu():
                     EmployeesMenu().get_all_employees()
            
     
-=======
-            if input_command == '1':
-                EmployeesMenu().get_employee(pilots[0].get_social())
-            elif input_command == '2':
-                EmployeesMenu().get_employee(pilots[1].get_social())
-            elif input_command == '3':
-                EmployeesMenu().get_employee(pilots[2].get_social())
-            elif input_command == '4':
-                EmployeesMenu().get_employee(pilots[3].get_social())
-            elif input_command == '5':
-                EmployeesMenu().get_employee(pilots[4].get_social())
-            elif input_command == '6':
-                EmployeesMenu().get_employee(pilots[5].get_social())
-            elif input_command == '7':
-                EmployeesMenu().get_employee(pilots[6].get_social())
-            elif input_command == '8':
-                EmployeesMenu().get_employee(pilots[7].get_social())
-            elif input_command == '9':
-                EmployeesMenu().get_employee(pilots[8].get_social())
-            elif input_command == '10':
-                EmployeesMenu().get_employee(pilots[9].get_social())
-            elif input_command == '11':
-                EmployeesMenu().get_employee(pilots[10].get_social())
-            elif input_command == '12':
-                EmployeesMenu().get_employee(pilots[11].get_social())
-
-
->>>>>>> b6ba6f322ba980be1dae5bfdde3528409d8d36c6
     def get_cabin_crew(self, p_or_c_input):
         cabin_crew = EmployeesLL().get_cabin_crew(p_or_c_input)
         input_command = ''
@@ -133,8 +97,6 @@ class EmployeesMenu():
             print('{:^20}{:^20}{:^18}'.format('SSN', 'Name', 'Role'))
             print('{:^20}{:^19}{:^20}'.format('-'*10, '-'*17, '-'*10))
             all_employees = EmployeesLL().get_all_employees()
-            print(all_employees)
-            print(type(all_employees))
             counter = 0
             for line in all_employees:
                 line_counter = counter + 1
@@ -156,31 +118,6 @@ class EmployeesMenu():
             
             
             
-<<<<<<< HEAD
-=======
-            if input_command == '1':
-                EmployeesMenu().get_employee(all_employees[0][0])
-            elif input_command == '2':
-                EmployeesMenu().get_employee(all_employees[1][0])
-            elif input_command == '3':
-                EmployeesMenu().get_employee(all_employees[2][0])
-            elif input_command == '4':
-                EmployeesMenu().get_employee(all_employees[3][0])
-            elif input_command == '5':
-                EmployeesMenu().get_employee(all_employees[4][0])
-            elif input_command == '6':
-                EmployeesMenu().get_employee(all_employees[5][0])
-            elif input_command == '7':
-                EmployeesMenu().get_employee(all_employees[6][0])
-            elif input_command == '8':
-                EmployeesMenu().get_employee(all_employees[7][0])
-            elif input_command == '9':
-                EmployeesMenu().get_employee(all_employees[8][0])
-            elif input_command == 'p':
-                EmployeesMenu().get_all_pilots('Pilot')
-            elif input_command == 'c':
-                EmployeesMenu().get_cabin_crew('Cabincrew')
->>>>>>> b6ba6f322ba980be1dae5bfdde3528409d8d36c6
 
 
     def create_new_employee(self):
@@ -289,25 +226,15 @@ class EmployeesMenu():
                 print('{:^5}{:^5}{:^30}{:^10}'.format(str(line_counter) + '.' ,all_employees[counter][0], all_employees[counter][1], all_employees[counter][2]))
                 counter += 1
             print('')
-            print('Which employee would you like to update?"')
+            print('Employees menu..."b"')
+            print('Which employee would you like to update?')
             input_command = input("Input command: ").lower()
+            for item in range(1,len(all_employees) + 1):
+                if input_command == str(item):
+                    EmployeesMenu().update_this_employee(all_employees[item - 1][0])
+                elif input_command == 'b':
+                    EmployeesMenu().print_employees_menu()
             
-            if input_command == '1':
-                EmployeesMenu().update_this_employee(all_employees[0][0])
-            elif input_command == '2':
-                EmployeesMenu().update_this_employee(all_employees[1][0])
-            elif input_command == '3':
-                EmployeesMenu().update_this_employee(all_employees[2][0])
-            elif input_command == '4':
-                EmployeesMenu().update_this_employee(all_employees[3][0])
-            elif input_command == '5':
-                EmployeesMenu().update_this_employee(all_employees[4][0])
-            elif input_command == '6':
-                EmployeesMenu().update_this_employee(all_employees[5][0])
-            elif input_command == '7':
-                EmployeesMenu().update_this_employee(all_employees[6][0])
-            elif input_command == '8':
-                EmployeesMenu().update_this_employee(all_employees[20][0])
             
 
     def print_employees_menu(self):
