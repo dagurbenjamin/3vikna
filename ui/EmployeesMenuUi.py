@@ -31,7 +31,9 @@ class EmployeesMenu():
             print('\n\n1. Back to Main menu\n2. Back to All Employees\n3. Back to All Pilots\n')
             
             input_command = input("Input command: ").lower()
-            if input_command == '2':
+            if input_command == '1':
+                pass
+            elif input_command == '2':
                 EmployeesMenu().get_all_employees()
             elif input_command == '3':
                 EmployeesMenu().get_all_pilots('Pilot')
@@ -50,31 +52,17 @@ class EmployeesMenu():
                 print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', pilots[counter].get_name() , pilots[counter].get_social() , pilots[counter].get_rank() , pilots[counter].get_license()))
                 counter += 1
             print('')
+            print('Get Cabin Crew......."c"')
+            print('All Employees...."b"')
             input_command = input('Enter input command: ').lower()
-            if input_command == '1':
-                EmployeesMenu().get_employee(pilots[0].get_social())
-            elif input_command == '2':
-                EmployeesMenu().get_employee(pilots[1].get_social())
-            elif input_command == '3':
-                EmployeesMenu().get_employee(pilots[2].get_social())
-            elif input_command == '4':
-                EmployeesMenu().get_employee(pilots[3].get_social())
-            elif input_command == '5':
-                EmployeesMenu().get_employee(pilots[4].get_social())
-            elif input_command == '6':
-                EmployeesMenu().get_employee(pilots[5].get_social())
-            elif input_command == '7':
-                EmployeesMenu().get_employee(pilots[6].get_social())
-            elif input_command == '8':
-                EmployeesMenu().get_employee(pilots[7].get_social())
-            elif input_command == '9':
-                EmployeesMenu().get_employee(pilots[8].get_social())
-            elif input_command == '10':
-                EmployeesMenu().get_employee(pilots[9].get_social())
-            elif input_command == '11':
-                EmployeesMenu().get_employee(pilots[10].get_social())
-            elif input_command == '12':
-                EmployeesMenu().get_employee(pilots[11].get_social())
+            for item in range(1,len(pilots) + 1):
+                if input_command == str(item):
+                    EmployeesMenu().get_employee(pilots[item - 1].get_social())
+                elif input_command == 'p':
+                    EmployeesMenu().get_cabin_crew('CabinCrew')
+                elif input_command == 'b':
+                    EmployeesMenu().get_all_employees()
+           
     
     def get_cabin_crew(self, p_or_c_input):
         cabin_crew = EmployeesLL().get_cabin_crew(p_or_c_input)
@@ -89,21 +77,16 @@ class EmployeesMenu():
                 print('{:^5}{:^20}{:^25}{:^15}'.format(str(line_counter) + '.', cabin_crew[counter].get_name() , cabin_crew[counter].get_social() , cabin_crew[counter].get_rank()))
                 counter += 1
             print('')
+            print('Get pilots......."p"')
+            print('All Employees...."b"')
             input_command = input('Enter input command: ').lower()
-            if input_command == '1':
-                EmployeesMenu().get_employee(cabin_crew[0].get_social())
-            elif input_command == '2':
-                EmployeesMenu().get_employee(cabin_crew[1].get_social())
-            elif input_command == '3':
-                EmployeesMenu().get_employee(cabin_crew[2].get_social())
-            elif input_command == '4':
-                EmployeesMenu().get_employee(cabin_crew[3].get_social())
-            elif input_command == '5':
-                EmployeesMenu().get_employee(cabin_crew[4].get_social())
-            elif input_command == '6':
-                EmployeesMenu().get_employee(cabin_crew[5].get_social())
-            elif input_command == '7':
-                EmployeesMenu().get_employee(cabin_crew[6].get_social())
+            for item in range(1,len(cabin_crew) + 1):
+                if input_command == str(item):
+                    EmployeesMenu().get_employee(cabin_crew[item - 1][0])
+                elif input_command == 'p':
+                    EmployeesMenu().get_all_pilots('Pilot')
+                elif input_command == 'b':
+                    EmployeesMenu().get_all_employees()
 
 
 
@@ -120,6 +103,8 @@ class EmployeesMenu():
             print('{:^20}{:^20}{:^18}'.format('SSN', 'Name', 'Role'))
             print('{:^20}{:^19}{:^20}'.format('-'*10, '-'*17, '-'*10))
             all_employees = EmployeesLL().get_all_employees()
+            print(all_employees)
+            print(type(all_employees))
             counter = 0
             for line in all_employees:
                 line_counter = counter + 1
@@ -129,27 +114,18 @@ class EmployeesMenu():
             print('Get pilots......."p"')
             print('Get cabin crew..."c"')
             input_command = input("Input command: ").lower()
+            for item in range(1,len(all_employees) + 1):
+                if input_command == str(item):
+                    EmployeesMenu().get_employee(all_employees[item - 1][0])
+                elif input_command == 'p':
+                    EmployeesMenu().get_all_pilots('Pilot')
+                elif input_command == 'c':
+                    EmployeesMenu().get_cabin_crew('Cabincrew')
+
             
-            if input_command == '1':
-                EmployeesMenu().get_employee(all_employees[0][0])
-            elif input_command == '2':
-                EmployeesMenu().get_employee(all_employees[1][0])
-            elif input_command == '3':
-                EmployeesMenu().get_employee(all_employees[2][0])
-            elif input_command == '4':
-                EmployeesMenu().get_employee(all_employees[3][0])
-            elif input_command == '5':
-                EmployeesMenu().get_employee(all_employees[4][0])
-            elif input_command == '6':
-                EmployeesMenu().get_employee(all_employees[5][0])
-            elif input_command == '7':
-                EmployeesMenu().get_employee(all_employees[6][0])
-            elif input_command == '8':
-                EmployeesMenu().get_employee(all_employees[20][0])
-            elif input_command == 'p':
-                EmployeesMenu().get_all_pilots('Pilot')
-            elif input_command == 'c':
-                EmployeesMenu().get_cabin_crew('Cabincrew')
+            
+            
+            
 
 
     def create_new_employee(self):
