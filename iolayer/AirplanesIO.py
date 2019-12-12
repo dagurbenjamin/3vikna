@@ -23,7 +23,8 @@ class AirplanesIO():
         return allAirplaneInfo
 
     def write_in_airplanesinfo_file(self, new_airplane_type=''):
-        f = open("./data_files/AirplanesInfoFile.csv", "a")
+        f = open("./data_files/AircraftType.csv", "a")
+        f.write('\n')
         f.write(new_airplane_type)
         f.close()
 
@@ -45,5 +46,6 @@ class AirplanesIO():
 
     def write_in_airplanes_file(self, new_airplane=''):
         f = open("./data_files/AirplanesFile.csv", "a")
+        f.write('\n')
         f.write(new_airplane)
         f.close()

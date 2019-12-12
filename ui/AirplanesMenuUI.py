@@ -29,9 +29,14 @@ class AirplanesMenu():
                                                 all_airplanes[counter][0], all_airplanes[counter][1]))
                 counter += 1
             print('')
+            print('Airplane status......."as"')
             input_command = input("Input command: ").lower()
             if input_command == '1':
-                AirplanesMenu().get_airplanetype(all_airplanes[0][1], all_airplanes[0][0])
+                AirplanesMenu().get_airplanetype(
+                    all_airplanes[0][1], all_airplanes[0][0])
+            if input_command == '2':
+                AirplanesMenu().get_airplanetype(
+                    all_airplanes[1][1], all_airplanes[1][0])
 
     def get_airplanetype(self, planeTypeId, planeInsignia):
         one_airplanetype = AirplanesLL().get_info_about_one_airplane(planeTypeId)
@@ -59,7 +64,7 @@ class AirplanesMenu():
             print('{:^36}\n'.format(one_airplanetype.get_wingspan()))
             print(
                 '\n\n1. Back to Main menu\n2. Back to All Airplanes\n')
-
+            print('')
             input_command = input("Input command: ").lower()
             if input_command == '1':
                 pass
@@ -72,7 +77,7 @@ class AirplanesMenu():
             self.header('Airplanes')
             print(
                 'Menu\n-----\n1. Create New Airplane\n2. Get All Airplanes\n3. Back to Main menu\n')
-
+            print('')
             input_command = input('Input Command: ').lower()
             if input_command == '1':
                 AirplanesMenu().print_create_menu()
@@ -86,13 +91,17 @@ class AirplanesMenu():
         while input_command != 'q':
             self.header('Create New Airplane Or Airplane Type')
             print(
-                'Menu\n-----\n1. Create New Airplane\n2. Create New Airplane Type\n')
-
+                'Menu\n-----\n1. Create New Airplane\n2. Create New Airplane Type\n\n3. back to Airplanes menu')
+            print('')
+            print('')
+            print('')
             input_command = input('Input Command: ').lower()
             if input_command == '1':
                 AirplanesMenu().create_airplane()
             elif input_command == '2':
                 AirplanesMenu().create_airplane_type()
+            elif input_command == '3':
+                AirplanesMenu().print_airplanes_menu()
 
     def create_airplane(self):
         self.header('Create New Airplane')
@@ -109,14 +118,15 @@ class AirplanesMenu():
             print('{:^15}{:^32}'.format('-'*6, '-'*8,))
             print('{:^15}{:^33}\n'.format(
                 new_airplane_list[0], new_airplane_list[1]))
-            print('\nIs this correct?\n-----\n1. Yes\n2. No\n')
+            print('\nDo you want to add this airplane?\n-----\n1. Yes\n2. No\n')
+            print('')
+            print('')
             input_command = input('Input Command: ')
             if input_command == '1':
                 new_airplane = ','.join([str(elem)
                                          for elem in new_airplane_list])
                 AirplanesLL().save_new_airplane(new_airplane)
-                print('\nAirplane added!\n')
-                AirplanesMenu().get_all_airplanes()
+                AirplanesMenu().print_create_menu()
             elif input_command == '2':
                 continue
 
@@ -168,16 +178,14 @@ class AirplanesMenu():
             print('{:^15}{:^25}'.format('-'*15, '-'*15))
             print('{:^15}{:^23}\n'.format(
                 new_airplane_type_list[9], new_airplane_type_list[10]))
-            print('\nIs this correct?\n-----\n1. Yes\n2. No\n')
+            print('\nDo you want to add this airplane type?\n-----\n1. Yes\n2. No\n')
             input_command = input('Input Command: ')
+            print('')
+            print('')
             if input_command == '1':
                 new_airplane_type = ','.join([str(elem)
                                               for elem in new_airplane_type_list])
                 AirplanesLL().save_new_airplane_info(new_airplane_type)
-                print('\nAirplane added!\n')
-                AirplanesMenu().get_all_airplanes()
+                AirplanesMenu().print_create_menu()
             elif input_command == '2':
                 continue
-
-# geta save-að airplane type og fæ ekki að inputta yes or no i save
-# kemur bara aftur "planetypeID"
