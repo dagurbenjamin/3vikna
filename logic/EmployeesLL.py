@@ -100,4 +100,4 @@ class EmployeesLL():
         if len(employees_week_schedule) == 0:
             print('employee is not working this week')
         else:
-            print(employees_week_schedule)
+            return employees_week_schedule

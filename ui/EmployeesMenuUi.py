@@ -28,12 +28,20 @@ class EmployeesMenu():
             print('{:^13}{:^38}{:^14}{:^14}'.format('SSN','Address','Phone number','Email'))
             print('{:^15}{:^32}{:^22}{}'.format('-'*10,'-'*9,'-'*12,'-'*5))
             print('{:^15}{:^36}{:^15}{}\n'.format(one_employee.get_social(),one_employee.get_address(),one_employee.get_phone(),one_employee.get_email()))
-            print('\n\n1. Back to Main menu\n2. Back to All Employees\n3. Back to All Pilots\n')
+            print('1. Get employees week schedule')
+            print('\n\n2. Back to Main menu\n3. Back to All Employees\n4. Back to All Pilots\n')
             
             input_command = input("Input command: ").lower()
             if input_command == '1':
+<<<<<<< HEAD
                 pass
             elif input_command == '2':
+=======
+                EmployeesMenu().get_week_schedule(ssn, one_employee.get_name())
+            elif input_command == '2':
+                pass
+            elif input_command == '3':
+>>>>>>> b6ba6f322ba980be1dae5bfdde3528409d8d36c6
                 EmployeesMenu().get_all_employees()
             elif input_command == '3':
                 EmployeesMenu().get_all_pilots('Pilot')
@@ -55,6 +63,7 @@ class EmployeesMenu():
             print('Get Cabin Crew......."c"')
             print('All Employees...."b"')
             input_command = input('Enter input command: ').lower()
+<<<<<<< HEAD
             for item in range(1,len(pilots) + 1):
                 if input_command == str(item):
                     EmployeesMenu().get_employee(pilots[item - 1].get_social())
@@ -64,6 +73,34 @@ class EmployeesMenu():
                     EmployeesMenu().get_all_employees()
            
     
+=======
+            if input_command == '1':
+                EmployeesMenu().get_employee(pilots[0].get_social())
+            elif input_command == '2':
+                EmployeesMenu().get_employee(pilots[1].get_social())
+            elif input_command == '3':
+                EmployeesMenu().get_employee(pilots[2].get_social())
+            elif input_command == '4':
+                EmployeesMenu().get_employee(pilots[3].get_social())
+            elif input_command == '5':
+                EmployeesMenu().get_employee(pilots[4].get_social())
+            elif input_command == '6':
+                EmployeesMenu().get_employee(pilots[5].get_social())
+            elif input_command == '7':
+                EmployeesMenu().get_employee(pilots[6].get_social())
+            elif input_command == '8':
+                EmployeesMenu().get_employee(pilots[7].get_social())
+            elif input_command == '9':
+                EmployeesMenu().get_employee(pilots[8].get_social())
+            elif input_command == '10':
+                EmployeesMenu().get_employee(pilots[9].get_social())
+            elif input_command == '11':
+                EmployeesMenu().get_employee(pilots[10].get_social())
+            elif input_command == '12':
+                EmployeesMenu().get_employee(pilots[11].get_social())
+
+
+>>>>>>> b6ba6f322ba980be1dae5bfdde3528409d8d36c6
     def get_cabin_crew(self, p_or_c_input):
         cabin_crew = EmployeesLL().get_cabin_crew(p_or_c_input)
         input_command = ''
@@ -89,13 +126,6 @@ class EmployeesMenu():
                     EmployeesMenu().get_all_employees()
 
 
-
-            
-
-
-
-
-    
     def get_all_employees(self):
         input_command = ''
         while input_command != 'q':
@@ -126,6 +156,31 @@ class EmployeesMenu():
             
             
             
+<<<<<<< HEAD
+=======
+            if input_command == '1':
+                EmployeesMenu().get_employee(all_employees[0][0])
+            elif input_command == '2':
+                EmployeesMenu().get_employee(all_employees[1][0])
+            elif input_command == '3':
+                EmployeesMenu().get_employee(all_employees[2][0])
+            elif input_command == '4':
+                EmployeesMenu().get_employee(all_employees[3][0])
+            elif input_command == '5':
+                EmployeesMenu().get_employee(all_employees[4][0])
+            elif input_command == '6':
+                EmployeesMenu().get_employee(all_employees[5][0])
+            elif input_command == '7':
+                EmployeesMenu().get_employee(all_employees[6][0])
+            elif input_command == '8':
+                EmployeesMenu().get_employee(all_employees[7][0])
+            elif input_command == '9':
+                EmployeesMenu().get_employee(all_employees[8][0])
+            elif input_command == 'p':
+                EmployeesMenu().get_all_pilots('Pilot')
+            elif input_command == 'c':
+                EmployeesMenu().get_cabin_crew('Cabincrew')
+>>>>>>> b6ba6f322ba980be1dae5bfdde3528409d8d36c6
 
 
     def create_new_employee(self):
@@ -255,24 +310,6 @@ class EmployeesMenu():
                 EmployeesMenu().update_this_employee(all_employees[20][0])
             
 
-            
-
-            
-
-        
-
-
-
-            
-
-                
-                
-
-
-
-
-
-
     def print_employees_menu(self):
         input_command = ''
         while input_command != 'q':
@@ -288,4 +325,31 @@ class EmployeesMenu():
                 EmployeesMenu().update_employee()
             elif input_command == '4':
                 pass
-    
+
+    def get_week_schedule(self, ssn, employee_name):
+        input_command = ''
+        while input_command != 'q':
+            self.header(f'Week schedule for: {employee_name}')
+            print('Enter week number: ')
+            weeknumber = int(input())
+            week_schedule = EmployeesLL().get_employee_week_schedule(weeknumber, ssn)
+            EmployeesMenu().print_week_schedule(week_schedule, ssn)
+
+
+    def print_week_schedule(self, week_schedule, ssn):
+        print('{:^73}'.format(week_schedule[0][2]))
+        print('{:^72}'.format('-'*18))
+        print('   VoyageID: {}{} planeInsignia: {}{} destination: {}'.format(week_schedule[0][0],' '*6, week_schedule[0][1],' '*6, week_schedule[0][3]))
+        print('')
+        print('{:^73}'.format(week_schedule[1][2]))
+        print('{:^72}'.format('-'*18))
+        print('   VoyageID: {}{} planeInsignia: {}{} destination: {}'.format(week_schedule[1][0],' '*6, week_schedule[1][1],' '*6, week_schedule[1][3]))
+        print('')
+        print('Menu\n-----\n1. Back to employee\n2. Back to All Employees\n3. Back to Main menu\n')
+        input_command = input('Input Command: ').lower()
+        if input_command == '1':
+            EmployeesMenu().get_employee(ssn)
+        elif input_command == '2':
+            EmployeesMenu().get_all_employees()
+        elif input_command == '3':
+            pass
