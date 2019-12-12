@@ -22,7 +22,7 @@ class CrewIO():
                                     row['address'], row['phonenumber'], row['email'])
                     return employee
                     break
-            return allcrew  # samt bara 1
+            return allcrew  # samt bara 1 stundum
 
     def load_pilot_or_cabincrew(self, p_or_c_input):
         all_p_or_c = []

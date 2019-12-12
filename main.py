@@ -11,8 +11,7 @@ def fullscreen():
 
 
 def airplanes_main():
-    airplanes = AirplanesMenu()
-    airplanes.print_airplanes_menu()
+    AirplanesMenu().print_airplanes_menu()
 
 
 def destination_main():

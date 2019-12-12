@@ -250,7 +250,7 @@ class EmployeesMenu():
             elif input_command == '3':
                 EmployeesMenu().update_employee()
             elif input_command == '4':
-                EmployeesMenu().print_employees_working_a_certain_day()
+                EmployeesMenu().crew_schedule_menu()
             elif input_command == '5':
                 pass
 
@@ -279,26 +279,56 @@ class EmployeesMenu():
         elif input_command == '3':
             pass
 
-    def print_employees_working_a_certain_day(self):
+    def crew_schedule_menu(self):
         input_command = ''
         while input_command != 'q':
             self.header('Crew schedules')
             print('')
+            print('Menu\n-----\n1. All employees working a certain day\n2. All employees that are not working a certain day \n')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                EmployeesMenu().print_employees_working_a_certain_day()
+            elif input_command == '2':
+                EmployeesMenu().print_employees_not_working_a_certain_day()
+
+
+    def print_employees_working_a_certain_day(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header(f'All employees working {input_command}')
+            print('')
+            input_command = input('Enter Date: ').lower()
+            list_of_workers, list_of_destinations = EmployeesLL().employees_working(input_command)
+            counter = 0
+            for employees in list_of_workers:
+                for worker in employees:
+                    their_destination = list_of_destinations[counter]
+                    working_employee = EmployeesLL().get_one_employee(worker)
+                    employee_name = working_employee.get_name()
+                    print('{:^63}'.format(f'{employee_name}, destination: {their_destination} '))
+                counter += 1
+            print('Menu\n-----\n1. Back to All Employees\n3. Back to Main menu\n')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                EmployeesMenu().get_all_employees()
+            elif input_command == '2':
+                pass
+
+    def print_employees_not_working_a_certain_day(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header(f'All employees not working {input_command}')
+            print('')
             input_command = input('Enter Date: ').lower()
             list_of_non_workers = EmployeesLL().employees_not_working(input_command)
             print('')
-            print('{:^30}'.format(f'All employees Not working'))
-            print('{:^29}'.format('-'*12))
-            print('{:^85}'.format(f'All employees working'))
-            print('{:^83}'.format('-'*12))
             for ssn in list_of_non_workers:
                 employee = EmployeesLL().get_one_employee(ssn)
                 employee_name = employee.get_name()
-                print('{:^33}'.format(f'{employee_name}'))
-            list_of_workers = EmployeesLL().employees_working(input_command)
-            print(list_of_workers)
-        print('Menu\n-----\n1. Back to All Employees\n3. Back to Main menu\n')
-        if input_command == '1':
-            EmployeesMenu().get_all_employees()
-        elif input_command == '2':
-            pass
+                print('{:^63}'.format(f'{employee_name}'))
+            print('Menu\n-----\n1. Back to All Employees\n3. Back to Main menu\n')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                EmployeesMenu().get_all_employees()
+            elif input_command == '2':
+                pass
