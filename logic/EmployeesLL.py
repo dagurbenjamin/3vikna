@@ -110,3 +110,12 @@ class EmployeesLL():
             print('employee is not working this week')
         else:
             return employees_week_schedule
+
+    def get_all_employees_with_all_informations(self):
+        all_employees = CrewIO().load_crew_from_file('0')
+        all_employees_list = []
+        for member in all_employees:
+            str_member = str(member)
+            list_employee = str_member.split(',')
+            all_employees_list.append(list_employee)
+        return all_employees_list

@@ -1,6 +1,7 @@
 import string
 import os
 from logic.AirplanesLL import AirplanesLL
+from logic.EmployeesLL import EmployeesLL
 
 
 class AirplanesMenu():
@@ -42,7 +43,7 @@ class AirplanesMenu():
         one_airplanetype = AirplanesLL().get_info_about_one_airplane(planeTypeId)
         input_command = ''
         while input_command != 'q':
-            self.header(planeInsignia)
+            self.header(planeTypeId)
             print('\n{:^15}{:^32}{:^23}'.format(
                 'manufacturer', 'model', 'capacity'))
             print('{:^15}{:^32}{:^25}'.format('-'*15, '-'*8, '-'*10))
@@ -63,11 +64,11 @@ class AirplanesMenu():
             print('{:^32}'.format('-'*10))
             print('{:^36}\n'.format(one_airplanetype.get_wingspan()))
             print(
-                '\n\n1. Back to Main menu\n2. Back to All Airplanes\n')
+                '\n\n1. Employees that are licenced for this airplane\n2. Back to All Airplanes\n3. Back to Main menu')
             print('')
             input_command = input("Input command: ").lower()
             if input_command == '1':
-                pass
+                AirplanesMenu().employees_licenced_for_certain_airplane(planeTypeId, planeInsignia)
             elif input_command == '2':
                 AirplanesMenu().get_all_airplanes()
 
@@ -189,3 +190,20 @@ class AirplanesMenu():
                 AirplanesMenu().print_create_menu()
             elif input_command == '2':
                 continue
+
+    def employees_licenced_for_certain_airplane(self, planeTypeId, planeInsignia):
+        input_command = ''
+        while input_command != 'q':
+            self.header(f'Employees licenced for {planeTypeId}')
+            print('{:^60}'.format('-'*40))
+            all_employees = EmployeesLL().get_all_employees_with_all_informations()
+            for employee in all_employees:
+                if employee[4] == planeTypeId:
+                    print('{:^63}'.format(f'{employee[1]}'))
+            print(
+                'Menu\n-----\n1. back to airplane\n2. Create New Airplane Type\n\n3. back to Airplanes menu')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                AirplanesMenu().get_airplanetype(planeTypeId, planeInsignia)
+            if input_command == '1':
+                pass
