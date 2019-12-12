@@ -5,8 +5,10 @@ from ui.VoyagesMenuUI import VoyagesMenu
 import os
 import ctypes
 
-def fullscreen():   
+
+def fullscreen():
     pass
+
 
 def airplanes_main():
     airplanes = AirplanesMenu()
@@ -17,9 +19,11 @@ def destination_main():
     destination = DestinationsMenu()
     destination.print_destinations_menu()
 
+
 def employees_main():
     employees = EmployeesMenu()
     employees.print_employees_menu()
+
 
 def voyages_main():
     voyages = VoyagesMenu()
@@ -29,9 +33,10 @@ def voyages_main():
 def main():
     input_command = ''
     while input_command != 'q':
-        print('*'*75,'\n')
-        print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
-        print('\n','*'*75,'\n')
+        print('*'*75, '\n')
+        print('                          NaN Air   ''\033[91m            {} \033[00m'.format(
+            '"q" - quitAndSave'))
+        print('\n', '*'*75, '\n')
         print('Main menu\n----------\n1. Airplanes\n2. Destinations\n3. Employees\n4. Voyage\n')
         input_command = input('Input Command: ').lower()
         if input_command == '1':
@@ -42,6 +47,6 @@ def main():
             employees_main()
         elif input_command == '4':
             voyages_main()
-            
+
 
 main()

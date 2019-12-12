@@ -43,7 +43,7 @@ class AirplanesLL:
     def is_airplane_available(self, date, plane_insignia):
         all_voyages = VoyagesLL().get_voyages()
         for voyage in all_voyages:
-            if voyage[1] == plane_insignia and voyage[2] == date
-            return False
+            if voyage[1] == plane_insignia and voyage[2] == date:
+                return False
         else:
             return True

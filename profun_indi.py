@@ -91,9 +91,12 @@ from logic.AirplanesLL import AirplanesLL
 # EmployeesLL().get_employee_week_schedule(weeknumber, employee)
 
 date = '2019-12-20'
-plane_insignia = 'TF-EPG'
-x = AirplanesLL().is_airplane_available(date, plane_insignia)
-if x:
-    print('it returned true')
-else:
-    print('it returned false')
+# plane_insignia = 'TF-EPG'
+# x = AirplanesLL().is_airplane_available(date, plane_insignia)
+# if x:
+#     print('it returned true')
+# else:
+#     print('it returned false')
+
+x = EmployeesLL().employees_not_working(date)
+print(x)
