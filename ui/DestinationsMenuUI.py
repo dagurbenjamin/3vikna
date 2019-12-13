@@ -20,7 +20,6 @@ class DestinationsMenu():
 
     def get_destination(self, destination_id):
         one_destination = DestinationsLL().get_destination(destination_id)
-        print(one_destination)
         input_command = ''
         while input_command != 'q':
             self.header(str(one_destination.get_country() + '-' + one_destination.get_destination()))
@@ -38,24 +37,25 @@ class DestinationsMenu():
             elif input_command == '2':
                 DestinationsMenu().get_all_destinations()
 
-    def get_all_destinations(self): #Þarf að breyta þessu
+    def get_all_destinations(self):
         input_command = ''
         while input_command != 'q':
             self.header('All Destinations')
-            print('Menu\n-----\n1. Nuuk/Greenland\n2. Kulusuk/Greenland\n3. Torshavn/Faroe islands\n4. Tingwall/Shetland\n5. Longyearbyen/Svalbard\nb. Back one page')
-            input_command = input('Input Command: ').lower()
-            if input_command == '1':
-                DestinationsMenu().get_destination('GOH')
-            elif input_command == '2':
-                DestinationsMenu().get_destination('KUS')
-            elif input_command == '3':
-                DestinationsMenu().get_destination('FAE')
-            elif input_command == '4':
-                DestinationsMenu().get_destination('LWK')
-            elif input_command == '5':
-                DestinationsMenu().get_destination('LYR')
-            elif input_command == 'b':
-                DestinationsMenu().print_destinations_menu()
+            print('{:^22}{:>10}/{}'.format('ID', 'City', 'Country'))
+            print('{:^22}{:^22}'.format('-'*5, '-'*20))
+            all_destinations = DestinationsLL().get_all_destinations()
+            counter = 0
+            for line in all_destinations:
+                line_counter = counter + 1
+                print('{:^5}{:^12}{:^35}'.format(str(line_counter) + '.' ,all_destinations[counter][0], all_destinations[counter][1] + '/' + all_destinations[counter][2]))
+                counter += 1
+            print('\n"b".....Back to Destination Menu')
+            input_command = input("Input command: ").lower()
+            for item in range(1,len(all_destinations) + 1):
+                if input_command == str(item):
+                    DestinationsMenu().get_destination(all_destinations[item - 1][0])
+                elif input_command == 'b':
+                    DestinationsMenu().print_destinations_menu()
 
 
     def create_new_destination(self):
