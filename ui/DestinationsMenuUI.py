@@ -23,12 +23,12 @@ class DestinationsMenu():
         input_command = ''
         while input_command != 'q':
             self.header(str(one_destination.get_country() + '-' + one_destination.get_destination()))
-            print('\n{:^15}{:^32}{:^23}'.format('Airport','Country','Distance'))
-            print('{:^15}{:^32}{:^25}'.format('-'*6,'-'*8,'-'*12))
-            print('{:^7}{:^37}{:^21}\n'.format(one_destination.get_destination()+" Airport" ,one_destination.get_country() ,one_destination.get_distance()+" km"))
-            print('{:^16}{:^34}{:^12}{:^29}'.format('Contact name ','Emergency number','Flight time', 'Destination Number'))
-            print('{:^15}{:^32}{:^22}{}'.format('-'*10,'-'*9,'-'*12,'-'*12))
-            print('{:^15}{:^34}{:^15}{:^25}\n'.format(one_destination.get_contactname(), one_destination.get_emergencynumber(), one_destination.get_flighttime(), one_destination.get_destinationnumber()))
+            print('\n{:^14}{:^34}{:^18}'.format('Airport','Country','Distance'))
+            print('{:^15}{:^33}{:^18}'.format('-'*6,'-'*8,'-'*12))
+            print('{:^7}{:^21}{:^30}\n'.format(one_destination.get_destination()+" Airport" ,one_destination.get_country() ,one_destination.get_distance()+" km"))
+            print('{:^16}{:^26}{:^14}{:^29}'.format('Contact name ','Emergency number','Flight time', 'Destination Number'))
+            print('{:^15}{:^26}{:^17}{:^22}'.format('-'*10,'-'*9,'-'*12,'-'*12))
+            print('{:^15}{:^26}{:^15}{:^26}\n'.format(one_destination.get_contactname(), one_destination.get_emergencynumber(), one_destination.get_flighttime(), one_destination.get_destinationnumber()))
             print('\n\n1. Back to Main menu\n2. Back to All Destinations\n')
 
             input_command = input('Input command: ').lower()
@@ -137,21 +137,23 @@ class DestinationsMenu():
     def update_destination(self):
         input_command = ''
         while input_command != 'q':
-            self.header('Which destination would you like to update?')
-            print('Menu\n------\n1. Nuuk/Greenland\n2. Kulusuk/Greenland\n3. Torshavn/Faroe islands\n4. Tingwall/Shetland\n5. Longyearbyen/Svalbard\nb. Back one page\n')
-            input_command = input('Input Command: ').lower()
-            if input_command == '1':
-                DestinationsMenu().update_this_destination('GOH')
-            elif input_command == '2':
-                DestinationsMenu().update_this_destination('KUS')
-            elif input_command == '3':
-                DestinationsMenu().update_this_destination('FAE')
-            elif input_command == '4':
-                DestinationsMenu().update_this_destination('LWK')
-            elif input_command == '5':
-                DestinationsMenu().update_this_destination('LYR')
-            elif input_command == 'b':
-                DestinationsMenu().print_destinations_menu()
+            self.header('All Destinations')
+            print('{:^22}{:>10}/{}'.format('ID', 'City', 'Country'))
+            print('{:^22}{:^22}'.format('-' * 5, '-' * 20))
+            all_destinations = DestinationsLL().get_all_destinations()
+            counter = 0
+            for line in all_destinations:
+                line_counter = counter + 1
+                print('{:^5}{:^12}{:^35}'.format(str(line_counter) + '.', all_destinations[counter][0],
+                                                 all_destinations[counter][1] + '/' + all_destinations[counter][2]))
+                counter += 1
+            print('\n"b".....Back to Destination Menu')
+            input_command = input("Input command: ").lower()
+            for item in range(1, len(all_destinations) + 1):
+                if input_command == str(item):
+                    DestinationsMenu().update_this_destination(all_destinations[item - 1][0])
+                elif input_command == 'b':
+                    DestinationsMenu().print_destinations_menu()
 
     def print_destinations_menu(self):
         input_command = ''
