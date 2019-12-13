@@ -23,12 +23,12 @@ class DestinationsMenu():
         input_command = ''
         while input_command != 'q':
             self.header(str(one_destination.get_country() + '-' + one_destination.get_destination()))
-            print('\n{:^15}{:^32}{:^23}'.format('Airport','Country','Distance'))
-            print('{:^15}{:^32}{:^25}'.format('-'*6,'-'*8,'-'*12))
-            print('{:^7}{:^37}{:^21}\n'.format(one_destination.get_destination()+" Airport" ,one_destination.get_country() ,one_destination.get_distance()+" km"))
-            print('{:^16}{:^34}{:^12}{:^29}'.format('Contact name ','Emergency number','Flight time', 'Destination Number'))
-            print('{:^15}{:^32}{:^22}{}'.format('-'*10,'-'*9,'-'*12,'-'*12))
-            print('{:^15}{:^34}{:^15}{:^25}\n'.format(one_destination.get_contactname(), one_destination.get_emergencynumber(), one_destination.get_flighttime(), one_destination.get_destinationnumber()))
+            print('\n{:^14}{:^34}{:^18}'.format('Airport','Country','Distance'))
+            print('{:^15}{:^33}{:^18}'.format('-'*6,'-'*8,'-'*12))
+            print('{:^7}{:^21}{:^30}\n'.format(one_destination.get_destination()+" Airport" ,one_destination.get_country() ,one_destination.get_distance()+" km"))
+            print('{:^16}{:^26}{:^14}{:^29}'.format('Contact name ','Emergency number','Flight time', 'Destination Number'))
+            print('{:^15}{:^26}{:^17}{:^22}'.format('-'*10,'-'*9,'-'*12,'-'*12))
+            print('{:^15}{:^26}{:^15}{:^26}\n'.format(one_destination.get_contactname(), one_destination.get_emergencynumber(), one_destination.get_flighttime(), one_destination.get_destinationnumber()))
             print('\n\n1. Back to Main menu\n2. Back to All Destinations\n')
 
             input_command = input('Input command: ').lower()
