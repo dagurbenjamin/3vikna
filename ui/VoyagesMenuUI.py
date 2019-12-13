@@ -282,7 +282,7 @@ class VoyagesMenu():
             if input_command == 1:
                 replacement_value = input('ssn for new Captain: ').lower()
                 index_to_replace = input_command + 3
-                VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace):
+                VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace)
                 # else:
                 #     print('Employee does not have license for the plane registered in this voyage,\nplease choose another employee')
             elif input_command == 2:
