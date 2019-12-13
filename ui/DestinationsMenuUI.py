@@ -81,7 +81,7 @@ class DestinationsMenu():
             new_destination_list.append(input_command)
             input_command = input('Phone number of Emergency Contact: ')
             for the_input in input_command:
-                if input_command.isdigit() and len(input_command) == 7:
+                if input_command.isdigit() and len(input_command) <= 15:
                     new_destination_list.append(input_command)
                     break
                 else:
