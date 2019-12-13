@@ -9,13 +9,12 @@ class DestinationsMenu():
         pass
 
     def header(self, title):
-        print('*'*95,'\n')
-        print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
-        print("\n {}\n \n {} \n    ".format("*"*95, "{}{}{}".format(" "*25, title, " "*30), "-"*65))
-
-
-
-    
+        os.system('cls')
+        print('*'*75, '\n')
+        print('{}NaN Air   ''\033[91m                 {} \033[00m'.format(' '*31,
+            '"q" - quitAndSave\n'))
+        print('*'*75, '\n')
+        print('{:^70}\n'.format(title))   
 
 
     def get_destination(self, destination_id):
