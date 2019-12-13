@@ -14,13 +14,10 @@ class VoyagesMenu():
         pass
 
     def header(self, title):
-        os.system('cls')
-        print('*'*75, '\n')
-        print('{}NaN Air   ''\033[91m                 {} \033[00m'.format(' '*31,
-            '"q" - quitAndSave\n'))
-        print('*'*75, '\n')
-        print('{:^70}\n'.format(title))
-        
+        print('*'*95,'\n')
+        print('                          NaN Air   ''\033[91m            {} \033[00m'.format('"q" - quitAndSave'))
+        print("\n{}\n \n {} \n    ".format("*"*95, "{}{}{}".format(" "*23, title, " "*30), "-"*65))
+
     def create_voyage(self):
         input_command = ''
         new_voyage = ''
@@ -279,16 +276,15 @@ class VoyagesMenu():
         while input_command != 'q':
             self.header('What do you want to update/add ?')
             print('')
-            print('1. Captain\n2. Copilot\n3. Flight Service Manager\n4. Flight Attendant\n')
+            print('1. Captain\n2. Copilot\n3. Flight Service Manager\n4. Flight Attendant\n5. Back to Voyages Menu')
             print('\n\n\n')
             input_command = int(input('Input Command: ').lower())
             if input_command == 1:
                 replacement_value = input('ssn for new Captain: ').lower()
                 index_to_replace = input_command + 3
-                if VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace):
-                    print('Employee Added!')
-                else:
-                    VoyagesMenu().cant_add_menu()
+                VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace):
+                # else:
+                #     print('Employee does not have license for the plane registered in this voyage,\nplease choose another employee')
             elif input_command == 2:
                 index_to_replace = input_command + 3
                 replacement_value = input('ssn for new Copilot: ').lower()
@@ -301,15 +297,5 @@ class VoyagesMenu():
                 index_to_replace = input_command + 3
                 replacement_value = input('ssn for new Flight Attendant: ').lower()
                 VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace)
-    
-    def cant_add_menu(self):
-        input_command = ''
-        while input_command != 'q':
-            self.header(' ')
-            print('Employee does not have license for the plane registered in this voyage,\nplease choose another employee')
-            print('')
-            print('Menu\n-----\n1. Back to Update Voyage Menu')
-            print('\n\n\n')
-            input_command = input('Input Command: ').lower()
-            if input_command == '1':
-                VoyagesMenu().update_voyage_menu()
+            elif input_command == 5:
+                VoyagesMenu().print_voyages_menu()
