@@ -1,4 +1,3 @@
-
 from iolayer.AirplanesIO import AirplanesIO
 from logic.LLAPI import LLAPI
 
@@ -40,11 +39,11 @@ class AirplanesLL:
             all_airplanes_list.append(list_airplane)
         return all_airplanes_list
 
-    """def is_airplane_available(self, date, plane_insignia):
+    def is_airplane_available(self, date, plane_insignia):
         all_voyages = VoyagesLL().get_voyages()
         for voyage in all_voyages:
             if voyage[1] == plane_insignia and voyage[2] == date:
                 return False
         else:
-            return True"""
+            return True
     #MUNA AÐ BREYTA!!!!!!!!!!!!!!!!!!!!!

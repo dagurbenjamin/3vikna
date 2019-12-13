@@ -1,6 +1,6 @@
 from itertools import count
-from iolayer.VoyagesIO import VoyagesIO
-
+#from iolayer.VoyagesIO import VoyagesIO
+from logic.LLAPI import LLAPI
 
 class FlightsLL():
     _ids = count(0)
@@ -20,12 +20,12 @@ class FlightsLL():
 
     def create_upcoming_flight(self, flight1_list):
         new_flights_str = ','.join(flight1_list)
-        VoyagesIO().write_in_file_upcoming_flights(new_flights_str)
+        LLAPI().write_in_file_upcoming_flights(new_flights_str)
 
     def get_past_flightsLL(self):
-        past_flight_info = VoyagesIO().load_past_flights_from_file(Voyage_to_find)
+        past_flight_info = LLAPI().load_past_flights_from_file(Voyage_to_find)
         return past_flight_info
 
     def get_voyage_flights(self, Voyage_to_find):
-        voyage_flights = VoyagesIO().load_upcoming_flights_from_file(Voyage_to_find)
+        voyage_flights = LLAPI().load_upcoming_flights_from_file(Voyage_to_find)
         return voyage_flights

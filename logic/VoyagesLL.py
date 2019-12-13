@@ -1,5 +1,5 @@
-
-from iolayer.VoyagesIO import VoyagesIO
+from logic.LLAPI import LLAPI
+#from iolayer.VoyagesIO import VoyagesIO
 import datetime
 import time
 from logic.AirplanesLL import AirplanesLL
@@ -12,10 +12,10 @@ class VoyagesLL():
 
     def create_voyage(self, new_voyage_list):
         new_voyage_str = ','.join(new_voyage_list)
-        VoyagesIO().write_in_voyages_flights(new_voyage_str)
+        LLAPI().write_in_voyages_flights(new_voyage_str)
 
     def update_one_voyage(self, number_voyage_to_change, replacement_value, index_to_replace):
-        one_voyage = VoyagesIO().load_voyages_from_file(number_voyage_to_change)
+        one_voyage = LLAPI().load_voyages_from_file(number_voyage_to_change)
         employees_working_same_day, destinations_list = VoyagesLL(
         ).employees_working(one_voyage.get_date())
         for voyage in employees_working_same_day:
@@ -29,7 +29,7 @@ class VoyagesLL():
                     VoyagesLL().change_the_big_voyage_list(number_voyage_to_change, list_voyage)
 
     def change_the_big_voyage_list(self, number_voyage_to_change, new_list_voyage, input_value='0'):
-        all_voyages = VoyagesIO().load_voyages_from_file(input_value)
+        all_voyages = LLAPI().load_voyages_from_file(input_value)
         all_voyages_list = []
         for voyage in all_voyages:
             str_voyage = str(voyage)
@@ -40,10 +40,10 @@ class VoyagesLL():
         header = ['voyageID', 'planeInsignia', 'date', 'destination', 'captain',
                   'copilot', 'FlightServiceManager', 'flightAttendant']
         all_voyages_list.insert(0, header)
-        VoyagesIO().overwrite_voyage_file(all_voyages_list)
+        LLAPI().overwrite_voyage_file(all_voyages_list)
 
     def is_voyage_fully_staffed(self, voyageID):
-        voyages = VoyagesIO().load_voyages_from_file(voyageID)
+        voyages = LLAPI().load_voyages_from_file(voyageID)
         for line in voyages:
             str_voyage = str(line)
             list_voyage = str_voyage.split(',')
@@ -53,7 +53,7 @@ class VoyagesLL():
                 return print('Voyage is fully staffed!')
 
     def get_voyages(self):
-        all_voyages = VoyagesIO().load_voyages_from_file('0')
+        all_voyages = LLAPI().load_voyages_from_file('0')
         a_list = []
         for voyage in all_voyages:
             str_voyage = str(voyage)
@@ -63,11 +63,11 @@ class VoyagesLL():
         return a_list
 
     def get_one_voyage(self, voyageID):
-        one_voyage = VoyagesIO().load_voyages_from_file(voyageID)
+        one_voyage = LLAPI().load_voyages_from_file(voyageID)
         return one_voyage
 
     def list_voyages_by_day(date, the_input='0'):
-        all_voyages = VoyagesIO().load_voyages_from_file('0')
+        all_voyages = LLAPI().load_voyages_from_file('0')
         voyages_that_day = []
         staffed = []
         for line in all_voyages:
@@ -93,7 +93,7 @@ class VoyagesLL():
         for i in range(1, 7):
             day = startdate + datetime.timedelta(days=i)
             dates.append(day.strftime('%Y-%m-%d'))
-        all_voyages = VoyagesIO().load_voyages_from_file(the_input)
+        all_voyages = LLAPI().load_voyages_from_file(the_input)
         all_voyages_in_that_week = []
         for line in all_voyages:
             str_voyage = str(line)
@@ -107,7 +107,7 @@ class VoyagesLL():
         return all_voyages_in_that_week, staffed
 
     def employees_working(self, date_inputt, voyageID='0'):
-        all_voyages = VoyagesIO().load_voyages_from_file(voyageID)
+        all_voyages = LLAPI().load_voyages_from_file(voyageID)
         employees_working_list = []
         destinations_list = []
         for line in all_voyages:
