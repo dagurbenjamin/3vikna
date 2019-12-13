@@ -11,45 +11,6 @@ class LLAPI():
     def save_new_destination(self, newDestination):
         IOAPI().store_destination_to_file(newDestination)
 
-    def get_airplane_types(self):
-        title = 'manufacturer,model,capacity,emptyWeight,maxTakeoffWeight,unitThrust,serviceCeiling,length,height,wingspan'
-        plane_types_dict = {}
-        title_to_list = title.split(',')
-        airplanesInfo = IOAPI().load_airplanesinfo_from_file()
-        for line in airplanesInfo:
-            remove_newline = line.strip('\n')
-            line_to_list = remove_newline.split(',')
-            Id = line_to_list[0]
-            dict1 = dict(zip(title_to_list, line_to_list[1:]))
-            plane_types_dict[Id] = dict1
-        return plane_types_dict
-
-    def get_past_flights(self):
-        title = "departingFrom,arrivingAt,departure,arrival,aircraftID,captain,copilot,fsm,fa1,fa2"
-        all_past_flights_dict = {}
-        title_to_list = title.split(',')
-        flights_info = IOAPI().load_past_flights_from_file()
-        for line in flights_info:
-            take_newline = line.strip('\n')
-            line_to_list = take_newline.split(',')
-            Id = line_to_list[0]
-            dict1 = dict(zip(title_to_list, line_to_list[1:]))
-            all_past_flights_dict[Id] = dict1
-        return all_past_flights_dict
-
-    def get_upcoming_flights(self):
-        title = "departingFrom,arrivingAt,departure,arrival"
-        all_upcoming_flights_dict = {}
-        title_to_list = title.split(',')
-        flights_info = IOAPI().load_upcoming_flights_from_file()
-        for line in flights_info:
-            take_newline = line.strip('\n')
-            line_to_list = take_newline.split(',')
-            Id = line_to_list[0]
-            dict1 = dict(zip(title_to_list, line_to_list[1:]))
-            all_upcoming_flights_dict[Id] = dict1
-        return all_upcoming_flights_dict
-
 
 # def main():
     #foo = LLAPI().get_airplane_types()
