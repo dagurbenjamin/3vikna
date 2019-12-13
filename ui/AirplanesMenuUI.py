@@ -13,7 +13,7 @@ class AirplanesMenu():
         os.system('cls')
         print('*'*75, '\n')
         print('{}NaN Air   ''\033[91m                 {} \033[00m'.format(' '*31,
-            '"q" - quitAndSave\n'))
+                                                                          '"q" - quitAndSave\n'))
         print('*'*75, '\n')
         print('{:^70}\n'.format(title))
 
@@ -21,8 +21,8 @@ class AirplanesMenu():
         input_command = ''
         while input_command != 'q':
             self.header('All Airplanes')
-            print('{:^35}{:^35}'.format('Insignia', 'Type'))
-            print('{:^20}{:^20}'.format('-'*10, '-'*10))
+            print('{:^20}{:^10}'.format('Insignia', 'Type'))
+            print('{:^20}{:^10}'.format('-'*10, '-'*10))
             all_airplanes = AirplanesLL().get_all_airplanes()
             counter = 0
             for line in all_airplanes:
@@ -41,7 +41,7 @@ class AirplanesMenu():
                         all_airplanes[item - 1][1], all_airplanes[item - 1][0])
                 elif input_command == 'b':
                     AirplanesMenu().print_airplanes_menu()
-                
+
     def get_airplanetype(self, planeTypeId, planeInsignia):
         one_airplanetype = AirplanesLL().get_info_about_one_airplane(planeTypeId)
         input_command = ''
@@ -116,9 +116,9 @@ class AirplanesMenu():
             input_command = input('Plane Type: NA')
             new_airplane_list.append('NA' + input_command)
             self.header(new_airplane_list[1])
-            print('\n{:^15}{:^23}'.format('Plane Insignia', 'Plane Type'))
-            print('{:^15}{:^32}'.format('-'*6, '-'*8,))
-            print('{:^15}{:^33}\n'.format(
+            print('\n{:^30}{:^30}'.format('Plane Insignia', 'Plane Type'))
+            print('{:^30}{:^30}'.format('-'*6, '-'*8,))
+            print('{:^30}{:^30}\n'.format(
                 new_airplane_list[0], new_airplane_list[1]))
             print('\nDo you want to add this airplane?\n-----\n1. Yes\n2. No\n')
             print('')
@@ -228,7 +228,8 @@ class AirplanesMenu():
             print('{:^15}{:^25}'.format('-'*15, '-'*15))
             print('{:^15}{:^23}\n'.format(
                 new_airplane_type_list[9], new_airplane_type_list[10]))
-            print('\n\Menu\n-----Do you want to add this airplane type?\n-----\n1. Yes\n2. No\n')
+            print(
+                '\n\nMenu\n-----\nDo you want to add this airplane type?\n-----\n1. Yes\n2. No\n')
             input_command = input('Input Command: ')
             print('')
             print('')
