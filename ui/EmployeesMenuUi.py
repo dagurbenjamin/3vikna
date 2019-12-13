@@ -53,8 +53,9 @@ class EmployeesMenu():
                 print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', pilots[counter].get_name() , pilots[counter].get_social() , pilots[counter].get_rank() , pilots[counter].get_license()))
                 counter += 1
             print('')
+            print('Sort by license......"a"')
             print('Get Cabin Crew......."c"')
-            print('All Employees...."b"')
+            print('All Employees........"b"')
             input_command = input('Enter input command: ').lower()
             for item in range(1,len(pilots) + 1):
                 if input_command == str(item):
@@ -63,8 +64,56 @@ class EmployeesMenu():
                     EmployeesMenu().get_cabin_crew('CabinCrew')
                 elif input_command == 'b':
                     EmployeesMenu().get_all_employees()
-           
-    
+                elif input_command == 'a':
+                    EmployeesMenu().sort_employees_by_license(p_or_c_input)
+
+
+    def sort_employees_by_license(self, p_or_c_input):
+        pilots = EmployeesLL().get_pilots(p_or_c_input)
+        input_command = ''
+        while input_command != 'q':
+            self.header('Pilots')
+            print('\n{:^22}{:^23}{:^15}{:^20}'.format('Name','SSN','Rank','License'))
+            print('{:^22}{:^25}{:^8}{:^18}'.format('-'*6,'-'*8,'-'*12,'-'*12))
+            NAFokkerF100_list = []
+            Nabae146_list = []
+            NAFokkerf28_list = []
+            for line in pilots:
+                if line.crewlicense == 'NAFokkerF100':
+                    NAFokkerF100_list.append(line)
+                elif line.crewlicense == 'NABAE146':
+                    Nabae146_list.append(line)
+                elif line.crewlicense == 'NAFokkerF28':
+                    NAFokkerf28_list.append(line)
+            counter = 0
+            for line in NAFokkerF100_list:
+                line_counter = counter + 1
+                print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', NAFokkerF100_list[counter].get_name() , NAFokkerF100_list[counter].get_social() , NAFokkerF100_list[counter].get_rank() , NAFokkerF100_list[counter].get_license()))
+                counter += 1
+            employee_counter = 0
+            for line in Nabae146_list:
+                line_counter = counter + 1
+                print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(employee_counter) + '.', Nabae146_list[employee_counter].get_name() , Nabae146_list[employee_counter].get_social() , Nabae146_list[employee_counter].get_rank() , Nabae146_list[employee_counter].get_license()))
+                counter += 1
+                employee_counter += 1
+            employee_counter = 0
+            for line in NAFokkerf28_list:
+                line_counter = counter + 1
+                print('{:^5}{:^17}{:^25}{:^15}{:^15}'.format(str(line_counter) + '.', NAFokkerf28_list[employee_counter].get_name() , NAFokkerf28_list[employee_counter].get_social() , NAFokkerf28_list[employee_counter].get_rank() , NAFokkerf28_list[employee_counter].get_license()))
+                counter += 1
+                employee_counter += 1
+            print('')
+            print('Get Cabin Crew......."c"')
+            print('All Employees........"b"')
+            input_command = input('Enter input command: ').lower()
+            for item in range(1,len(pilots) + 1):
+                if input_command == str(item):
+                    EmployeesMenu().get_employee(pilots[item - 1].get_social())
+                elif input_command == 'p':
+                    EmployeesMenu().get_cabin_crew('CabinCrew')
+                elif input_command == 'b':
+                    pass
+
     def get_cabin_crew(self, p_or_c_input):
         cabin_crew = EmployeesLL().get_cabin_crew(p_or_c_input)
         input_command = ''
@@ -113,11 +162,6 @@ class EmployeesMenu():
                     EmployeesMenu().get_all_pilots('Pilot')
                 elif input_command == 'c':
                     EmployeesMenu().get_cabin_crew('Cabincrew')
-
-            
-            
-            
-            
 
 
     def create_new_employee(self):
@@ -250,7 +294,7 @@ class EmployeesMenu():
             elif input_command == '3':
                 EmployeesMenu().update_employee()
             elif input_command == '4':
-                EmployeesMenu().print_employees_working_a_certain_day()
+                EmployeesMenu().crew_schedule_menu()
             elif input_command == '5':
                 pass
 
@@ -279,26 +323,56 @@ class EmployeesMenu():
         elif input_command == '3':
             pass
 
-    def print_employees_working_a_certain_day(self):
+    def crew_schedule_menu(self):
         input_command = ''
         while input_command != 'q':
             self.header('Crew schedules')
             print('')
+            print('Menu\n-----\n1. All employees working a certain day\n2. All employees that are not working a certain day \n')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                EmployeesMenu().print_employees_working_a_certain_day()
+            elif input_command == '2':
+                EmployeesMenu().print_employees_not_working_a_certain_day()
+
+
+    def print_employees_working_a_certain_day(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header(f'All employees working {input_command}')
+            print('')
+            input_command = input('Enter Date: ').lower()
+            list_of_workers, list_of_destinations = EmployeesLL().employees_working(input_command)
+            counter = 0
+            for employees in list_of_workers:
+                for worker in employees:
+                    their_destination = list_of_destinations[counter]
+                    working_employee = EmployeesLL().get_one_employee(worker)
+                    employee_name = working_employee.get_name()
+                    print('{:^63}'.format(f'{employee_name}, destination: {their_destination} '))
+                counter += 1
+            print('Menu\n-----\n1. Back to All Employees\n3. Back to Main menu\n')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                EmployeesMenu().get_all_employees()
+            elif input_command == '2':
+                pass
+
+    def print_employees_not_working_a_certain_day(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header(f'All employees not working {input_command}')
+            print('')
             input_command = input('Enter Date: ').lower()
             list_of_non_workers = EmployeesLL().employees_not_working(input_command)
             print('')
-            print('{:^30}'.format(f'All employees Not working'))
-            print('{:^29}'.format('-'*12))
-            print('{:^85}'.format(f'All employees working'))
-            print('{:^83}'.format('-'*12))
             for ssn in list_of_non_workers:
                 employee = EmployeesLL().get_one_employee(ssn)
                 employee_name = employee.get_name()
-                print('{:^33}'.format(f'{employee_name}'))
-            list_of_workers = EmployeesLL().employees_working(input_command)
-            print(list_of_workers)
-        print('Menu\n-----\n1. Back to All Employees\n3. Back to Main menu\n')
-        if input_command == '1':
-            EmployeesMenu().get_all_employees()
-        elif input_command == '2':
-            pass
+                print('{:^63}'.format(f'{employee_name}'))
+            print('Menu\n-----\n1. Back to All Employees\n3. Back to Main menu\n')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                EmployeesMenu().get_all_employees()
+            elif input_command == '2':
+                pass
