@@ -111,6 +111,7 @@ class VoyagesLL():
         for pilot in all_pilots:
             if pilot.get_social() == pilot_ssn:
                 my_pilot = pilot
+                break
         if my_pilot.get_license() == planeTypeID:
             return True
         else:
