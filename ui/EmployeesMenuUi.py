@@ -259,7 +259,7 @@ class EmployeesMenu():
             elif input_command == '7':
                 EmployeesMenu().update_employee()
 
-    
+
     def update_employee(self):
         input_command = ''
         while input_command != 'q':

@@ -170,7 +170,6 @@ class VoyagesMenu():
             print('{:^5}{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}'.format('ID', 'Insignia', 'Date', 'Destination', 'Captain', 'Copilot', 'Flight Service Manager', 'Flight Attendant'))
             print('{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}'.format('-'*5, '-'*5, '-'*5, '-'*5, '-'*5, '-'*5, '-'*5, '-'*5))
             all_voyages = VoyagesLL().get_voyages()
-            
             counter = 0
             for line in all_voyages:
                 Captain = EmployeesLL().get_one_employee(all_voyages[counter][4])
@@ -202,13 +201,74 @@ class VoyagesMenu():
                 counter += 1
             print('')
             print('Back to Voyages....."b')
+            print('List voyages by day....."d"')
+            print('List voyages by Week....."w"')
             input_command = input('Input Command: ').lower()
             for item in range(1,len(all_voyages) + 1):
                 if input_command == str(item):
                     VoyagesMenu().get_voyage(all_voyages[item - 1][0])
                 elif input_command == 'b':
                     VoyagesMenu().print_voyages_menu()
+                elif input_command == 'd':
+                    VoyagesMenu().list_voyages_by_day()
+                elif input_command == 'w':
+                    VoyagesMenu().list_voyages_by_week()
 
+
+    def list_voyages_by_day(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header('List Voyages By Day')
+            date = input('Enter date (yyyy-mm-dd): ').lower()
+            voyages_that_day, staffed= VoyagesLL().list_voyages_by_day(date)
+            VoyagesMenu().print_voyages_by_day(voyages_that_day, staffed, date)
+
+
+    def print_voyages_by_day(self, voyages_that_day, staffed, date):
+        input_command = ''
+        while input_command != 'q':
+            self.header(f'Voyages {date}')
+            print('{:^6}{:^15}{:^15}{:^10}{:^12}'.format('ID', 'Insignia', 'Date', 'Destination', 'staffed'))
+            print('{:^3}{:^13}{:^13}{:^9}{:^20}'.format('-'*5, '-'*5, '-'*5, '-'*5, '-'*5))
+            counter = 0
+            for voyage in voyages_that_day:
+                print('{:^6}{:^13}{:^15}{:^20}{:^25}'.format(str(voyage[0]), voyage[1], voyage[2], voyage[3], staffed[counter]))
+                counter += 1
+            print('')
+            print('Menu\n-----\n1. Back to All Voyages\n3. Back to Voyages menu\n')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                VoyagesMenu().get_all_voyages()
+            elif input_command == '2':
+                VoyagesMenu().print_voyages_menu()
+
+
+    def list_voyages_by_week(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header('List Voyages week')
+            weeknumber = int(input('Enter weeknumber: ').lower())
+            all_voyages_in_that_week, staffed= VoyagesLL().list_voyages_by_week(weeknumber)
+            VoyagesMenu().print_voyages_by_week(all_voyages_in_that_week, staffed, weeknumber)
+
+
+    def print_voyages_by_week(self, all_voyages_in_that_week, staffed, weeknumber):
+        input_command = ''
+        while input_command != 'q':
+            self.header(f'Voyages in week: {weeknumber}')
+            print('{:^6}{:^15}{:^15}{:^10}{:^12}'.format('ID', 'Insignia', 'Date', 'Destination', 'staffed'))
+            print('{:^3}{:^13}{:^13}{:^9}{:^20}'.format('-'*5, '-'*5, '-'*5, '-'*5, '-'*5))
+            counter = 0
+            for voyage in all_voyages_in_that_week:
+                print('{:^6}{:^13}{:^15}{:^20}{:^25}'.format(str(voyage[0]), voyage[1], voyage[2], voyage[3], staffed[counter]))
+                counter += 1
+            print('')
+            print('Menu\n-----\n1. Back to All Voyages\n3. Back to Voyages menu\n')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                VoyagesMenu().get_all_voyages()
+            elif input_command == '2':
+                VoyagesMenu().print_voyages_menu()
 
     def print_voyages_menu(self):
         input_command = ''
@@ -282,9 +342,11 @@ class VoyagesMenu():
             if input_command == 1:
                 replacement_value = input('ssn for new Captain: ').lower()
                 index_to_replace = input_command + 3
-                VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace)
-                # else:
-                #     print('Employee does not have license for the plane registered in this voyage,\nplease choose another employee')
+                x = VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace)
+                if x == 'False':
+                    VoyagesMenu().employee_cant_be_added_to_voyage()
+                else: 
+                    VoyagesMenu().print_voyages_menu()
             elif input_command == 2:
                 index_to_replace = input_command + 3
                 replacement_value = input('ssn for new Copilot: ').lower()
@@ -298,4 +360,20 @@ class VoyagesMenu():
                 replacement_value = input('ssn for new Flight Attendant: ').lower()
                 VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace)
             elif input_command == 5:
+                VoyagesMenu().print_voyages_menu()
+
+
+    def employee_cant_be_added_to_voyage(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header(' ')
+            print('Employee could not be added to voyage,\nhe is registered to another voyage that same day')
+            print('')
+            print('')
+            print('')
+            print('Menu\n-----\n1. Go to All Voyages\n3. Back to Voyages menu\n')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                VoyagesMenu().get_all_voyages()
+            elif input_command == '2':
                 VoyagesMenu().print_voyages_menu()
