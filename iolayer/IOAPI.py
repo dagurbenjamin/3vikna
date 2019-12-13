@@ -70,4 +70,4 @@ class IOAPI():
         return VoyagesIO().write_in_voyages_flights(new_voyage)
 
     def overwrite_voyage_file(self, all_voyages_list):
-        return VoyagesIO.overwrite_voyage_file(all_voyages_list)
+        return VoyagesIO().overwrite_voyage_file(all_voyages_list)
