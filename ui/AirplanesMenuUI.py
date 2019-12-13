@@ -111,8 +111,8 @@ class AirplanesMenu():
         new_airplane = ''
         new_airplane_list = []
         while input_command != 'q':
-            input_command = input('Plane Insignia: ')
-            new_airplane_list.append(input_command)
+            input_command = input('Plane Insignia: TF-')
+            new_airplane_list.append("TF-" + input_command)
             input_command = input('Plane Type: ')
             new_airplane_list.append(input_command)
             self.header(new_airplane_list[1])
