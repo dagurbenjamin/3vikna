@@ -18,6 +18,7 @@ kernel32.GetLargestConsoleWindowSize.restype = wintypes._COORD
 kernel32.GetLargestConsoleWindowSize.argtypes = (wintypes.HANDLE,)
 user32.ShowWindow.argtypes = (wintypes.HWND, ctypes.c_int)
 
+
 def fullscreen():
     pass
 
@@ -48,7 +49,8 @@ def asciiplane():
     print("                            .'_________'.")
     print('                           /_/_|__|__|_\_\ ')
     print("                          ;'-._       _.-';")
-    print('    {}'.format(" ,--------------------|    `-. .-'    |--------------------,"))
+    print('    {}'.format(
+        " ,--------------------|    `-. .-'    |--------------------,"))
     print("      ``''--..__    ___   ;       '       ;   ___    __..--''``")
     print('                `"-// \\\.._\             /_..// \\\-"`')
     print("                   \\\_//    '._       _.'    \\\_//")
@@ -73,18 +75,19 @@ def maximize_console(lines=None):
         else:
             lines = max(min(lines, 9999), max_size.Y)
         subprocess.check_call('mode.com con cols={} lines={}'.format(
-                                cols, lines))
+            cols, lines))
         user32.ShowWindow(hWnd, SW_MAXIMIZE)
+
 
 def main():
     os.system('cls')
     maximize_console()
     asciiplane()
     input_command = ''
-    while input_command != 'q':        
+    while input_command != 'q':
         print('*'*75, '\n')
         print('{}NaN Air   ''\033[91m                 {} \033[00m'.format(' '*31,
-            '"q" - quitAndSave\n'))
+                                                                          '"q" - quitAndSave\n'))
         print('*'*75, '\n')
         print('Main menu\n----------\n1. Airplanes\n2. Destinations\n3. Employees\n4. Voyage\n')
         input_command = input('Input Command: ').lower()

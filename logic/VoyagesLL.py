@@ -2,6 +2,9 @@
 from iolayer.VoyagesIO import VoyagesIO
 import datetime
 import time
+from logic.AirplanesLL import AirplanesLL
+from iolayer.CrewIO import CrewIO
+from logic.EmployeesLL import EmployeesLL
 
 
 class VoyagesLL():
@@ -14,16 +17,16 @@ class VoyagesLL():
 
     def update_one_voyage(self, number_voyage_to_change, replacement_value, index_to_replace):
         one_voyage = VoyagesIO().load_voyages_from_file(number_voyage_to_change)
-        for voyage in one_voyage:
-            str_voyage = str(voyage)
-            list_voyage = str_voyage.split(',')
-            employees_working_same_day = EmployeesLL(
-            ).employees_working(list_voyage[2])
-            if replacement_value in employees_working_same_day:
-                return print('cant add employee, hes working this day')
+        if index_to_replace == 4 or index_to_replace == 5:
+            if VoyagesLL().check_if_pilot_has_licence_for_plane(replacement_value, one_voyage):
+                employees_working_same_day = EmployeesLL().employees_working(one_voyage.get_date())
+                if replacement_value in employees_working_same_day:
+                    return print('cant add employee, hes working this day')
+                else:
+                    list_voyage[index_to_replace] = replacement_value
+                    VoyagesLL().change_the_big_voyage_list(number_voyage_to_change, list_voyage)
             else:
-                list_voyage[index_to_replace] = replacement_value
-                VoyagesLL().change_the_big_voyage_list(number_voyage_to_change, list_voyage)
+                return False
 
     def change_the_big_voyage_list(self, number_voyage_to_change, new_list_voyage, input_value='0'):
         all_voyages = VoyagesIO().load_voyages_from_file(input_value)
@@ -94,3 +97,19 @@ class VoyagesLL():
             if list_voyage[2] in dates:
                 all_voyages_in_that_week.append(list_voyage)
         return all_voyages_in_that_week
+
+    def check_if_pilot_has_licence_for_plane(self, pilot_ssn, one_voyage):
+        all_airplanes = AirplanesLL().get_all_airplanes()
+        plane_insignia = one_voyage.get_planeInsignia()
+        for line in all_airplanes:
+            for val in line:
+                if val == plane_insignia:
+                    planeTypeID = line[1]
+        all_pilots = CrewIO().load_pilot_or_cabincrew('Pilot')
+        for pilot in all_pilots:
+            if pilot.get_social() == pilot_ssn:
+                my_pilot = pilot
+        if my_pilot.get_license() == planeTypeID:
+            return True
+        else:
+            return False

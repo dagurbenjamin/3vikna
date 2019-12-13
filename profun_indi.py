@@ -36,18 +36,33 @@ from logic.AirplanesLL import AirplanesLL
 
 
 # number_voyage_to_change = '3'
-# replacement_value = '2910858778'
-# replacement_value = '1900769521'
-# replacement_value = '2200763823'
-# replacement_value = '3003962187'
-# input_index = 1
-# index_to_replace = input_index + 3
+# replacement_value = '2209955782'
+input_index = 1
+index_to_replace = input_index + 3
 # changed_voyage = VoyagesLL().update_one_voyage(
 #     number_voyage_to_change, replacement_value, index_to_replace)
-# print(changed_voyage)
-# Voyage_to_find = '2'
-# x = VoyagesIO().load_upcoming_flights_from_file(Voyage_to_find)
-# print(x)
+number_voyage_to_change = '1'
+replacement_value = '2209955782'
+
+VoyagesLL().update_one_voyage(number_voyage_to_change,
+                              replacement_value, index_to_replace)
+
+
+# def check_if_pilot_has_licence_for_plane(pilot_ssn, one_voyage):
+#     all_airplanes = AirplanesLL().get_all_airplanes()
+#     plane_insignia = one_voyage.get_planeInsignia()
+#     for line in all_airplanes:
+#         for val in line:
+#             if val == plane_insignia:
+#                 planeTypeID = line[1]
+#     all_pilots = EmployeesLL().get_pilots('Pilot')
+#     for pilot in all_pilots:
+#         if pilot.get_social() == pilot_ssn:
+#             my_pilot = pilot
+#     if my_pilot.get_license == planeTypeID:
+#         print('has licence')
+#     else:
+#         print('boo')
 
 # voyageID = '0'
 
@@ -84,19 +99,14 @@ from logic.AirplanesLL import AirplanesLL
 
 # weeknumber = int(input('input weeknumber: '))
 # # x = VoyagesLL().list_voyages_by_week(weeknumber)
-1
+
 # employee = '2504939263'
 
 
 # EmployeesLL().get_employee_week_schedule(weeknumber, employee)
-
-date = '2019-12-20'
 # plane_insignia = 'TF-EPG'
 # x = AirplanesLL().is_airplane_available(date, plane_insignia)
 # if x:
 #     print('it returned true')
 # else:
 #     print('it returned false')
-
-x = EmployeesLL().employees_not_working(date)
-print(x)

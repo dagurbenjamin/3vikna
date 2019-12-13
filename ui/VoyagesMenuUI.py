@@ -114,27 +114,6 @@ class VoyagesMenu():
                     VoyagesMenu().get_voyage(str(number_voyages))
                 elif input_command == '2':
                     VoyagesMenu().print_voyages_menu()
-                
-
-                
-                
-                
-
-
-
-                
-    
-                
-        
-            
-                
-
-            
-            
-            
-
-
-
 
 
     def get_voyage(self, voyage_id):
@@ -184,8 +163,6 @@ class VoyagesMenu():
                 VoyagesMenu().get_all_voyages()
 
 
-
-
     def get_all_voyages(self):
         input_command = ''
         while input_command != 'q':
@@ -231,11 +208,7 @@ class VoyagesMenu():
                     VoyagesMenu().get_voyage(all_voyages[item - 1][0])
                 elif input_command == 'b':
                     VoyagesMenu().print_voyages_menu()
-            
-                
 
-
-               
 
     def print_voyages_menu(self):
         input_command = ''
@@ -249,6 +222,91 @@ class VoyagesMenu():
             elif input_command == '2':
                 VoyagesMenu().get_all_voyages()
             elif input_command == '3':
-                pass
+                VoyagesMenu().update_voyage_menu()
             elif input_command == '4':
                 pass
+
+    def update_voyage_menu(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header('All Voyages')
+            print('{:^5}{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}'.format('ID', 'Insignia', 'Date', 'Destination', 'Captain', 'Copilot', 'Flight Service Manager', 'Flight Attendant'))
+            print('{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}{:^10}'.format('-'*5, '-'*5, '-'*5, '-'*5, '-'*5, '-'*5, '-'*5, '-'*5))
+            all_voyages = VoyagesLL().get_voyages()
+            
+            counter = 0
+            for line in all_voyages:
+                Captain = EmployeesLL().get_one_employee(all_voyages[counter][4])
+                if Captain == 'x':
+                    Captain_name = 'x'
+                else:
+                    Captain_name = Captain.get_name()
+
+                Copilot = EmployeesLL().get_one_employee(all_voyages[counter][5])
+                if Copilot == 'x':
+                    Copilot_name = 'x'
+                else:
+                    Copilot_name = Copilot.get_name()
+                
+                FsManager = EmployeesLL().get_one_employee(all_voyages[counter][6])
+                if FsManager == 'x':
+                    FsManager_name = 'x'
+                else:
+                    FsManager_name = FsManager.get_name()
+                
+                Attendant = EmployeesLL().get_one_employee(all_voyages[counter][7])
+                if Attendant == 'x':
+                    Attendant_name = 'x'
+                else:
+                    Attendant_name = Attendant.get_name()
+                    
+                line_counter = counter + 1
+                print('{:^5}{:^5}{:^5}{:^5}{:^5}{:^5}{:^10}{:^10}{:^10}'.format(str(line_counter) + '.', all_voyages[counter][0], all_voyages[counter][1], all_voyages[counter][2], all_voyages[counter][3], Captain_name, Copilot_name, FsManager_name, Attendant_name))
+                counter += 1
+            print('')
+            print('Choose Voyage to add staff:')
+            input_command = input('Input Command: ').lower()
+            for item in range(1,len(all_voyages) + 1):
+                if input_command == str(item):
+                    VoyagesMenu().what_to_update(all_voyages[item - 1][0])
+
+
+    def what_to_update(self, voyage_id):
+        input_command = ''
+        while input_command != 'q':
+            self.header('What do you want to update/add ?')
+            print('')
+            print('1. Captain\n2. Copilot\n3. Flight Service Manager\n4. Flight Attendant\n')
+            print('\n\n\n')
+            input_command = int(input('Input Command: ').lower())
+            if input_command == 1:
+                replacement_value = input('ssn for new Captain: ').lower()
+                index_to_replace = input_command + 3
+                if VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace):
+                    print('Employee Added!')
+                else:
+                    VoyagesMenu().cant_add_menu()
+            elif input_command == 2:
+                index_to_replace = input_command + 3
+                replacement_value = input('ssn for new Copilot: ').lower()
+                VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace)
+            elif input_command == 3:
+                index_to_replace = input_command + 3
+                replacement_value = input('ssn for new Flight Service Manager: ').lower()
+                VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace)
+            elif input_command == 4:
+                index_to_replace = input_command + 3
+                replacement_value = input('ssn for new Flight Attendant: ').lower()
+                VoyagesLL().update_one_voyage(voyage_id, replacement_value, index_to_replace)
+    
+    def cant_add_menu(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header(' ')
+            print('Employee does not have license for the plane registered in this voyage,\nplease choose another employee')
+            print('')
+            print('Menu\n-----\n1. Back to Update Voyage Menu')
+            print('\n\n\n')
+            input_command = input('Input Command: ').lower()
+            if input_command == '1':
+                VoyagesMenu().update_voyage_menu()
