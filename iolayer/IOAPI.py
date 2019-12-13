@@ -61,13 +61,13 @@ class IOAPI():
         return VoyagesIO().load_past_flights_from_file(Voyage_to_find)
 
     def write_in_file_past_flights(self, new_past_flight):
-        return VoyagesIO.write_in_file_past_flights(new_past_flight)
+        return VoyagesIO().write_in_file_past_flights(new_past_flight)
 
     def load_voyages_from_file(self, voyageID):
-        return VoyagesIO.load_voyages_from_file(voyageID)
+        return VoyagesIO().load_voyages_from_file(voyageID)
 
     def write_in_voyages_flights(self, new_voyage):
-        return VoyagesIO.write_in_voyages_flights(new_voyage)
+        return VoyagesIO().write_in_voyages_flights(new_voyage)
 
     def overwrite_voyage_file(self, all_voyages_list):
         return VoyagesIO.overwrite_voyage_file(all_voyages_list)
