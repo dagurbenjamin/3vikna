@@ -90,7 +90,13 @@ class DestinationsMenu():
             input_command = input('Flight time to Destination: ')
             new_destination_list.append(input_command)
             input_command = input('Insert Destination Number: ')
-            new_destination_list.append(input_command)
+            for the_input in input_command:
+                if input_command.isdigit() and len(input_command) == 2:
+                    new_destination_list.append(input_command)
+                    break
+                else:
+                    print('Enter a valid Destination Number.')
+                    input_command = input('Insert Destination Number: ')
             self.header(new_destination_list[1])
             print('\n{:^15}{:^32}{:^23}'.format('Destination', 'Country', 'Emergency Contact', 'Emergency Number'))
             print('{:^15}{:^32}{:^25}'.format('-' * 6, '-' * 8, '-' * 12, '-' * 12))
@@ -135,7 +141,13 @@ class DestinationsMenu():
                 continue
             elif input_command == '2':
                 input_command = input('\nNew emergency number: ')
-                one_destination.set_emergencynumber(input_command)
+                for the_input in input_command:
+                    if input_command.isdigit() and len(input_command) <= 15:
+                        one_destination.set_emergencynumber(input_command)
+                        break
+                    else:
+                        print('Enter a valid phone number.')
+                        input_command = input('New emergency number: ')
                 one_destination_list = str(one_destination).split(',')
                 DestinationsLL().change_the_big_destinations_list(one_destination.get_id(), one_destination_list)
                 continue
