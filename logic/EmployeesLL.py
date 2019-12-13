@@ -19,6 +19,7 @@ class EmployeesLL():
             list_mem[index_to_replace] = replacement_value
             EmployeesLL().change_the_big_list(employee_to_change_ssn_input, list_mem)
 
+# changing the file_contents to overwrite again with updated employee
     def change_the_big_list(self, employee_to_change_ssn_input, changed_employee, input_value='0'):
         x = CrewIO().load_crew_from_file(input_value)
         a_list = []
