@@ -45,7 +45,7 @@ class AirplanesIO():
         return allAircrafts
 
     def write_in_airplanes_file(self, new_airplane=''):
-        f = open("./data_files/AirplanesFile.csv", "a")
+        f = open("./data_files/Aircraft.csv", "a")
         f.write('\n')
         f.write(new_airplane)
         f.close()
