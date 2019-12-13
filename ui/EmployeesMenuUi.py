@@ -8,11 +8,10 @@ class EmployeesMenu():
     def __init__(self):
         self.employee = EmployeesLL()
 
-    '''def select_employee(self, employee):
-        while True:
-            employee_id = self.'''
-
     def header(self, title):
+        '''
+        This function puts a header on each page
+        '''
         os.system('cls')
         print('*'*75, '\n')
         print('{}NaN Air   ''\033[91m                 {} \033[00m'.format(' '*31,
@@ -21,6 +20,10 @@ class EmployeesMenu():
         print('{:^70}\n'.format(title))
     
     def get_employee(self, ssn):
+        '''
+        This function prints gets the employee with the inputted ssn
+        and prints him out
+        '''
         one_employee = EmployeesLL().get_one_employee(ssn)
         input_command = ''
         while input_command != 'q':
@@ -43,6 +46,10 @@ class EmployeesMenu():
 
 
     def get_all_pilots(self, p_or_c_input):
+        '''
+        This function gets all employees with the pilot license and
+        prints them out
+        '''
         pilots = EmployeesLL().get_pilots(p_or_c_input)
         input_command = ''
         while input_command != 'q':
@@ -71,6 +78,9 @@ class EmployeesMenu():
 
 
     def sort_employees_by_license(self, p_or_c_input):
+        '''
+        This function sorts employees by license
+        '''
         pilots = EmployeesLL().get_pilots(p_or_c_input)
         input_command = ''
         while input_command != 'q':
@@ -116,6 +126,9 @@ class EmployeesMenu():
                     pass
 
     def get_cabin_crew(self, p_or_c_input):
+        '''
+        This function gets all employees with the cabin crew license
+        '''
         cabin_crew = EmployeesLL().get_cabin_crew(p_or_c_input)
         input_command = ''
         while input_command != 'q':
@@ -140,6 +153,9 @@ class EmployeesMenu():
 
 
     def get_all_employees(self):
+        '''
+        This function prints out all the employees by SSN, name and role
+        '''
         input_command = ''
         while input_command != 'q':
             self.header('All Employees')
@@ -164,6 +180,10 @@ class EmployeesMenu():
 
 
     def create_new_employee(self):
+        '''
+        This function takes in the information for a new employee
+        and sends the info to be stored
+        '''
         self.header('Create New Employee')
         input_command = ''
         new_employee = ''
@@ -203,6 +223,9 @@ class EmployeesMenu():
                 continue
 
     def update_this_employee(self, ssn):
+        '''
+        This function updates existing employee
+        '''
         one_employee = EmployeesLL().get_one_employee(ssn)
         input_command = ''
         while input_command != 'q':
@@ -255,8 +278,12 @@ class EmployeesMenu():
             elif input_command == '7':
                 EmployeesMenu().update_employee()
 
-
+    
     def update_employee(self):
+        '''
+        This function prints out a list of all employees for the
+        user to choose who to update
+        '''
         input_command = ''
         while input_command != 'q':
             self.header('Update Employees')
@@ -280,6 +307,9 @@ class EmployeesMenu():
             
 
     def print_employees_menu(self):
+        '''
+        This function prints out the employees menu
+        '''
         input_command = ''
         while input_command != 'q':
             self.header('Employees')
@@ -297,6 +327,9 @@ class EmployeesMenu():
                 pass
 
     def get_week_schedule(self, ssn, employee_name):
+        '''
+        This function gets the week schedule for inputted ssn and name of employee
+        '''
         input_command = ''
         while input_command != 'q':
             self.header(f'Week schedule for: {employee_name}')
@@ -307,6 +340,9 @@ class EmployeesMenu():
 
 
     def print_week_schedule(self, week_schedule, ssn):
+        '''
+        This function prints out a week schedule for inputted ssn of employee
+        '''
         for voyage in week_schedule:
             print('{:^73}'.format(voyage[2]))
             print('{:^72}'.format('-'*18))
@@ -322,6 +358,9 @@ class EmployeesMenu():
             pass
 
     def crew_schedule_menu(self):
+        '''
+        This function prints out the menu to access the crew schedule
+        '''
         input_command = ''
         while input_command != 'q':
             self.header('Crew schedules')
@@ -334,6 +373,9 @@ class EmployeesMenu():
 
 
     def print_employees_working_a_certain_day(self):
+        '''
+        This function prints out all employees working on the inputted day
+        '''
         input_command = ''
         while input_command != 'q':
             self.header(f'All employees working {input_command}')
@@ -367,6 +409,9 @@ class EmployeesMenu():
 
 
     def print_employees_not_working_a_certain_day(self):
+        '''
+        This function prints out the employees not working the inputted day
+        '''
         input_command = ''
         while input_command != 'q':
             self.header(f'All employees not working {input_command}')
