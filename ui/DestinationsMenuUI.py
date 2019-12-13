@@ -71,11 +71,23 @@ class DestinationsMenu():
             input_command = input('Name of Country: ')
             new_destination_list.append(input_command)
             input_command = input('Distance from KEF: ')
-            new_destination_list.append(input_command)
+            for the_input in input_command:
+                if input_command.isdigit():
+                    new_destination_list.append(input_command)
+                    break
+                else:
+                    print('Enter valid distance.')
+                    input_command = input('Distance from Kef: ')
             input_command = input('Name of Emergency Contact: ')
             new_destination_list.append(input_command)
             input_command = input('Phone number of Emergency Contact: ')
-            new_destination_list.append(input_command)
+            for the_input in input_command:
+                if input_command.isdigit() and len(input_command) == 7:
+                    new_destination_list.append(input_command)
+                    break
+                else:
+                    print('Enter a valid phone number.')
+                    input_command = input('Phone number of Emergency Contact: ')
             input_command = input('Flight time to Destination: ')
             new_destination_list.append(input_command)
             input_command = input('Insert Destination Number: ')
@@ -89,8 +101,7 @@ class DestinationsMenu():
             print('{:^13}{:^38}{:^14}{:^16}'.format('ID', 'Distance', 'Flight Time', 'Destination Number'))
             print('{:^15}{:^32}{:^22}{}'.format('-' * 10, '-' * 9, '-' * 12, '-' * 12))
             print('{:^15}{:^36}{:^15}{}\n'.format(new_destination_list[0], new_destination_list[3],
-                                                  new_destination_list[6],
-                                                  new_destination_list[7]))
+                                                  new_destination_list[6],new_destination_list[7]))
             print('\nIs this correct?\n-----\n1. Yes\n2. No\n')
             input_command = input('Input Command: ')
             if input_command == '1':

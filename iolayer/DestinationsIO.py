@@ -24,6 +24,7 @@ class DestinationsIO():
 
     def write_in_destination_file(self, new_destination=''):
         f = open("./data_files/Destinations.csv", "a")
+        f.write('\n')
         f.write(new_destination)
         f.close()
 
