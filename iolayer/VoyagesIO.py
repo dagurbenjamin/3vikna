@@ -20,11 +20,13 @@ class VoyagesIO():
                 elif row['voyageID'] == Voyage_to_find:
                     upcomingFlight = UpcomingFlights(
                         row['voyageID'], row['flightNumber'], row['departingFrom'], row['arrivingAt'], row['departure'], row['arrival'])
-                    allUpcoming_flights.append(upcomingFlight)
+                    return upcomingFlight
+                    break
         return allUpcoming_flights
 
     def write_in_file_upcoming_flights(self, new_upcoming_flight=''):
-        f = open("UpcomingFlightsFile.csv", "a")
+        f = open("./data_files/UpcomingFlightsFile.csv", "a+")
+        f.write('\n')
         f.write(new_upcoming_flight)
         f.close()
 
@@ -71,7 +73,8 @@ class VoyagesIO():
         return all_voyages
 
     def write_in_voyages_flights(self, new_voyage=''):
-        f = open("./data_files/VoyagesFile.csv", "a")
+        f = open("./data_files/VoyagesFile.csv", "a+")
+        f.write('\n')
         f.write(new_voyage)
         f.close()
 

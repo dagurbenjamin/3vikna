@@ -9,9 +9,8 @@ class VoyagesLL():
         self.a_str = a_str
 
     def create_voyage(self, new_voyage_list):
-        # id number, date, time, staff status
-        new_voyage_list = ','.join(new_voyage_list)
-        return new_voyage_list
+        new_voyage_str = ','.join(new_voyage_list)
+        VoyagesIO().write_in_voyages_flights(new_voyage_str)
 
     def update_one_voyage(self, number_voyage_to_change, replacement_value, index_to_replace):
         one_voyage = VoyagesIO().load_voyages_from_file(number_voyage_to_change)

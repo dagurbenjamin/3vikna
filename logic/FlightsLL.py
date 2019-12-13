@@ -9,13 +9,18 @@ class FlightsLL():
         self.id = next(self._ids)
         self.flightdata = flightdata
 
-    # def make_flightnumer(self, destination_data, flightdata):
-    #     nan_air_letters = 'NA'
-    #     destination_number = destination_data[-1]
-    #     flight_number = '{}{}{}'.format(
-    #         nan_air_letters, destination_number, self.id)
-    #     flightdata.append(flight_number)
-    #     print(flightdata)
+    def make_flightnumer(self, destination_data, flightdata):
+        nan_air_letters = 'NA'
+        destination_number = destination_data.get_destinationnumber()
+        flight_number = '{}{}{}'.format(
+        nan_air_letters, destination_number, self.id)
+        flightdata.append(flight_number)
+        
+        return flight_number
+
+    def create_upcoming_flight(self, flight1_list):
+        new_flights_str = ','.join(flight1_list)
+        VoyagesIO().write_in_file_upcoming_flights(new_flights_str)
 
     def get_past_flightsLL(self):
         past_flight_info = VoyagesIO().load_past_flights_from_file(Voyage_to_find)

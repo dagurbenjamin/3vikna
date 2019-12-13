@@ -52,8 +52,10 @@ class VoyagesMenu():
             departure_time = new_voyage_list[3]
             departure_hour = int(departure_time[0:2])
             flight_time_hour = int(flight_time[1:3])
-            flight_2_departure_hour = str(departure_hour + flight_time_hour + 1)
-            flight_2_departure_time = flight_2_departure_hour + new_voyage_list[3][2:]
+            flight_2_departure_hour_int = departure_hour + flight_time_hour
+            flight_2_departure_hour_str = str(flight_2_departure_hour_int + 1)
+            flight_2_arrival_hour_str = str(int(flight_2_departure_hour_str) + 4)
+            flight_2_departure_time = flight_2_departure_hour_str + new_voyage_list[3][2:]
             
             new_voyage_list.append(flight_2_departure_time)
             print('Departure time: {}'.format(flight_2_departure_time))
@@ -68,7 +70,20 @@ class VoyagesMenu():
                 print('2. Cancel')
                 input_command = input('Input Command: ')
                 if input_command == '1':
-                    VoyagesLL().create_voyage(new_voyage_list)
+                    number_voyages = len(VoyagesLL().get_voyages()) + 1
+                    save_voyage_list = [str(number_voyages),new_voyage_list[0],new_voyage_list[4],'x','x','x','x']
+                    print(save_voyage_list)
+                    VoyagesLL().create_voyage(save_voyage_list)
+                    destination = DestinationsLL().get_destination(new_voyage_list[1])
+                    flight_id = FlightsLL().get_voyage_flights('0')
+                    flight_id = int(flight_id[-1].get_voyageID())
+                    flight1_number = str(FlightsLL().make_flightnumer(destination, []))
+                    flight2_number = str(FlightsLL().make_flightnumer(destination, []))                    
+                    first_flight = [str(flight_id + 1),flight1_number,new_voyage_list[2],new_voyage_list[1],new_voyage_list[4] + 'T' + new_voyage_list[3], new_voyage_list[4] + 'T' + str(flight_2_departure_hour_int) + new_voyage_list[3][2:]]
+                    second_flight = [str(flight_id + 1),flight2_number,new_voyage_list[1],new_voyage_list[2],new_voyage_list[4] + 'T' + flight_2_departure_hour_str + new_voyage_list[3][2:], new_voyage_list[4] + 'T' + flight_2_arrival_hour_str + new_voyage_list[3][2:]]
+                    FlightsLL().create_upcoming_flight(first_flight)
+                    FlightsLL().create_upcoming_flight(second_flight)
+                    VoyagesMenu().get_voyage(str(number_voyages))
                 elif input_command == '2':
                     VoyagesMenu().print_voyages_menu()
             else:
@@ -83,7 +98,20 @@ class VoyagesMenu():
                 print('2. Cancel\n')
                 input_command = input('Input Command: ')
                 if input_command == '1':
-                    pass
+                    number_voyages = len(VoyagesLL().get_voyages()) + 1
+                    save_voyage_list = [str(number_voyages),new_voyage_list[0],new_voyage_list[4],'x','x','x','x']
+                    print(save_voyage_list)
+                    VoyagesLL().create_voyage(save_voyage_list)
+                    destination = DestinationsLL().get_destination(new_voyage_list[1])
+                    flight_id = FlightsLL().get_voyage_flights('0')
+                    flight_id = int(flight_id[-1].get_voyageID())
+                    flight1_number = str(FlightsLL().make_flightnumer(destination, []))
+                    flight2_number = str(FlightsLL().make_flightnumer(destination, []))                    
+                    first_flight = [str(flight_id + 1),flight1_number,new_voyage_list[2],new_voyage_list[1],new_voyage_list[4] + 'T' + new_voyage_list[3], new_voyage_list[4] + 'T' + str(flight_2_departure_hour_int) + new_voyage_list[3][2:]]
+                    second_flight = [str(flight_id + 1),flight2_number,new_voyage_list[1],new_voyage_list[2],new_voyage_list[4] + 'T' + flight_2_departure_hour_str + new_voyage_list[3][2:], new_voyage_list[4] + 'T' + flight_2_arrival_hour_str + new_voyage_list[3][2:]]
+                    FlightsLL().create_upcoming_flight(first_flight)
+                    FlightsLL().create_upcoming_flight(second_flight)
+                    VoyagesMenu().get_voyage(str(number_voyages))
                 elif input_command == '2':
                     VoyagesMenu().print_voyages_menu()
                 
