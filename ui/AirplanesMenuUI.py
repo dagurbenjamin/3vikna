@@ -57,25 +57,25 @@ class AirplanesMenu():
         input_command = ''
         while input_command != 'q':
             self.header(planeTypeId)
-            print('\n{:^15}{:^32}{:^23}'.format(
+            print('\n{:^19}{:^32}{:^23}'.format(
                 'Manufacturer', 'Model', 'Capacity'))
-            print('{:^15}{:^32}{:^25}'.format('-'*15, '-'*8, '-'*10))
-            print('{:^15}{:^33}{:^23}\n'.format(one_airplanetype.get_manufacturer(),
+            print('{:^19}{:^32}{:^25}'.format('-'*15, '-'*8, '-'*10))
+            print('{:^19}{:^33}{:^21}\n'.format(one_airplanetype.get_manufacturer(),
                                                 one_airplanetype.get_model(), one_airplanetype.get_capacity()))
-            print('{:^13}{:^38}{:^14}'.format(
+            print('{:^18}{:^37}{:^13}'.format(
                 'Empty Weight', 'Max Take off Weight', 'Unit Thrust'))
-            print('{:^15}{:^32}{:^22}'.format(
+            print('{:^19}{:^34}{:^18}'.format(
                 '-'*10, '-'*9, '-'*12,))
-            print('{:^15}{:^36}{:^15}\n'.format(one_airplanetype.get_eweight(
+            print('{:^19}{:^34}{:^16}\n'.format(one_airplanetype.get_eweight(
             ), one_airplanetype.get_fweight(), one_airplanetype.get_thrust()))
-            print('{:^13}{:^38}{:^14}'.format(
+            print('{:^17}{:^36}{:^17}'.format(
                 'Service Ceiling', 'Length', 'Height'))
-            print('{:^15}{:^32}{:^22}'.format('-'*10, '-'*9, '-'*12))
-            print('{:^15}{:^36}{:^15}\n'.format(one_airplanetype.get_ceiling(), one_airplanetype.get_length(
+            print('{:^19}{:^33}{:^19}'.format('-'*10, '-'*9, '-'*8))
+            print('{:^19}{:^33}{:^18}\n'.format(one_airplanetype.get_ceiling(), one_airplanetype.get_length(
             ), one_airplanetype.get_height()))
-            print('{:^35}'.format('Wingspan'))
-            print('{:^32}'.format('-'*10))
-            print('{:^36}\n'.format(one_airplanetype.get_wingspan()))
+            print('{:^19}'.format('Wingspan'))
+            print('{:^19}'.format('-'*10))
+            print('{:^18}\n'.format(one_airplanetype.get_wingspan()))
             print('Menu\n-----\n1. Employees that are licenced for this airplane\n2. Back to All Airplanes\n3. Back to Main menu\n')
             input_command = input("Input command: ").lower()
             if input_command == '1':
