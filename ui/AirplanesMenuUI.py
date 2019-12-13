@@ -30,14 +30,18 @@ class AirplanesMenu():
                                                 all_airplanes[counter][0], all_airplanes[counter][1]))
                 counter += 1
             print('')
-            print('Airplane status......."as"')
+            #print('Airplane status......."as"')
+            print(
+                'Menu\n-----\nBack To Airplanes Menu....."am"\nBack To Main Menu........."mm" \n')
             input_command = input("Input command: ").lower()
-            if input_command == '1':
-                AirplanesMenu().get_airplanetype(
-                    all_airplanes[0][1], all_airplanes[0][0])
-            if input_command == '2':
-                AirplanesMenu().get_airplanetype(
-                    all_airplanes[1][1], all_airplanes[1][0])
+            for item in range(1, len(all_airplanes) + 1):
+                if input_command == str(item):
+                    AirplanesMenu().get_airplanetype(
+                        all_airplanes[item - 1][1], all_airplanes[item - 1][0])
+                elif input_command == 'am':
+                    AirplanesMenu().print_airplanes_menu()
+                elif input_command == 'mm':
+                    pass
 
     def get_airplanetype(self, planeTypeId, planeInsignia):
         one_airplanetype = AirplanesLL().get_info_about_one_airplane(planeTypeId)
@@ -201,9 +205,9 @@ class AirplanesMenu():
                 if employee[4] == planeTypeId:
                     print('{:^63}'.format(f'{employee[1]}'))
             print(
-                'Menu\n-----\n1. back to airplane\n2. Create New Airplane Type\n\n3. back to Airplanes menu')
+                'Menu\n-----\n1. Back To Airplane\n2. Back To Airplanes Menu')
             input_command = input('Input Command: ').lower()
             if input_command == '1':
                 AirplanesMenu().get_airplanetype(planeTypeId, planeInsignia)
-            if input_command == '1':
-                pass
+            if input_command == '2':
+                AirplanesMenu().print_airplanes_menu()
