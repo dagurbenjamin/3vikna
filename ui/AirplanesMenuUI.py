@@ -113,8 +113,8 @@ class AirplanesMenu():
         while input_command != 'q':
             input_command = input('Plane Insignia: TF-')
             new_airplane_list.append("TF-" + input_command)
-            input_command = input('Plane Type: ')
-            new_airplane_list.append(input_command)
+            input_command = input('Plane Type: NA')
+            new_airplane_list.append('NA' + input_command)
             self.header(new_airplane_list[1])
             print('\n{:^15}{:^23}'.format('Plane Insignia', 'Plane Type'))
             print('{:^15}{:^32}'.format('-'*6, '-'*8,))
@@ -138,28 +138,76 @@ class AirplanesMenu():
         new_airplane_type = ''
         new_airplane_type_list = []
         while input_command != 'q':
-            input_command = input('Plane Type: ')
-            new_airplane_type_list.append(input_command)
+            input_command = input('Plane Type: NA')
+            new_airplane_type_list.append('NA' + input_command)
             input_command = input('Manufacturer: ')
             new_airplane_type_list.append(input_command)
             input_command = input('Model: ')
             new_airplane_type_list.append(input_command)
             input_command = input('Capacity: ')
-            new_airplane_type_list.append(input_command)
+            for the_input in input_command:
+                if input_command.isdigit():
+                    new_airplane_type_list.append(input_command)
+                    break
+                else:
+                    print('Enter valid Capacity.')
+                    input_command = input('Capacity: ')
             input_command = input('Empty Weight: ')
-            new_airplane_type_list.append(input_command)
+            for the_input in input_command:
+                if input_command.isdigit():
+                    new_airplane_type_list.append(input_command)
+                    break
+                else:
+                    print('Enter valid Empty Weight.')
+                    input_command = input('Empty Weight: ')
             input_command = input('Max Take off Weight: ')
-            new_airplane_type_list.append(input_command)
+            for the_input in input_command:
+                if input_command.isdigit():
+                    new_airplane_type_list.append(input_command)
+                    break
+                else:
+                    print('Enter valid Max Take off Weight.')
+                    input_command = input('Max Take off Weight: ')
             input_command = input('Unit Thrust: ')
-            new_airplane_type_list.append(input_command)
+            for the_input in input_command:
+                if input_command.isdigit():
+                    new_airplane_type_list.append(input_command)
+                    break
+                else:
+                    print('Enter valid Unit Thrust.')
+                    input_command = input('Unit Thrust: ')
             input_command = input('Service Ceiling: ')
-            new_airplane_type_list.append(input_command)
+            for the_input in input_command:
+                if input_command.isdigit():
+                    new_airplane_type_list.append(input_command)
+                    break
+                else:
+                    print('Enter valid Service Ceiling.')
+                    input_command = input('Service Ceiling: ')
             input_command = input('Length: ')
-            new_airplane_type_list.append(input_command)
+            for the_input in input_command:
+                if input_command.isdigit():
+                    new_airplane_type_list.append(input_command)
+                    break
+                else:
+                    print('Enter valid Length.')
+                    input_command = input('Length: ')
             input_command = input('Height: ')
-            new_airplane_type_list.append(input_command)
+            for the_input in input_command:
+                if input_command.isdigit():
+                    new_airplane_type_list.append(input_command)
+                    break
+                else:
+                    print('Enter valid Height.')
+                    input_command = input('Height: ')
             input_command = input('Wingspan: ')
-            new_airplane_type_list.append(input_command)
+            for the_input in input_command:
+                if input_command.isdigit():
+                    new_airplane_type_list.append(input_command)
+                    break
+                else:
+                    print('Enter valid Wingspan.')
+                    input_command = input('Wingspan: ')
             self.header('New Airplane Type')
             print('\n{:^15}{:^32}{:^23}'.format(
                 'Plane type', 'Manufacturer', 'Model'))
