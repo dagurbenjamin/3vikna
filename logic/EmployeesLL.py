@@ -1,4 +1,4 @@
-# from LLAPI import LLAPI
+
 # from IOLAYER.IOAPI import IOAPI
 from iolayer.CrewIO import CrewIO
 from modules.Crew import Crew
@@ -7,7 +7,6 @@ from logic.VoyagesLL import VoyagesLL
 
 
 class EmployeesLL():
-
     def __init__(self, new_empl_list=[]):
         self.new_empl_list = new_empl_list
 

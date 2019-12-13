@@ -1,7 +1,6 @@
 
 
 from iolayer.AirplanesIO import AirplanesIO
-from logic.VoyagesLL import VoyagesLL
 
 
 class AirplanesLL:
