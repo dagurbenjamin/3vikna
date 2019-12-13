@@ -10,6 +10,9 @@ class AirplanesMenu():
         pass
 
     def header(self, title):
+        '''
+        This function clears the screen and adds a header on the screen 
+        '''
         os.system('cls')
         print('*'*75, '\n')
         print('{}NaN Air   ''\033[91m                 {} \033[00m'.format(' '*31,
@@ -18,6 +21,9 @@ class AirplanesMenu():
         print('{:^70}\n'.format(title))
 
     def get_all_airplanes(self):
+        '''
+        This function prints out all the airplanes
+        '''
         input_command = ''
         while input_command != 'q':
             self.header('All Airplanes')
@@ -43,6 +49,10 @@ class AirplanesMenu():
                     AirplanesMenu().print_airplanes_menu()
 
     def get_airplanetype(self, planeTypeId, planeInsignia):
+        '''
+        This function prints out a page with the information
+        containing the information of the type of airplane inputted
+        '''
         one_airplanetype = AirplanesLL().get_info_about_one_airplane(planeTypeId)
         input_command = ''
         while input_command != 'q':
@@ -74,6 +84,9 @@ class AirplanesMenu():
                 AirplanesMenu().get_all_airplanes()
 
     def print_airplanes_menu(self):
+        '''
+        This function prints out the airplane menu
+        '''
         input_command = ''
         while input_command != 'q':
             self.header('Airplanes')
@@ -89,6 +102,9 @@ class AirplanesMenu():
                 pass
 
     def print_create_menu(self):
+        '''
+        This function prints out the create airplane menu
+        '''
         input_command = ''
         while input_command != 'q':
             self.header('Create New Airplane Or Airplane Type')
@@ -106,6 +122,10 @@ class AirplanesMenu():
                 AirplanesMenu().print_airplanes_menu()
 
     def create_airplane(self):
+        '''
+        This function takes the user input and creates
+        a new airplane and sends the information to be written
+        '''
         self.header('Create New Airplane')
         input_command = ''
         new_airplane = ''
@@ -133,6 +153,9 @@ class AirplanesMenu():
                 continue
 
     def create_airplane_type(self):
+        '''
+        This function creates a new type of airplane type
+        '''
         self.header('Create New Airplane Type')
         input_command = ''
         new_airplane_type = ''
@@ -242,6 +265,9 @@ class AirplanesMenu():
                 continue
 
     def employees_licenced_for_certain_airplane(self, planeTypeId, planeInsignia):
+        '''
+        This function prints out all employees licensed for the inputted plane type
+        '''
         input_command = ''
         while input_command != 'q':
             self.header(f'Employees licenced for {planeTypeId}')
