@@ -10,7 +10,7 @@ class EmployeesMenu():
 
     def header(self, title):
         '''
-        This function puts a header on each page
+        This function clears the screen and adds a header on the screen
         '''
         os.system('cls')
         print('*'*75, '\n')
@@ -69,8 +69,8 @@ class EmployeesMenu():
             for item in range(1,len(pilots) + 1):
                 if input_command == str(item):
                     EmployeesMenu().get_employee(pilots[item - 1].get_social())
-                elif input_command == 'p':
-                    EmployeesMenu().get_cabin_crew('CabinCrew')
+                elif input_command == 'c':
+                    EmployeesMenu().get_cabin_crew('Cabincrew')
                 elif input_command == 'b':
                     EmployeesMenu().get_all_employees()
                 elif input_command == 'a':
@@ -168,7 +168,9 @@ class EmployeesMenu():
                 print('{:^5}{:^15}{:^30}{:^10}'.format(str(line_counter) + '.' ,all_employees[counter][0], all_employees[counter][1], all_employees[counter][2]))
                 counter += 1
             print('\nMenu\n-----\nGet pilots......."p"')
-            print('Get cabin crew..."c"')
+            print('Get cabin crew....."c"')
+            print('Back to Employees.."e"')
+            print('Back to main......."b"')
             input_command = input("Input command: ").lower()
             for item in range(1,len(all_employees) + 1):
                 if input_command == str(item):
@@ -177,6 +179,10 @@ class EmployeesMenu():
                     EmployeesMenu().get_all_pilots('Pilot')
                 elif input_command == 'c':
                     EmployeesMenu().get_cabin_crew('Cabincrew')
+                elif input_command == 'b':
+                    EmployeesMenu().print_employees_menu()
+                elif input_command == 'b':
+                    pass
 
 
     def create_new_employee(self):
@@ -336,6 +342,8 @@ class EmployeesMenu():
             print('Enter week number: ')
             weeknumber = int(input())
             week_schedule = EmployeesLL().get_employee_week_schedule(weeknumber, ssn)
+            if week_schedule == False:
+                print('Employee not working')
             EmployeesMenu().print_week_schedule(week_schedule, ssn)
 
 

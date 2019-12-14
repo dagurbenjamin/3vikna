@@ -108,7 +108,8 @@ class EmployeesLL():
                 if element == employee:
                     employees_week_schedule.append(voyage)
         if len(employees_week_schedule) == 0:
-            print('employee is not working this week')
+            print('Employee is not working this week')
+            return False
         else:
             return employees_week_schedule
 

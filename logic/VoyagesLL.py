@@ -9,6 +9,14 @@ from iolayer.CrewIO import CrewIO
 class VoyagesLL():
     def __init__(self, a_str=''):
         self.a_str = a_str
+    
+    def is_airplane_available(self, date, plane_insignia):
+        all_voyages = VoyagesLL().get_voyages()
+        for voyage in all_voyages:
+            if voyage[1] == plane_insignia and voyage[2] == date:
+                return False
+        else:
+            return True
 
     def create_voyage(self, new_voyage_list):
         new_voyage_str = ','.join(new_voyage_list)
@@ -124,3 +132,5 @@ class VoyagesLL():
                 employees_working_list.append(employees_list)
                 destinations_list.append(line.destination)
         return employees_working_list, destinations_list
+    
+    
