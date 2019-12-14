@@ -336,7 +336,21 @@ class EmployeesMenu():
             print('Enter week number: ')
             weeknumber = int(input())
             week_schedule = EmployeesLL().get_employee_week_schedule(weeknumber, ssn)
-            EmployeesMenu().print_week_schedule(week_schedule, ssn)
+            if week_schedule:
+                EmployeesMenu().print_week_schedule(week_schedule, ssn)
+            else:
+                EmployeesMenu().employee_not_working()
+
+    def employee_not_working(self):
+        input_command = ''
+        while input_command != 'q':
+            self.header('Employee is not working this week')
+            print('\nMenu\n-----\nBack to Employees menu....."em"\nBack to all Employees...."a"\n')
+            input_command = input("Input command: ").lower()
+            if input_command == 'em':
+                EmployeesMenu().print_employees_menu()
+            elif input_command == 'a':
+                    EmployeesMenu().get_all_employees()
 
 
     def print_week_schedule(self, week_schedule, ssn):

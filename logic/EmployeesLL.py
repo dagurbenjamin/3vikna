@@ -101,14 +101,14 @@ class EmployeesLL():
         return list_of_non_workers
 
     def get_employee_week_schedule(self, weeknumber, employee):
-        all_voyages_that_week = VoyagesLL().list_voyages_by_week(weeknumber)
+        all_voyages_that_week, staffed = VoyagesLL().list_voyages_by_week(weeknumber)
         employees_week_schedule = []
         for voyage in all_voyages_that_week:
             for element in voyage:
                 if element == employee:
                     employees_week_schedule.append(voyage)
         if len(employees_week_schedule) == 0:
-            print('employee is not working this week')
+            return print('employee is not working this week')
         else:
             return employees_week_schedule
 
