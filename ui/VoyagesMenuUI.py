@@ -83,7 +83,7 @@ class VoyagesMenu():
                     second_flight = [str(flight_id + 1),flight2_number,new_voyage_list[1],new_voyage_list[2],new_voyage_list[4] + 'T' + flight_2_departure_hour_str + new_voyage_list[3][2:], new_voyage_list[4] + 'T' + flight_2_arrival_hour_str + new_voyage_list[3][2:]]
                     FlightsLL().create_upcoming_flight(first_flight)
                     FlightsLL().create_upcoming_flight(second_flight)
-                    VoyagesMenu().get_voyage(str(number_voyages))
+                    VoyagesMenu().get_voyage(str(number_voyages), str(number_voyages))
                 elif input_command == '2':
                     VoyagesMenu().print_voyages_menu()
             else:
@@ -111,7 +111,7 @@ class VoyagesMenu():
                     second_flight = [str(flight_id + 1),flight2_number,new_voyage_list[1],new_voyage_list[2],new_voyage_list[4] + 'T' + flight_2_departure_hour_str + new_voyage_list[3][2:], new_voyage_list[4] + 'T' + flight_2_arrival_hour_str + new_voyage_list[3][2:]]
                     FlightsLL().create_upcoming_flight(first_flight)
                     FlightsLL().create_upcoming_flight(second_flight)
-                    VoyagesMenu().get_voyage(str(number_voyages))
+                    VoyagesMenu().get_voyage(str(number_voyages), str(number_voyages))
                 elif input_command == '2':
                     VoyagesMenu().print_voyages_menu()
 
