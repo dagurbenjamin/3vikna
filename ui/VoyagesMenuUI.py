@@ -63,7 +63,7 @@ class VoyagesMenu():
             input_command = new_voyage_list[4]
             new_voyage_list.append(input_command)
             print('Date: {}\n'.format(input_command))            
-            airplane_check = AirplanesLL().is_airplane_available(new_voyage_list[4], new_voyage_list[0])
+            airplane_check = VoyagesLL().is_airplane_available(new_voyage_list[4], new_voyage_list[0])
             if airplane_check:
                 print('Menu\n{}'.format('-'*5))
                 print('1. Save Voyage')
@@ -83,7 +83,7 @@ class VoyagesMenu():
                     second_flight = [str(flight_id + 1),flight2_number,new_voyage_list[1],new_voyage_list[2],new_voyage_list[4] + 'T' + flight_2_departure_hour_str + new_voyage_list[3][2:], new_voyage_list[4] + 'T' + flight_2_arrival_hour_str + new_voyage_list[3][2:]]
                     FlightsLL().create_upcoming_flight(first_flight)
                     FlightsLL().create_upcoming_flight(second_flight)
-                    VoyagesMenu().get_voyage(str(number_voyages))
+                    VoyagesMenu().get_voyage(str(number_voyages), str(number_voyages))
                 elif input_command == '2':
                     VoyagesMenu().print_voyages_menu()
             else:
@@ -92,7 +92,7 @@ class VoyagesMenu():
                     input_command = input('Enter available airplane: ').upper()
                     print('')
                     new_voyage_list[0] = input_command
-                    airplane_check = AirplanesLL().is_airplane_available(new_voyage_list[4], new_voyage_list[0])
+                    airplane_check = VoyagesLL().is_airplane_available(new_voyage_list[4], new_voyage_list[0])
                 print('Menu\n{}'.format('-'*5))
                 print('1. Save Voyage')
                 print('2. Cancel\n')
@@ -111,15 +111,20 @@ class VoyagesMenu():
                     second_flight = [str(flight_id + 1),flight2_number,new_voyage_list[1],new_voyage_list[2],new_voyage_list[4] + 'T' + flight_2_departure_hour_str + new_voyage_list[3][2:], new_voyage_list[4] + 'T' + flight_2_arrival_hour_str + new_voyage_list[3][2:]]
                     FlightsLL().create_upcoming_flight(first_flight)
                     FlightsLL().create_upcoming_flight(second_flight)
-                    VoyagesMenu().get_voyage(str(number_voyages))
+                    VoyagesMenu().get_voyage(str(number_voyages), str(number_voyages))
                 elif input_command == '2':
                     VoyagesMenu().print_voyages_menu()
 
 
-    def get_voyage(self, voyage_id):
+    def get_voyage(self, voyage_id, voyage2_id):
+        flights_list = []
         flights = FlightsLL().get_voyage_flights(voyage_id)
-        first_destination = DestinationsLL().get_destination(flights[0].get_departingFrom())
-        second_destination = DestinationsLL().get_destination(flights[1].get_departingFrom())
+        flights_list.append(flights)
+        flight2 = FlightsLL().get_voyage_flights(voyage2_id)
+        flights_list.append(flight2)
+        print(flights_list)
+        first_destination = DestinationsLL().get_destination(flights_list[0].get_departingFrom())
+        second_destination = DestinationsLL().get_destination(flights_list[1].get_departingFrom())
         this_voyage = VoyagesLL().get_one_voyage(voyage_id)
         input_command = ''
         
@@ -148,15 +153,15 @@ class VoyagesMenu():
             else:
                 Attendant_name = Attendant.get_name()
             
-            self.header('Voyage: {}-{}'.format(flights[0].get_flightNumber(), flights[1].get_flightNumber()))
+            self.header('Voyage: {}-{}'.format(flights_list[0].get_flightNumber(), flights_list[1].get_flightNumber()))
             print('Airplane: {}{}Captain: {}{}Copilot: {}'.format(this_voyage.get_planeInsignia(), ' '*6, Captain_name, ' '*6, Copilot_name))
             print('Flight Service Manager: {}{}Flight Attendant: {}\n'.format(FsManager_name, ' '*6, Attendant_name))
             print('{:^70}\n{:^70}\n'.format('Flight 1','-'*29))
-            print('Destination: {} Airport{} Departure Location: {}\nArrival Time: {}{}Departure Time: {}\n'.format(first_destination.get_destination(), ' '*20, flights[0].get_departingFrom(), flights[0].get_arrival(), ' '*20, flights[0].get_departure()))
-            print('Distance: {} km\nFlight time: {}{}Date: {}\nFlight number: {}'.format(second_destination.get_distance(), second_destination.get_flighttime(),' '*20, this_voyage.get_date(), flights[0].get_flightNumber()))
+            print('Destination: {} Airport{} Departure Location: {}\nArrival Time: {}{}Departure Time: {}\n'.format(first_destination.get_destination(), ' '*20, flights_list[0].get_departingFrom(), flights_list[0].get_arrival(), ' '*20, flights_list[0].get_departure()))
+            print('Distance: {} km\nFlight time: {}{}Date: {}\nFlight number: {}'.format(second_destination.get_distance(), second_destination.get_flighttime(),' '*20, this_voyage.get_date(), flights_list[0].get_flightNumber()))
             print('\n{:^70}\n{:^70}\n'.format('Flight 2','-'*29))
-            print('Destination: {} Airport{} Departure Location: {}\nArrival Time: {}{}Departure Time: {}\n'.format(second_destination.get_destination(), ' '*20, flights[1].get_departingFrom(), flights[1].get_arrival(), ' '*20, flights[1].get_departure()))
-            print('Distance: {} km\nFlight time: {}{}Date: {}\nFlight number: {}'.format(second_destination.get_distance(), second_destination.get_flighttime(),' '*20, this_voyage.get_date(), flights[1].get_flightNumber()))
+            print('Destination: {} Airport{} Departure Location: {}\nArrival Time: {}{}Departure Time: {}\n'.format(second_destination.get_destination(), ' '*20, flights_list[1].get_departingFrom(), flights_list[1].get_arrival(), ' '*20, flights_list[1].get_departure()))
+            print('Distance: {} km\nFlight time: {}{}Date: {}\nFlight number: {}'.format(second_destination.get_distance(), second_destination.get_flighttime(),' '*20, this_voyage.get_date(), flights_list[1].get_flightNumber()))
             print('\nb. Back one page')
             input_command = input('Enter input command: ')
             if input_command == 'b':
@@ -206,7 +211,7 @@ class VoyagesMenu():
             input_command = input('Input Command: ').lower()
             for item in range(1,len(all_voyages) + 1):
                 if input_command == str(item):
-                    VoyagesMenu().get_voyage(all_voyages[item - 1][0])
+                    VoyagesMenu().get_voyage(all_voyages[item - 1][0], all_voyages[item][0])
                 elif input_command == 'b':
                     VoyagesMenu().print_voyages_menu()
                 elif input_command == 'd':
